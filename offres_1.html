@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>loya — Offres</title>
+<meta name="description" content="Trois offres calées sur la taille de votre portefeuille : Starter, Growth, Scale. Tarifs communiqués après un échange de qualification.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E4F45'/%3E%3Cpath d='M10 8v13h9' stroke='%23E9B15A' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#0A1613; --ink-soft:#2C3B37; --muted:#5E6E69; --line:#DFDCD3; --line-dark:#1E3A34;
+  --sand:#F7F4ED; --sand-2:#EFEBE1; --paper:#FFFFFF;
+  --loya:#0E4F45; --loya-700:#0A3B34; --loya-900:#062822; --loya-100:#DDEAE6;
+  --amber:#E9B15A; --amber-ink:#8A5B12; --risk:#C4564B; --ok:#2E8F6E;
+  --r-s:8px; --r-m:14px; --r-l:22px;
+  --shadow:0 1px 2px rgba(10,22,19,.05), 0 12px 32px -12px rgba(10,22,19,.18);
+  --shadow-lg:0 2px 4px rgba(10,22,19,.06), 0 32px 64px -24px rgba(10,22,19,.28);
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-size:17px;line-height:1.62;letter-spacing:-.005em;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Inter Tight','Inter',system-ui,sans-serif;letter-spacing:-.028em;line-height:1.1;margin:0;font-weight:600}
+p{margin:0} a{color:inherit}
+[data-lang]{display:none}
+body[data-l="fr"] [data-lang="fr"], body[data-l="en"] [data-lang="en"]{display:contents}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.narrow{max-width:760px}
+section[id],[id]{scroll-margin-top:88px}
+section{padding:clamp(56px,7vw,96px) 0}
+.eyebrow{font-size:12.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--loya);margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:1.5px;background:var(--amber);flex:none}
+.h2{font-size:clamp(28px,3.8vw,42px)}
+.lead{font-size:clamp(17.5px,1.9vw,20.5px);color:var(--ink-soft);line-height:1.55}
+.small{font-size:14.5px;color:var(--muted);line-height:1.55}
+.btn{display:inline-flex;align-items:center;gap:9px;justify-content:center;font-family:'Inter Tight',sans-serif;font-weight:600;font-size:15.5px;padding:13px 22px;border-radius:100px;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:.18s ease;white-space:nowrap}
+.btn-primary{background:var(--loya);color:#fff}
+.btn-primary:hover{background:var(--loya-700);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line);background:transparent;color:var(--ink)}
+.btn-ghost:hover{border-color:var(--loya);color:var(--loya)}
+.btn-amber{background:var(--amber);color:#3B2705}
+.btn-amber:hover{background:#F0BE72;transform:translateY(-1px)}
+.btn-sm{padding:10px 18px;font-size:14.5px}
+header.nav{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.86);backdrop-filter:saturate(180%) blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:28px;height:66px}
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.045em;color:var(--ink)}
+.nav-links{display:flex;gap:26px;margin-left:8px;flex:1}
+.nav-links a{font-size:15px;text-decoration:none;color:var(--ink-soft);font-weight:500}
+.nav-links a:hover{color:var(--loya)}
+.nav-links a.cur{color:var(--loya);font-weight:600}
+.langsw{display:flex;border:1px solid var(--line);border-radius:100px;overflow:hidden;font-size:12.5px;font-weight:600;font-family:'Inter Tight',sans-serif}
+.langsw button{border:0;background:transparent;padding:6px 11px;cursor:pointer;color:var(--muted);font:inherit;letter-spacing:.04em}
+.langsw button.on{background:var(--loya);color:#fff}
+.burger{display:none;border:1px solid var(--line);background:none;border-radius:8px;padding:7px 9px;cursor:pointer}
+.hero{padding:clamp(48px,6vw,76px) 0 clamp(40px,5vw,56px);background:radial-gradient(900px 420px at 80% -10%,rgba(14,79,69,.10),transparent 62%),radial-gradient(620px 380px at 2% 10%,rgba(233,177,90,.16),transparent 60%),var(--sand);border-bottom:1px solid var(--line)}
+h1{font-size:clamp(32px,4.6vw,50px);line-height:1.05;letter-spacing:-.035em}
+h1 em{font-family:'Instrument Serif',Georgia,serif;font-style:italic;font-weight:400;color:var(--loya)}
+/* plans */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:-46px;position:relative;z-index:2}
+.plan{border:1px solid var(--line);border-radius:var(--r-l);padding:30px;background:var(--paper);display:flex;flex-direction:column;box-shadow:var(--shadow)}
+.plan.hi{border:1.5px solid var(--loya);box-shadow:var(--shadow-lg)}
+.plan .tag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--amber-ink);background:#FBF0DC;padding:4px 10px;border-radius:100px;align-self:flex-start;margin-bottom:16px}
+.plan .tag.g{background:var(--loya-100);color:var(--loya-700)}
+.plan .n{font-family:'Inter Tight',sans-serif;font-weight:700;font-size:23px}
+.plan .cap{font-family:'Instrument Serif',serif;font-size:34px;color:var(--loya);margin:10px 0 0;line-height:1.1}
+.plan .cap small{font-family:'Inter',sans-serif;font-size:13.5px;color:var(--muted)}
+.plan .pitch{flex:none;min-height:96px;font-size:15px;color:var(--ink-soft);margin-top:14px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.plan ul{list-style:none;margin:18px 0 24px;padding:0;flex:1}
+.plan li{font-size:14.5px;color:var(--ink-soft);padding-left:24px;position:relative;margin-bottom:10px;line-height:1.5}
+.plan li::before{content:"";position:absolute;left:0;top:8px;width:11px;height:6px;border-left:2px solid var(--loya);border-bottom:2px solid var(--loya);transform:rotate(-45deg)}
+.plan li.off{color:#A6B0AD}
+.plan li.off::before{border-color:#D3D9D7}
+.price{font-family:'Inter Tight',sans-serif;font-weight:600;font-size:15px;color:var(--ink);margin-bottom:14px}
+.price span{display:block;font-family:'Inter',sans-serif;font-weight:400;font-size:13px;color:var(--muted);margin-top:2px}
+/* tableau */
+.tbl{width:100%;border-collapse:collapse;margin-top:36px;font-size:15px}
+.tbl th,.tbl td{text-align:left;padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl thead th{font-family:'Inter Tight',sans-serif;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:1.5px solid var(--ink)}
+.tbl td:not(:first-child),.tbl th:not(:first-child){text-align:center;width:16%}
+.tbl tbody th{font-weight:500;color:var(--ink-soft);font-size:15px}
+.tbl .grp td{background:var(--sand);font-family:'Inter Tight',sans-serif;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--loya)}
+.yes{color:var(--loya);font-weight:700}
+.no{color:#C6CECB}
+.tbl .hicol{background:#FBFDFC}
+.wrap-tbl{overflow-x:auto}
+/* setup */
+.dark{background:var(--loya-900);color:#E7EEEB}
+.dark h2,.dark h3,.dark h4{color:#fff}
+.dark .eyebrow{color:var(--amber)}
+.dark .lead{color:#B7C9C4}
+.setup{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,56px);align-items:center}
+.setup-box{border:1px solid var(--line-dark);border-radius:var(--r-l);padding:30px;background:rgba(255,255,255,.04)}
+.setup-box ul{list-style:none;margin:0;padding:0}
+.setup-box li{font-size:15px;color:#C3D3CE;padding-left:26px;position:relative;margin-bottom:13px;line-height:1.5}
+.setup-box li::before{content:"→";position:absolute;left:0;color:var(--amber)}
+/* inclus */
+.inc{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:40px;background:var(--line);border:1px solid var(--line);border-radius:var(--r-l);overflow:hidden}
+.inc > div{background:var(--paper);padding:24px}
+.inc h4{font-size:16px;margin-bottom:7px;display:flex;gap:9px;align-items:center}
+.inc h4 s{width:6px;height:6px;border-radius:50%;background:var(--amber);text-decoration:none;flex:none}
+.inc p{font-size:14.5px;color:var(--muted);line-height:1.55}
+/* faq */
+.faq{margin-top:36px;border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{cursor:pointer;padding:19px 40px 19px 0;font-family:'Inter Tight',sans-serif;font-weight:600;font-size:17px;position:relative;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:6px;top:16px;font-size:23px;font-weight:400;color:var(--loya);transition:.2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 60px 22px 0;font-size:15.5px;color:var(--ink-soft)}
+/* cta */
+.cta{background:var(--sand);border-top:1px solid var(--line);text-align:center}
+.cta .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+/* footer */
+footer{background:var(--ink);color:#93A39E;padding:48px 0 32px;font-size:14.5px}
+.foot-bot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:13px;color:#6D7C77}
+.foot-logo{display:flex;align-items:center;gap:9px;font-family:'Inter Tight',sans-serif;font-weight:700;font-size:22px;color:#fff;letter-spacing:-.045em;margin-bottom:20px}
+footer a{color:#93A39E;text-decoration:none}
+footer a:hover{color:var(--amber)}
+@media(max-width:1000px){
+  .plans,.setup,.inc{grid-template-columns:1fr}
+  .plans{margin-top:24px}
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:66px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);padding:18px 24px;gap:16px}
+}
+@media(max-width:620px){.hide-sm{display:none}}
+</style>
+</head>
+<body data-l="fr">
+
+<header class="nav">
+ <div class="wrap nav-in">
+  <a class="logo" href="index.html">
+    <svg width="27" height="27" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#0E4F45"/><path d="M10 8v13h9" stroke="#E9B15A" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    loya
+  </a>
+  <nav class="nav-links" id="navlinks">
+    <a href="index.html#probleme"><span data-lang="fr">Le problème</span><span data-lang="en">The problem</span></a>
+    <a href="index.html#fonctionnement"><span data-lang="fr">Fonctionnement</span><span data-lang="en">How it works</span></a>
+    <a href="index.html#produit"><span data-lang="fr">Produit</span><span data-lang="en">Product</span></a>
+    <a href="index.html#conformite"><span data-lang="fr">Conformité</span><span data-lang="en">Compliance</span></a>
+    <a href="offres.html" class="cur"><span data-lang="fr">Offres</span><span data-lang="en">Plans</span></a>
+  </nav>
+  <div class="langsw" role="group" aria-label="Langue / Language">
+    <button type="button" data-setlang="fr" class="on">FR</button>
+    <button type="button" data-setlang="en">EN</button>
+  </div>
+  <a class="btn btn-primary btn-sm hide-sm" href="index.html#contact"><span data-lang="fr">Nous parler</span><span data-lang="en">Talk to us</span></a>
+  <button class="burger" type="button" aria-label="Menu" onclick="document.getElementById('navlinks').classList.toggle('open')">
+    <svg width="18" height="14" viewBox="0 0 18 14" stroke="#0A1613" stroke-width="2" stroke-linecap="round"><path d="M1 1h16M1 7h16M1 13h16"/></svg>
+  </button>
+ </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+ <div class="wrap"><div class="narrow">
+  <div class="eyebrow"><span data-lang="fr">Offres</span><span data-lang="en">Plans</span></div>
+  <h1>
+    <span data-lang="fr">Trois formats, calés sur<br>la taille de <em>votre portefeuille.</em></span>
+    <span data-lang="en">Three tiers, sized to<br><em>your book of business.</em></span>
+  </h1>
+  <p class="lead" style="margin-top:22px">
+    <span data-lang="fr">Un abonnement mensuel, des frais de mise en service volontairement bas, et aucun engagement pluriannuel. Les tarifs sont communiqués après un échange de qualification de vingt minutes — nous préférons vérifier que votre portefeuille est assez fourni avant de vous vendre quoi que ce soit.</span>
+    <span data-lang="en">A monthly subscription, deliberately low setup fees, and no multi-year lock-in. Pricing is shared after a twenty-minute qualification call — we'd rather check your portfolio is substantial enough before selling you anything.</span>
+  </p>
+ </div></div>
+</section>
+
+<!-- ============ PLANS ============ -->
+<section style="padding-top:0">
+ <div class="wrap plans">
+
+  <div class="plan">
+   <span class="tag"><span data-lang="fr">Équipe naissante</span><span data-lang="en">Emerging team</span></span>
+   <div class="n">Starter</div>
+   <div class="cap">100 <small><span data-lang="fr">comptes suivis</span><span data-lang="en">tracked accounts</span></small></div>
+   <p class="pitch"><span data-lang="fr">Pour une équipe de 1 à 3 CSM qui veut arrêter de piloter au tableur.</span><span data-lang="en">For a 1–3 CSM team ready to stop running on spreadsheets.</span></p>
+   <ul>
+    <li><span data-lang="fr"><b>2 connecteurs</b> + import CSV universel</span><span data-lang="en"><b>2 connectors</b> + universal CSV import</span></li>
+    <li><span data-lang="fr">Score de santé 5 dimensions, profil préréglé</span><span data-lang="en">5-dimension health score, preset profile</span></li>
+    <li><span data-lang="fr">Fiches compte 360°</span><span data-lang="en">360° account briefs</span></li>
+    <li><span data-lang="fr">Alertes sur variation de signal</span><span data-lang="en">Change-based signal alerts</span></li>
+    <li><span data-lang="fr">Journal de validation humaine</span><span data-lang="en">Human approval log</span></li>
+    <li class="off"><span data-lang="fr">Pondérations personnalisées</span><span data-lang="en">Custom weightings</span></li>
+    <li class="off"><span data-lang="fr">Détection d'upsell</span><span data-lang="en">Upsell detection</span></li>
+   </ul>
+   <div class="price">
+     <span data-lang="fr">Tarif sur demande</span><span data-lang="en">Pricing on request</span>
+     <span><span data-lang="fr">Abonnement mensuel + mise en service</span><span data-lang="en">Monthly subscription + setup</span></span>
+   </div>
+   <a class="btn btn-ghost" href="index.html#contact"><span data-lang="fr">Demander un devis</span><span data-lang="en">Request a quote</span></a>
+  </div>
+
+  <div class="plan hi">
+   <span class="tag g"><span data-lang="fr">Le plus demandé</span><span data-lang="en">Most requested</span></span>
+   <div class="n">Growth</div>
+   <div class="cap">300 <small><span data-lang="fr">comptes suivis</span><span data-lang="en">tracked accounts</span></small></div>
+   <p class="pitch"><span data-lang="fr">Le format d'une équipe CSM constituée, avec un enjeu de rétention chiffré.</span><span data-lang="en">Built for an established CSM team with retention on the scoreboard.</span></p>
+   <ul>
+    <li><span data-lang="fr"><b>5 connecteurs</b> + import CSV universel</span><span data-lang="en"><b>5 connectors</b> + universal CSV import</span></li>
+    <li><span data-lang="fr">Tout le contenu de Starter, plus :</span><span data-lang="en">Everything in Starter, plus:</span></li>
+    <li><span data-lang="fr"><b>Prochaine meilleure action</b> et brouillons de messages</span><span data-lang="en"><b>Next best action</b> and draft messages</span></li>
+    <li><span data-lang="fr"><b>Détection d'opportunités d'upsell</b></span><span data-lang="en"><b>Upsell opportunity detection</b></span></li>
+    <li><span data-lang="fr">Pondérations et seuils personnalisés</span><span data-lang="en">Custom weightings and thresholds</span></li>
+    <li><span data-lang="fr">Calibration sur vos churns des 12 derniers mois</span><span data-lang="en">Calibration on your last 12 months of churn</span></li>
+    <li><span data-lang="fr">Export du journal de conformité</span><span data-lang="en">Compliance log export</span></li>
+   </ul>
+   <div class="price">
+     <span data-lang="fr">Tarif sur demande</span><span data-lang="en">Pricing on request</span>
+     <span><span data-lang="fr">Abonnement mensuel + mise en service</span><span data-lang="en">Monthly subscription + setup</span></span>
+   </div>
+   <a class="btn btn-primary" href="index.html#contact"><span data-lang="fr">Demander un devis</span><span data-lang="en">Request a quote</span></a>
+  </div>
+
+  <div class="plan">
+   <span class="tag"><span data-lang="fr">Plusieurs équipes</span><span data-lang="en">Multiple teams</span></span>
+   <div class="n">Scale</div>
+   <div class="cap">800 <small><span data-lang="fr">comptes suivis</span><span data-lang="en">tracked accounts</span></small></div>
+   <p class="pitch"><span data-lang="fr">Plusieurs segments, plusieurs équipes, et une direction qui demande des comptes.</span><span data-lang="en">Several segments, several teams, and a leadership team asking for numbers.</span></p>
+   <ul>
+    <li><span data-lang="fr"><b>Connecteurs illimités</b>, y compris sur mesure</span><span data-lang="en"><b>Unlimited connectors</b>, custom ones included</span></li>
+    <li><span data-lang="fr">Tout le contenu de Growth, plus :</span><span data-lang="en">Everything in Growth, plus:</span></li>
+    <li><span data-lang="fr"><b>Segmentation par équipe et par portefeuille</b></span><span data-lang="en"><b>Team- and portfolio-level segmentation</b></span></li>
+    <li><span data-lang="fr">Profils de scoring multiples selon les segments</span><span data-lang="en">Multiple scoring profiles per segment</span></li>
+    <li><span data-lang="fr">Suivi d'impact des actions recommandées</span><span data-lang="en">Impact tracking on recommended actions</span></li>
+    <li><span data-lang="fr">Accompagnement dédié et revue trimestrielle</span><span data-lang="en">Dedicated support and quarterly review</span></li>
+    <li><span data-lang="fr">Journal de conformité étendu, DPA négocié</span><span data-lang="en">Extended compliance log, negotiated DPA</span></li>
+   </ul>
+   <div class="price">
+     <span data-lang="fr">Tarif sur demande</span><span data-lang="en">Pricing on request</span>
+     <span><span data-lang="fr">Abonnement mensuel + mise en service</span><span data-lang="en">Monthly subscription + setup</span></span>
+   </div>
+   <a class="btn btn-ghost" href="index.html#contact"><span data-lang="fr">Demander un devis</span><span data-lang="en">Request a quote</span></a>
+  </div>
+
+ </div>
+
+ <div class="wrap" style="margin-top:26px">
+  <p class="small">
+   <span data-lang="fr">Au-delà de 800 comptes, ou pour un besoin multi-entités, nous construisons une offre sur mesure. Le dépassement du nombre de comptes ne bloque jamais l'outil : nous vous prévenons et nous en discutons.</span>
+   <span data-lang="en">Beyond 800 accounts, or for a multi-entity setup, we build a bespoke plan. Exceeding your account count never blocks the tool: we tell you and we talk about it.</span>
+  </p>
+ </div>
+</section>
+
+<!-- ============ MISE EN SERVICE ============ -->
+<section class="dark">
+ <div class="wrap setup">
+  <div>
+   <div class="eyebrow"><span data-lang="fr">Mise en service</span><span data-lang="en">Onboarding</span></div>
+   <h2 class="h2"><span data-lang="fr">Le poste que le marché facture le plus cher, et que nous facturons le moins.</span>
+      <span data-lang="en">The line item the market charges most for, and we charge least for.</span></h2>
+   <p class="lead" style="margin-top:20px">
+     <span data-lang="fr">Les plateformes établies facturent couramment plusieurs milliers d'euros de frais de mise en service, pour un déploiement qui s'étale sur un trimestre. Nos frais sont une fraction de cette référence, parce que notre approche ne suppose pas six semaines d'atelier avant le premier résultat.</span>
+     <span data-lang="en">Established platforms routinely charge thousands in setup fees, for a rollout that stretches across a quarter. Ours are a fraction of that, because our approach doesn't require six weeks of workshops before the first result.</span>
+   </p>
+  </div>
+  <div class="setup-box">
+   <h3 style="font-size:19px;margin-bottom:18px"><span data-lang="fr">Ce que couvre la mise en service</span><span data-lang="en">What onboarding covers</span></h3>
+   <ul>
+    <li><span data-lang="fr">Cadrage du modèle de données et des sources maîtresses</span><span data-lang="en">Data model and source-of-truth scoping</span></li>
+    <li><span data-lang="fr">Branchement des connecteurs et contrôle qualité des premières synchronisations</span><span data-lang="en">Connector setup and quality control on the first syncs</span></li>
+    <li><span data-lang="fr">Calibration du score sur vos churns passés, avec rétro-test documenté</span><span data-lang="en">Score calibration on past churn, with a documented back-test</span></li>
+    <li><span data-lang="fr">Réglage des pondérations et des seuils avec votre équipe</span><span data-lang="en">Weighting and threshold tuning with your team</span></li>
+    <li><span data-lang="fr">Formation des CSM et kit de paramétrage autonome</span><span data-lang="en">CSM training and a self-service configuration kit</span></li>
+    <li><span data-lang="fr">Signature du DPA et remise de la documentation de conformité</span><span data-lang="en">DPA signature and delivery of compliance documentation</span></li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- ============ TABLEAU ============ -->
+<section>
+ <div class="wrap">
+  <div class="narrow">
+   <div class="eyebrow"><span data-lang="fr">Comparatif</span><span data-lang="en">Comparison</span></div>
+   <h2 class="h2"><span data-lang="fr">Le détail, ligne à ligne.</span><span data-lang="en">Line by line.</span></h2>
+  </div>
+  <div class="wrap-tbl">
+  <table class="tbl">
+   <thead>
+    <tr><th></th><th>Starter</th><th class="hicol">Growth</th><th>Scale</th></tr>
+   </thead>
+   <tbody>
+    <tr class="grp"><td colspan="4"><span data-lang="fr">Périmètre</span><span data-lang="en">Scope</span></td></tr>
+    <tr><th><span data-lang="fr">Comptes suivis</span><span data-lang="en">Tracked accounts</span></th><td>100</td><td class="hicol">300</td><td>800</td></tr>
+    <tr><th><span data-lang="fr">Utilisateurs CSM</span><span data-lang="en">CSM users</span></th><td>3</td><td class="hicol">10</td><td><span data-lang="fr">Illimité</span><span data-lang="en">Unlimited</span></td></tr>
+    <tr><th><span data-lang="fr">Connecteurs inclus</span><span data-lang="en">Connectors included</span></th><td>2</td><td class="hicol">5</td><td><span data-lang="fr">Illimité</span><span data-lang="en">Unlimited</span></td></tr>
+    <tr><th><span data-lang="fr">Import CSV universel</span><span data-lang="en">Universal CSV import</span></th><td class="yes">●</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Connecteur sur mesure</span><span data-lang="en">Custom connector</span></th><td class="no">—</td><td class="hicol"><span data-lang="fr">En option</span><span data-lang="en">Optional</span></td><td class="yes">●</td></tr>
+
+    <tr class="grp"><td colspan="4"><span data-lang="fr">Scoring</span><span data-lang="en">Scoring</span></td></tr>
+    <tr><th><span data-lang="fr">Score de santé 5 dimensions</span><span data-lang="en">5-dimension health score</span></th><td class="yes">●</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Profils préréglés par type de SaaS</span><span data-lang="en">Presets by SaaS type</span></th><td class="yes">●</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Pondérations et seuils personnalisés</span><span data-lang="en">Custom weightings and thresholds</span></th><td class="no">—</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Calibration sur vos churns passés</span><span data-lang="en">Calibration on your past churn</span></th><td class="no">—</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Profils de scoring multiples</span><span data-lang="en">Multiple scoring profiles</span></th><td class="no">—</td><td class="hicol no">—</td><td class="yes">●</td></tr>
+
+    <tr class="grp"><td colspan="4"><span data-lang="fr">Action</span><span data-lang="en">Action</span></td></tr>
+    <tr><th><span data-lang="fr">Fiche compte 360°</span><span data-lang="en">360° account brief</span></th><td class="yes">●</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Alertes sur variation de signal</span><span data-lang="en">Change-based alerts</span></th><td class="yes">●</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Prochaine meilleure action</span><span data-lang="en">Next best action</span></th><td class="no">—</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Brouillons de messages</span><span data-lang="en">Draft messages</span></th><td class="no">—</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Détection d'upsell</span><span data-lang="en">Upsell detection</span></th><td class="no">—</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Suivi d'impact des actions</span><span data-lang="en">Action impact tracking</span></th><td class="no">—</td><td class="hicol no">—</td><td class="yes">●</td></tr>
+
+    <tr class="grp"><td colspan="4"><span data-lang="fr">Conformité & sécurité</span><span data-lang="en">Compliance & security</span></td></tr>
+    <tr><th><span data-lang="fr">Hébergement UE, isolation par client</span><span data-lang="en">EU hosting, tenant isolation</span></th><td class="yes">●</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Mention « généré par IA »</span><span data-lang="en">"AI-generated" notice</span></th><td class="yes">●</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Journal de validation humaine</span><span data-lang="en">Human approval log</span></th><td class="yes">●</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Export du journal de conformité</span><span data-lang="en">Compliance log export</span></th><td class="no">—</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">DPA négocié</span><span data-lang="en">Negotiated DPA</span></th><td class="no">—</td><td class="hicol no">—</td><td class="yes">●</td></tr>
+
+    <tr class="grp"><td colspan="4"><span data-lang="fr">Accompagnement</span><span data-lang="en">Support</span></td></tr>
+    <tr><th><span data-lang="fr">Formation des CSM</span><span data-lang="en">CSM training</span></th><td class="yes">●</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Support par email</span><span data-lang="en">Email support</span></th><td class="yes">●</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Canal partagé dédié</span><span data-lang="en">Dedicated shared channel</span></th><td class="no">—</td><td class="hicol yes">●</td><td class="yes">●</td></tr>
+    <tr><th><span data-lang="fr">Revue trimestrielle de valeur</span><span data-lang="en">Quarterly value review</span></th><td class="no">—</td><td class="hicol no">—</td><td class="yes">●</td></tr>
+   </tbody>
+  </table>
+  </div>
+ </div>
+</section>
+
+<!-- ============ INCLUS PARTOUT ============ -->
+<section style="background:var(--sand);border-block:1px solid var(--line)">
+ <div class="wrap">
+  <div class="narrow">
+   <div class="eyebrow"><span data-lang="fr">Dans toutes les offres</span><span data-lang="en">In every plan</span></div>
+   <h2 class="h2"><span data-lang="fr">Ce qui ne se monnaie pas.</span><span data-lang="en">What we don't put a price on.</span></h2>
+  </div>
+  <div class="inc">
+   <div><h4><s></s><span data-lang="fr">Hébergement dans l'Union européenne</span><span data-lang="en">European Union hosting</span></h4>
+     <p><span data-lang="fr">Base de données en région UE, isolation appliquée au niveau des lignes, chiffrement en transit et au repos.</span><span data-lang="en">EU-region database, row-level tenant isolation, encryption in transit and at rest.</span></p></div>
+   <div><h4><s></s><span data-lang="fr">Aucun entraînement sur vos données</span><span data-lang="en">No training on your data</span></h4>
+     <p><span data-lang="fr">Ni par nous, ni par notre fournisseur de modèle, chez qui la non-rétention est activée.</span><span data-lang="en">Not by us, not by our model provider, where zero-retention is enabled.</span></p></div>
+   <div><h4><s></s><span data-lang="fr">Validation humaine systématique</span><span data-lang="en">Systematic human approval</span></h4>
+     <p><span data-lang="fr">Aucune action n'atteint un client sans qu'un CSM l'ait relue et validée.</span><span data-lang="en">No action reaches a customer without a CSM reviewing and approving it.</span></p></div>
+   <div><h4><s></s><span data-lang="fr">Explicabilité du score</span><span data-lang="en">Score explainability</span></h4>
+     <p><span data-lang="fr">Chaque point de score remonte à sa source. Pas de boîte noire, quelle que soit l'offre.</span><span data-lang="en">Every score point traces to its source. No black box, whatever the plan.</span></p></div>
+   <div><h4><s></s><span data-lang="fr">Réversibilité</span><span data-lang="en">Reversibility</span></h4>
+     <p><span data-lang="fr">Export complet de vos données à tout moment, et purge documentée en fin de contrat.</span><span data-lang="en">Full data export at any time, and a documented purge at contract end.</span></p></div>
+   <div><h4><s></s><span data-lang="fr">Pas d'engagement pluriannuel</span><span data-lang="en">No multi-year lock-in</span></h4>
+     <p><span data-lang="fr">Un outil censé réduire le churn n'a pas à retenir ses propres clients par contrat.</span><span data-lang="en">A tool meant to reduce churn shouldn't hold its own customers by contract.</span></p></div>
+  </div>
+ </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section>
+ <div class="wrap"><div class="narrow">
+  <div class="eyebrow"><span data-lang="fr">Questions sur les offres</span><span data-lang="en">Questions about plans</span></div>
+  <h2 class="h2"><span data-lang="fr">Avant de demander un devis.</span><span data-lang="en">Before you ask for a quote.</span></h2>
+  <div class="faq">
+   <details open>
+    <summary><span data-lang="fr">Pourquoi les tarifs ne sont-ils pas affichés ?</span><span data-lang="en">Why isn't pricing shown?</span></summary>
+    <p><span data-lang="fr">Parce que la première question à trancher n'est pas le prix mais l'éligibilité. Un portefeuille de quarante comptes sans historique de churn ne tirera rien de loya, quel que soit le tarif. L'échange dure vingt minutes et se termine parfois par « ce n'est pas pour vous » — ce qui nous coûte moins cher qu'un client déçu.</span>
+       <span data-lang="en">Because the first question isn't price, it's fit. A forty-account portfolio with no churn history will get nothing from loya, whatever the price. The call takes twenty minutes and sometimes ends with "this isn't for you" — which costs us less than a disappointed customer.</span></p>
+   </details>
+   <details>
+    <summary><span data-lang="fr">Qu'est-ce qu'un « compte suivi » ?</span><span data-lang="en">What counts as a "tracked account"?</span></summary>
+    <p><span data-lang="fr">Un client actif de votre base, pour lequel loya calcule un score et produit des recommandations. Les comptes churnés conservés pour l'historique et la calibration ne sont pas décomptés. Les prospects non signés non plus.</span>
+       <span data-lang="en">An active customer in your base, for which loya computes a score and produces recommendations. Churned accounts kept for history and calibration don't count. Neither do unsigned prospects.</span></p>
+   </details>
+   <details>
+    <summary><span data-lang="fr">Que se passe-t-il si je dépasse mon nombre de comptes ?</span><span data-lang="en">What happens if I exceed my account count?</span></summary>
+    <p><span data-lang="fr">Rien ne se bloque. Nous vous prévenons quand le dépassement devient structurel et nous convenons ensemble du passage à l'offre supérieure. Nous ne facturons pas de pénalité au compte.</span>
+       <span data-lang="en">Nothing gets blocked. We flag it when the overage becomes structural and agree together on moving up a tier. We don't charge per-account penalties.</span></p>
+   </details>
+   <details>
+    <summary><span data-lang="fr">Les frais de mise en service sont-ils obligatoires ?</span><span data-lang="en">Are setup fees mandatory?</span></summary>
+    <p><span data-lang="fr">Oui, et c'est délibéré. La calibration du score sur vos churns passés et le contrôle qualité des connecteurs déterminent la qualité de tout ce qui suit. Une mise en service bâclée produit des faux positifs, et des faux positifs produisent une équipe qui n'ouvre plus l'outil.</span>
+       <span data-lang="en">Yes, deliberately. Calibrating the score against your past churn and quality-checking the connectors determines everything that follows. A rushed onboarding produces false positives, and false positives produce a team that stops opening the tool.</span></p>
+   </details>
+   <details>
+    <summary><span data-lang="fr">Peut-on commencer sans connecter nos outils ?</span><span data-lang="en">Can we start without connecting our tools?</span></summary>
+    <p><span data-lang="fr">Oui. L'import CSV universel permet une première lecture de votre portefeuille sans toucher à vos systèmes, ce qui évite d'attendre une validation IT pour savoir si loya vous apporte quelque chose. Les connecteurs viennent ensuite.</span>
+       <span data-lang="en">Yes. Universal CSV import gives you a first read of your portfolio without touching your systems, so you don't wait on IT approval to find out whether loya helps. Connectors come after.</span></p>
+   </details>
+   <details>
+    <summary><span data-lang="fr">Et si nous sommes design partner ?</span><span data-lang="en">What if we're a design partner?</span></summary>
+    <p><span data-lang="fr">Les design partners bénéficient de conditions préférentielles maintenues après la phase pilote, en contrepartie d'un engagement de retour régulier. Le programme est limité à trois à cinq éditeurs.</span>
+       <span data-lang="en">Design partners get preferential terms maintained after the pilot phase, in exchange for a commitment to regular feedback. The programme is capped at three to five companies.</span></p>
+   </details>
+  </div>
+ </div></div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta">
+ <div class="wrap narrow">
+  <h2 class="h2"><span data-lang="fr">Vingt minutes pour savoir si loya vous servira.</span><span data-lang="en">Twenty minutes to find out if loya will help.</span></h2>
+  <p class="lead" style="margin-top:18px">
+    <span data-lang="fr">Décrivez-nous votre portefeuille et votre stack. Nous revenons avec une réponse franche sur l'éligibilité, et les tarifs si c'est pertinent.</span>
+    <span data-lang="en">Tell us about your portfolio and your stack. We'll come back with a straight answer on fit, and pricing if it's relevant.</span>
+  </p>
+  <div class="btns">
+   <a class="btn btn-primary" href="index.html#contact"><span data-lang="fr">Demander un devis</span><span data-lang="en">Request a quote</span></a>
+   <a class="btn btn-ghost" href="index.html#pourqui"><span data-lang="fr">Vérifier les prérequis</span><span data-lang="en">Check the requirements</span></a>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <div class="wrap">
+  <div class="foot-logo">
+   <svg width="27" height="27" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#0E4F45"/><path d="M10 8v13h9" stroke="#E9B15A" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+   loya
+  </div>
+  <div class="foot-bot">
+   <span>© 2026 loya. <span data-lang="fr">Tous droits réservés.</span><span data-lang="en">All rights reserved.</span></span>
+   <span>
+     <a href="index.html"><span data-lang="fr">Accueil</span><span data-lang="en">Home</span></a> ·
+     <a href="index.html#conformite"><span data-lang="fr">Conformité</span><span data-lang="en">Compliance</span></a> ·
+     <a href="https://www.linkedin.com/in/philippe-kanaan-70430015/" target="_blank" rel="noopener">LinkedIn</a>
+   </span>
+  </div>
+ </div>
+</footer>
+
+<script>
+(function(){
+  var body=document.body;
+  function setLang(l){
+    body.setAttribute('data-l',l);
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-setlang]').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-setlang')===l);
+    });
+    var t=document.querySelector('title');
+    if(t) t.textContent = (l==='en') ? 'loya — Plans' : 'loya — Offres';
+    document.querySelectorAll('a[href^="index.html"]').forEach(function(a){
+      var h=a.getAttribute('href').split('?')[0].split('#');
+      a.setAttribute('href', h[0] + (l==='en'?'?lang=en':'') + (h[1]?'#'+h[1]:''));
+    });
+    try{ history.replaceState(null,'', l==='en' ? '?lang=en' : location.pathname); }catch(e){}
+  }
+  document.querySelectorAll('[data-setlang]').forEach(function(b){
+    b.addEventListener('click',function(){ setLang(b.getAttribute('data-setlang')); });
+  });
+  var p=new URLSearchParams(location.search).get('lang');
+  if(p==='en'){ setLang('en'); }
+  else if(!p && (navigator.language||'').slice(0,2)!=='fr'){ setLang('en'); }
+})();
+</script>
+</body>
+</html>
