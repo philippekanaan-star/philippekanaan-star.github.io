@@ -2,11 +2,15 @@
 
 Site de presentation de loya - intelligence client pour editeurs SaaS B2B.
 
-- index.html : landing bilingue FR/EN
-- offres.html : page Offres
+- index.html : landing FR (page principale)
+- index-en.html : landing EN
+- offres.html : (retire, voir ancien-site-offres.html)
+- ancien-site.html / ancien-site-offres.html : archive de la version precedente du site, conservee a une URL discrete
 
-Deux fichiers statiques autonomes, sans dependance ni build. Publies via GitHub Pages.
+Fichiers statiques autonomes, sans dependance ni build. Publies via GitHub Pages.
 
-Reglages dans le script en bas de index.html : CONTACT_EMAIL (destinataire du formulaire) et FORM_ENDPOINT (vide = ouverture du client mail).
+Bascule de langue : lien FR/EN dans le menu, index.html <-> index-en.html (deux fichiers distincts, pas de parametre ?lang).
 
-Identite : vert #0E4F45, ambre #E9B15A, sable #F7F4ED, encre #0A1613.
+Reglages du formulaire de contact, en bas de index.html et index-en.html : CONTACT_EMAIL (destinataire) et FORM_ENDPOINT (vide = ouverture du client mail).
+
+Identite : bleu #5a98fd, sable #f5f1e7, encre #14150f.

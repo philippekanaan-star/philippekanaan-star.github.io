@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>loya — L'intelligence client qui protège votre revenu récurrent</title>
+<meta name="description" content="loya unifie votre CRM, votre support, votre téléphonie et vos e-mails, produit un score de santé client explicable et recommande la prochaine action à vos CSM. Conçu pour les éditeurs SaaS B2B européens.">
+<meta property="og:title" content="loya — L'intelligence client qui protège votre revenu récurrent">
+<meta property="og:description" content="Score de santé explicable, fiche compte 360°, prochaine meilleure action. Pour les éditeurs SaaS B2B.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230E4F45'/%3E%3Cpath d='M10 8v13h9' stroke='%23E9B15A' stroke-width='2.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>
+/* ============================================================
+   loya — système visuel
+   Encre profonde + vert loya + sable. Signaux santé vert/ambre/rouge.
+   ============================================================ */
+:root{
+  --ink:#0A1613;
+  --ink-soft:#2C3B37;
+  --muted:#5E6E69;
+  --line:#DFDCD3;
+  --line-dark:#1E3A34;
+  --sand:#F7F4ED;
+  --sand-2:#EFEBE1;
+  --paper:#FFFFFF;
+  --loya:#0E4F45;
+  --loya-700:#0A3B34;
+  --loya-900:#062822;
+  --loya-100:#DDEAE6;
+  --amber:#E9B15A;
+  --amber-ink:#8A5B12;
+  --risk:#C4564B;
+  --ok:#2E8F6E;
+  --r-s:8px; --r-m:14px; --r-l:22px;
+  --shadow:0 1px 2px rgba(10,22,19,.05), 0 12px 32px -12px rgba(10,22,19,.18);
+  --shadow-lg:0 2px 4px rgba(10,22,19,.06), 0 32px 64px -24px rgba(10,22,19,.28);
+  --maxw:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; -webkit-text-size-adjust:100%}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  font-size:17px; line-height:1.62; letter-spacing:-.005em;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:'Inter Tight','Inter',system-ui,sans-serif; letter-spacing:-.028em; line-height:1.1; margin:0; font-weight:600;}
+p{margin:0}
+a{color:inherit}
+img,svg{max-width:100%}
+
+/* i18n */
+[data-lang]{display:none}
+body[data-l="fr"] [data-lang="fr"],
+body[data-l="en"] [data-lang="en"]{display:contents}
+
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
+.narrow{max-width:760px}
+section[id],[id]{scroll-margin-top:88px}
+section{padding:clamp(64px,8vw,116px) 0}
+.eyebrow{
+  font-size:12.5px; font-weight:600; letter-spacing:.13em; text-transform:uppercase;
+  color:var(--loya); margin-bottom:18px; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{content:""; width:22px; height:1.5px; background:var(--amber); flex:none}
+.h2{font-size:clamp(30px,4.1vw,46px)}
+.h3{font-size:clamp(21px,2.4vw,25px)}
+.lead{font-size:clamp(17.5px,1.9vw,20.5px); color:var(--ink-soft); line-height:1.55}
+.small{font-size:14.5px; color:var(--muted); line-height:1.55}
+
+/* --- boutons --- */
+.btn{
+  display:inline-flex; align-items:center; gap:9px; justify-content:center;
+  font-family:'Inter Tight',sans-serif; font-weight:600; font-size:15.5px;
+  padding:13px 22px; border-radius:100px; text-decoration:none; border:1.5px solid transparent;
+  cursor:pointer; transition:.18s ease; white-space:nowrap;
+}
+.btn-primary{background:var(--loya); color:#fff}
+.btn-primary:hover{background:var(--loya-700); transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line); background:transparent; color:var(--ink)}
+.btn-ghost:hover{border-color:var(--loya); color:var(--loya)}
+.on-dark .btn-ghost{border-color:rgba(255,255,255,.28); color:#fff}
+.on-dark .btn-ghost:hover{border-color:var(--amber); color:var(--amber)}
+.btn-amber{background:var(--amber); color:#3B2705}
+.btn-amber:hover{background:#F0BE72; transform:translateY(-1px)}
+
+/* --- nav --- */
+header.nav{
+  position:sticky; top:0; z-index:60; background:rgba(255,255,255,.86);
+  backdrop-filter:saturate(180%) blur(14px); border-bottom:1px solid var(--line);
+}
+.nav-in{display:flex; align-items:center; gap:28px; height:66px}
+.logo{display:flex; align-items:center; gap:9px; text-decoration:none; font-family:'Inter Tight',sans-serif; font-weight:700; font-size:22px; letter-spacing:-.045em; color:var(--ink)}
+.logo .mark{width:27px;height:27px;flex:none}
+.nav-links{display:flex; gap:26px; margin-left:8px; flex:1}
+.nav-links a{font-size:15px; text-decoration:none; color:var(--ink-soft); font-weight:500}
+.nav-links a:hover{color:var(--loya)}
+.langsw{display:flex; border:1px solid var(--line); border-radius:100px; overflow:hidden; font-size:12.5px; font-weight:600; font-family:'Inter Tight',sans-serif}
+.langsw button{border:0; background:transparent; padding:6px 11px; cursor:pointer; color:var(--muted); font:inherit; letter-spacing:.04em}
+.langsw button.on{background:var(--loya); color:#fff}
+.nav .btn{padding:10px 18px; font-size:14.5px}
+.burger{display:none; border:1px solid var(--line); background:none; border-radius:8px; padding:7px 9px; cursor:pointer}
+
+/* --- hero --- */
+.hero{
+  padding:clamp(56px,7vw,92px) 0 clamp(56px,7vw,86px);
+  background:
+    radial-gradient(1100px 520px at 78% -8%, rgba(14,79,69,.10), transparent 62%),
+    radial-gradient(700px 420px at 3% 8%, rgba(233,177,90,.16), transparent 60%),
+    var(--sand);
+  border-bottom:1px solid var(--line);
+}
+.hero-grid{display:grid; grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr); gap:clamp(32px,5vw,64px); align-items:center}
+h1{font-size:clamp(35px,5.4vw,60px); line-height:1.04; letter-spacing:-.035em}
+h1 em{font-family:'Instrument Serif',Georgia,serif; font-style:italic; font-weight:400; color:var(--loya); letter-spacing:-.01em}
+.hero .lead{margin-top:22px; max-width:35em}
+.hero-cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:32px}
+.hero-note{margin-top:22px; display:flex; align-items:center; gap:9px; font-size:14px; color:var(--muted)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ok); box-shadow:0 0 0 4px rgba(46,143,110,.16); flex:none}
+
+/* --- maquette produit --- */
+.mock{
+  background:var(--paper); border:1px solid var(--line); border-radius:var(--r-l);
+  box-shadow:var(--shadow-lg); overflow:hidden;
+}
+.mock-bar{display:flex; align-items:center; gap:6px; padding:11px 14px; border-bottom:1px solid var(--line); background:#FBFAF7}
+.mock-bar i{width:9px;height:9px;border-radius:50%;background:#DAD6CC; display:block}
+.mock-bar span{margin-left:8px; font-size:11.5px; color:var(--muted); font-weight:500; letter-spacing:.02em}
+.mock-body{padding:20px}
+.acct{display:flex; justify-content:space-between; align-items:flex-start; gap:14px}
+.acct h4{font-size:18px}
+.acct .meta{font-size:12.5px; color:var(--muted); margin-top:3px}
+.badge{
+  display:inline-flex; align-items:center; gap:6px; padding:5px 11px; border-radius:100px;
+  font-size:12px; font-weight:600; font-family:'Inter Tight',sans-serif; letter-spacing:.01em;
+}
+.badge-risk{background:#FBE9E7; color:#8E3129}
+.badge-ok{background:#E2F1EB; color:#1E6A51}
+.badge-amber{background:#FBF0DC; color:var(--amber-ink)}
+.badge-ai{background:var(--loya-100); color:var(--loya-700)}
+.score-row{display:flex; align-items:baseline; gap:10px; margin:18px 0 4px}
+.score-num{font-family:'Instrument Serif',Georgia,serif; font-size:46px; line-height:1; color:var(--risk)}
+.score-lbl{font-size:12.5px; color:var(--muted)}
+.delta{font-size:12.5px; font-weight:600; color:var(--risk)}
+.dims{display:flex; flex-direction:column; gap:9px; margin-top:14px}
+.dim{display:grid; grid-template-columns:104px 1fr 34px; align-items:center; gap:10px; font-size:12.5px}
+.dim b{font-weight:500; color:var(--ink-soft)}
+.bar{height:6px; border-radius:100px; background:var(--sand-2); overflow:hidden}
+.bar i{display:block; height:100%; border-radius:100px}
+.dim span{text-align:right; color:var(--muted); font-variant-numeric:tabular-nums; font-size:12px}
+.nba{margin-top:18px; border:1px solid var(--line); border-left:3px solid var(--amber); border-radius:var(--r-m); padding:14px; background:#FCFBF8}
+.nba .t{font-family:'Inter Tight',sans-serif; font-weight:600; font-size:14px; margin-bottom:6px}
+.nba p{font-size:13px; color:var(--ink-soft); line-height:1.5}
+.evid{display:flex; flex-wrap:wrap; gap:6px; margin-top:11px}
+.chip{font-size:11px; padding:3px 9px; border-radius:100px; background:var(--sand-2); color:var(--ink-soft); font-weight:500}
+.mock-foot{display:flex; align-items:center; justify-content:space-between; gap:10px; padding:12px 20px; border-top:1px solid var(--line); background:#FBFAF7}
+.mock-foot .acts{display:flex; gap:7px}
+.mini{font-size:11.5px; font-weight:600; font-family:'Inter Tight',sans-serif; padding:6px 12px; border-radius:100px; border:1px solid var(--line); background:#fff; color:var(--ink-soft)}
+.mini.go{background:var(--loya); color:#fff; border-color:var(--loya)}
+
+/* --- bandeau chiffres --- */
+.band{background:var(--paper); border-bottom:1px solid var(--line); padding:34px 0}
+.band-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px}
+.band-grid div{border-left:2px solid var(--loya-100); padding-left:16px}
+.band-grid b{display:block; font-family:'Instrument Serif',Georgia,serif; font-size:32px; line-height:1.1; color:var(--loya); font-weight:400}
+.band-grid p{font-size:13.5px; color:var(--muted); margin-top:5px; line-height:1.4}
+
+/* --- cartes --- */
+.cards{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px}
+.card{border:1px solid var(--line); border-radius:var(--r-l); padding:28px; background:var(--paper); transition:.2s}
+.card:hover{border-color:var(--loya-100); box-shadow:var(--shadow); transform:translateY(-2px)}
+.card h3{font-size:19px; margin-bottom:10px}
+.card p{font-size:15.5px; color:var(--ink-soft); line-height:1.55}
+.ico{width:40px;height:40px;border-radius:11px; background:var(--loya-100); display:grid; place-items:center; margin-bottom:18px}
+.ico svg{width:20px;height:20px; stroke:var(--loya); fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round}
+
+/* --- étapes --- */
+.steps{display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin-top:48px; border:1px solid var(--line); border-radius:var(--r-l); overflow:hidden}
+.step{padding:32px; border-right:1px solid var(--line); background:var(--paper)}
+.step:last-child{border-right:0}
+.step-n{font-family:'Instrument Serif',Georgia,serif; font-size:15px; width:34px;height:34px; border-radius:50%; background:var(--loya); color:#fff; display:grid; place-items:center; margin-bottom:18px}
+.step h3{font-size:20px; margin-bottom:9px}
+.step p{font-size:15px; color:var(--ink-soft)}
+.step ul{margin:14px 0 0; padding-left:0; list-style:none}
+.step li{font-size:13.5px; color:var(--muted); padding-left:18px; position:relative; margin-top:6px}
+.step li::before{content:""; position:absolute; left:0; top:8px; width:6px;height:6px;border-radius:50%;background:var(--amber)}
+
+/* --- features --- */
+.feat{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; margin-top:44px; background:var(--line); border:1px solid var(--line); border-radius:var(--r-l); overflow:hidden}
+.feat > div{background:var(--paper); padding:26px}
+.feat h4{font-size:16.5px; margin-bottom:8px; display:flex; align-items:center; gap:9px}
+.feat h4 s{width:6px;height:6px;border-radius:50%;background:var(--amber); text-decoration:none; flex:none}
+.feat p{font-size:14.5px; color:var(--muted); line-height:1.55}
+
+/* --- connecteurs --- */
+.conn{display:flex; flex-wrap:wrap; gap:9px; margin-top:24px}
+.conn span{
+  border:1px solid var(--line); border-radius:100px; padding:8px 16px; font-size:14px;
+  font-weight:500; color:var(--ink-soft); background:var(--paper);
+}
+.conn span.w1{border-color:var(--loya); color:var(--loya); background:var(--loya-100); font-weight:600}
+
+/* --- sections sombres --- */
+.dark{background:var(--loya-900); color:#E7EEEB}
+.dark h2,.dark h3,.dark h4{color:#fff}
+.dark .eyebrow{color:var(--amber)}
+.dark .lead{color:#B7C9C4}
+.dark .small{color:#8FA6A0}
+.comp-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:2px; margin-top:44px; background:var(--line-dark); border:1px solid var(--line-dark); border-radius:var(--r-l); overflow:hidden}
+.comp-grid > div{background:var(--loya-900); padding:28px}
+.comp-grid h4{font-size:17px; margin-bottom:9px}
+.comp-grid p{font-size:14.5px; color:#A8BDB7; line-height:1.55}
+.comp-tag{font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--amber); margin-bottom:12px; display:block}
+
+/* --- différenciation --- */
+.diff{display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:44px}
+.diff > div{border:1px solid var(--line); border-radius:var(--r-l); padding:26px; background:linear-gradient(180deg,#FCFBF8,#fff)}
+.diff h4{font-size:18px; margin-bottom:9px}
+.diff p{font-size:15px; color:var(--ink-soft)}
+
+/* --- prérequis --- */
+.req{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,60px); align-items:start}
+.req-list{list-style:none; margin:0; padding:0; border-top:1px solid var(--line)}
+.req-list li{display:flex; gap:14px; padding:15px 0; border-bottom:1px solid var(--line); align-items:baseline}
+.req-list b{font-family:'Inter Tight',sans-serif; font-size:16px; min-width:118px; color:var(--loya); flex:none}
+.req-list span{font-size:15px; color:var(--ink-soft)}
+
+/* --- fondateur --- */
+.founder{display:grid; grid-template-columns:auto 1fr; gap:28px; align-items:start; border:1px solid var(--line); border-radius:var(--r-l); padding:clamp(26px,4vw,40px); background:var(--sand)}
+.avatar{width:120px;height:120px;border-radius:50%; object-fit:cover; flex:none; border:3px solid #fff; box-shadow:var(--shadow)}
+.fbody{margin-top:20px; font-size:16px; color:var(--ink-soft); line-height:1.62}
+.creds{display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:36px}
+.creds div{border-top:2px solid var(--loya); padding-top:14px}
+.creds b{display:block; font-family:'Instrument Serif',Georgia,serif; font-size:30px; line-height:1.1; color:var(--loya); font-weight:400}
+.creds p{font-size:13.5px; color:var(--muted); margin-top:5px; line-height:1.42}
+.quote{font-family:'Instrument Serif',Georgia,serif; font-size:clamp(21px,2.6vw,27px); line-height:1.32; color:var(--ink)}
+.tbd{background:#FBF0DC; border:1px dashed var(--amber); color:var(--amber-ink); border-radius:var(--r-s); padding:11px 14px; font-size:13px; margin-top:16px}
+
+/* --- programme --- */
+.prog{display:grid; grid-template-columns:1fr 1fr; gap:2px; background:rgba(255,255,255,.13); border-radius:var(--r-l); overflow:hidden; margin-top:44px}
+.prog > div{background:var(--loya-900); padding:30px}
+.prog ul{list-style:none; margin:16px 0 0; padding:0}
+.prog li{font-size:15px; color:#C3D3CE; padding-left:26px; position:relative; margin-bottom:11px; line-height:1.5}
+.prog li::before{content:"→"; position:absolute; left:0; color:var(--amber)}
+
+/* --- offres teaser --- */
+.plans{display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px}
+.plan{border:1px solid var(--line); border-radius:var(--r-l); padding:28px; background:var(--paper); display:flex; flex-direction:column}
+.plan.hi{border-color:var(--loya); box-shadow:var(--shadow)}
+.plan .n{font-family:'Inter Tight',sans-serif; font-weight:700; font-size:20px}
+.plan .cap{font-family:'Instrument Serif',serif; font-size:29px; color:var(--loya); margin:12px 0 2px}
+.plan .cap small{font-family:'Inter',sans-serif; font-size:13.5px; color:var(--muted)}
+.plan p{font-size:14.5px; color:var(--ink-soft); margin-top:12px; flex:1}
+.plan .tag{font-size:11px; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--amber-ink); background:#FBF0DC; padding:3px 9px; border-radius:100px; align-self:flex-start; margin-bottom:14px}
+
+/* --- FAQ --- */
+.faq{margin-top:40px; border-top:1px solid var(--line)}
+details{border-bottom:1px solid var(--line)}
+summary{
+  cursor:pointer; padding:20px 40px 20px 0; font-family:'Inter Tight',sans-serif; font-weight:600;
+  font-size:17.5px; position:relative; list-style:none;
+}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+"; position:absolute; right:6px; top:17px; font-size:23px; font-weight:400; color:var(--loya); transition:.2s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{padding:0 60px 22px 0; font-size:15.5px; color:var(--ink-soft)}
+
+/* --- contact --- */
+.contact{background:var(--sand); border-top:1px solid var(--line)}
+.form-grid{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:30px}
+.field{display:flex; flex-direction:column; gap:6px}
+.field.full{grid-column:1/-1}
+label{font-size:13px; font-weight:600; font-family:'Inter Tight',sans-serif; color:var(--ink-soft)}
+input,select,textarea{
+  font:inherit; font-size:15.5px; padding:12px 14px; border:1px solid var(--line);
+  border-radius:var(--r-s); background:#fff; color:var(--ink); width:100%;
+}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--loya); outline-offset:-1px; border-color:var(--loya)}
+textarea{resize:vertical; min-height:112px}
+.consent{display:flex; gap:10px; align-items:flex-start; font-size:13px; color:var(--muted); grid-column:1/-1; line-height:1.5}
+.consent input{width:auto; margin-top:2px}
+.form-msg{grid-column:1/-1; font-size:14.5px; padding:12px 14px; border-radius:var(--r-s); display:none}
+.form-msg.ok{display:block; background:#E2F1EB; color:#1E6A51}
+
+/* --- footer --- */
+footer{background:var(--ink); color:#93A39E; padding:52px 0 34px; font-size:14.5px}
+.foot-grid{display:grid; grid-template-columns:2fr 1fr 1fr; gap:36px; padding-bottom:32px; border-bottom:1px solid #22322D}
+footer h5{font-family:'Inter Tight',sans-serif; color:#fff; font-size:13px; letter-spacing:.1em; text-transform:uppercase; margin:0 0 14px; font-weight:600}
+footer a{color:#93A39E; text-decoration:none; display:block; margin-bottom:9px}
+footer a:hover{color:var(--amber)}
+.foot-bot{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; padding-top:22px; font-size:13px; color:#6D7C77}
+.foot-logo{display:flex; align-items:center; gap:9px; font-family:'Inter Tight',sans-serif; font-weight:700; font-size:22px; color:#fff; letter-spacing:-.045em; margin-bottom:14px}
+
+/* --- responsive --- */
+@media(max-width:1000px){
+  .hero-grid,.cards,.steps,.feat,.comp-grid,.diff,.req,.plans,.prog{grid-template-columns:1fr}
+  .step{border-right:0; border-bottom:1px solid var(--line)}
+  .band-grid{grid-template-columns:1fr 1fr}
+  .nav-links{display:none}
+  .burger{display:block}
+  .nav-links.open{
+    display:flex; flex-direction:column; position:absolute; top:66px; left:0; right:0;
+    background:#fff; border-bottom:1px solid var(--line); padding:18px 24px; gap:16px;
+  }
+  .foot-grid{grid-template-columns:1fr}
+  .founder{grid-template-columns:1fr}
+  .creds{grid-template-columns:1fr 1fr}
+}
+@media(max-width:620px){
+  .band-grid{grid-template-columns:1fr}
+  .form-grid{grid-template-columns:1fr}
+  .nav .btn.hide-sm{display:none}
+  .dim{grid-template-columns:88px 1fr 30px}
+}
+</style>
+</head>
+<body data-l="fr">
+
+<!-- ================= NAV ================= -->
+<header class="nav">
+ <div class="wrap nav-in">
+  <a class="logo" href="#top">
+    <svg class="mark" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#0E4F45"/><path d="M10 8v13h9" stroke="#E9B15A" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    loya
+  </a>
+  <nav class="nav-links" id="navlinks">
+    <a href="#probleme"><span data-lang="fr">Le problème</span><span data-lang="en">The problem</span></a>
+    <a href="#fonctionnement"><span data-lang="fr">Fonctionnement</span><span data-lang="en">How it works</span></a>
+    <a href="#produit"><span data-lang="fr">Produit</span><span data-lang="en">Product</span></a>
+    <a href="#conformite"><span data-lang="fr">Conformité</span><span data-lang="en">Compliance</span></a>
+    <a href="offres.html"><span data-lang="fr">Offres</span><span data-lang="en">Plans</span></a>
+  </nav>
+  <div class="langsw" role="group" aria-label="Langue / Language">
+    <button type="button" data-setlang="fr" class="on">FR</button>
+    <button type="button" data-setlang="en">EN</button>
+  </div>
+  <a class="btn btn-primary hide-sm" href="#contact"><span data-lang="fr">Nous parler</span><span data-lang="en">Talk to us</span></a>
+  <button class="burger" type="button" aria-label="Menu" onclick="document.getElementById('navlinks').classList.toggle('open')">
+    <svg width="18" height="14" viewBox="0 0 18 14" stroke="#0A1613" stroke-width="2" stroke-linecap="round"><path d="M1 1h16M1 7h16M1 13h16"/></svg>
+  </button>
+ </div>
+</header>
+
+<a id="top"></a>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+ <div class="wrap hero-grid">
+  <div>
+    <div class="eyebrow">
+      <span data-lang="fr">Intelligence client pour éditeurs SaaS B2B</span>
+      <span data-lang="en">Customer intelligence for B2B SaaS</span>
+    </div>
+    <h1>
+      <span data-lang="fr">Vos clients vous préviennent<br>avant de partir. Encore faut-il<br><em>écouter au bon endroit.</em></span>
+      <span data-lang="en">Your customers warn you<br>before they leave. You just have to<br><em>listen in the right place.</em></span>
+    </h1>
+    <p class="lead">
+      <span data-lang="fr">loya réunit votre CRM, votre support, votre téléphonie et vos e-mails, en tire un score de santé explicable, et dit à chaque CSM quoi faire — avec les preuves à l'appui. Quatre connecteurs standards : rien à instrumenter dans votre produit.</span>
+      <span data-lang="en">loya brings together your CRM, support desk, phone system and inboxes, turns them into an explainable health score, and tells each CSM what to do next — with the evidence attached. Four standard connectors: nothing to instrument in your product.</span>
+    </p>
+    <div class="hero-cta">
+      <a class="btn btn-primary" href="#contact"><span data-lang="fr">Rejoindre le programme pilote</span><span data-lang="en">Join the pilot programme</span></a>
+      <a class="btn btn-ghost" href="#fonctionnement"><span data-lang="fr">Voir le fonctionnement</span><span data-lang="en">See how it works</span></a>
+    </div>
+    <div class="hero-note">
+      <span class="dot"></span>
+      <span data-lang="fr">Programme design partners ouvert — 3 à 5 éditeurs SaaS B2B, rentrée 2026.</span>
+      <span data-lang="en">Design partner programme open — 3 to 5 B2B SaaS companies, autumn 2026.</span>
+    </div>
+  </div>
+
+  <!-- maquette produit -->
+  <div class="mock" aria-hidden="true">
+    <div class="mock-bar"><i></i><i></i><i></i><span data-lang="fr">loya · Fiche compte</span><span data-lang="en">loya · Account brief</span></div>
+    <div class="mock-body">
+      <div class="acct">
+        <div>
+          <h4>Northwind Analytics</h4>
+          <div class="meta"><span data-lang="fr">Growth · 42 sièges · Renouvellement dans 74 j</span><span data-lang="en">Growth · 42 seats · Renewal in 74 days</span></div>
+        </div>
+        <span class="badge badge-risk"><span data-lang="fr">Risque élevé</span><span data-lang="en">High risk</span></span>
+      </div>
+      <div class="score-row">
+        <span class="score-num">38</span>
+        <span class="score-lbl"><span data-lang="fr">/ 100 · santé</span><span data-lang="en">/ 100 · health</span></span>
+        <span class="delta">▼ 17 <span data-lang="fr">sur 30 j</span><span data-lang="en">in 30 days</span></span>
+      </div>
+      <div class="dims">
+        <div class="dim"><b><span data-lang="fr">Voix du client</span><span data-lang="en">Customer voice</span></b><div class="bar"><i style="width:24%;background:#C4564B"></i></div><span>24</span></div>
+        <div class="dim"><b><span data-lang="fr">Friction</span><span data-lang="en">Friction</span></b><div class="bar"><i style="width:33%;background:#C4564B"></i></div><span>33</span></div>
+        <div class="dim"><b><span data-lang="fr">Relation</span><span data-lang="en">Relationship</span></b><div class="bar"><i style="width:41%;background:#E9B15A"></i></div><span>41</span></div>
+        <div class="dim"><b><span data-lang="fr">Contrat</span><span data-lang="en">Contract</span></b><div class="bar"><i style="width:71%;background:#2E8F6E"></i></div><span>71</span></div>
+      </div>
+      <div class="nba">
+        <div class="t">
+          <span data-lang="fr">Prochaine action — appel du sponsor sous 5 jours</span>
+          <span data-lang="en">Next best action — call the sponsor within 5 days</span>
+        </div>
+        <p>
+          <span data-lang="fr">Quatre échanges sur six au ton négatif depuis juin, contre un sur neuf au trimestre précédent. Un concurrent cité lors de l'appel du 12 juin. Le champion est parti sans successeur, et le renouvellement tombe avant leur clôture d'exercice.</span>
+          <span data-lang="en">Four of six exchanges turned negative since June, against one in nine the previous quarter. A competitor was named on the 12 June call. Their champion left with no successor, and renewal lands before their fiscal year end.</span>
+        </p>
+        <div class="evid">
+          <span class="chip">4/6 <span data-lang="fr">échanges négatifs</span><span data-lang="en">negative exchanges</span></span>
+          <span class="chip">1 <span data-lang="fr">concurrent cité</span><span data-lang="en">competitor named</span></span>
+          <span class="chip">−1 <span data-lang="fr">champion</span><span data-lang="en">champion</span></span>
+          <span class="chip badge-ai"><span data-lang="fr">Généré par IA</span><span data-lang="en">AI-generated</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="mock-foot">
+      <span class="small" style="font-size:11.5px"><span data-lang="fr">En attente de validation CSM</span><span data-lang="en">Awaiting CSM approval</span></span>
+      <div class="acts">
+        <span class="mini"><span data-lang="fr">Modifier</span><span data-lang="en">Edit</span></span>
+        <span class="mini go"><span data-lang="fr">Valider</span><span data-lang="en">Approve</span></span>
+      </div>
+    </div>
+  </div>
+ </div>
+</section>
+
+<!-- ================= BANDEAU ================= -->
+<div class="band">
+ <div class="wrap band-grid">
+  <div><b>4</b><p><span data-lang="fr">connecteurs pour démarrer — sans instrumenter votre produit</span><span data-lang="en">connectors to start — with nothing to instrument in your product</span></p></div>
+  <div><b>100 %</b><p><span data-lang="fr">des recommandations validées par un humain</span><span data-lang="en">of recommendations approved by a human</span></p></div>
+  <div><b>UE</b><p><span data-lang="fr">hébergement, isolation par client, purge documentée</span><span data-lang="en">hosting, per-tenant isolation, documented purge</span></p></div>
+  <div><b>0</b><p><span data-lang="fr">entraînement de modèle sur vos données</span><span data-lang="en">model training on your data</span></p></div>
+ </div>
+</div>
+
+<!-- ================= PROBLÈME ================= -->
+<section id="probleme">
+ <div class="wrap">
+  <div class="narrow">
+   <div class="eyebrow"><span data-lang="fr">Le problème</span><span data-lang="en">The problem</span></div>
+   <h2 class="h2">
+     <span data-lang="fr">Le churn ne surgit pas. Il s'installe, lentement, sous le radar.</span>
+     <span data-lang="en">Churn doesn't strike. It settles in, slowly, under the radar.</span>
+   </h2>
+   <p class="lead" style="margin-top:20px">
+     <span data-lang="fr">Quand le préavis arrive, la décision est prise depuis des mois. Entre-temps, les signaux étaient là — répartis dans quatre outils que personne n'a le temps de croiser.</span>
+     <span data-lang="en">By the time notice arrives, the decision is months old. The signals were there all along — spread across four tools nobody has time to cross-reference.</span>
+   </p>
+  </div>
+  <div class="cards">
+   <div class="card">
+    <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h12M3 18h7"/><circle cx="19" cy="17" r="3"/></svg></div>
+    <h3><span data-lang="fr">Les signaux sont éparpillés</span><span data-lang="en">The signals are scattered</span></h3>
+    <p><span data-lang="fr">Un ticket agacé dans le support, une baisse de connexions, un champion qui change de poste, une facture qui traîne. Aucun de ces signaux n'est alarmant seul. Ensemble, ils racontent un départ.</span>
+       <span data-lang="en">An irritated support ticket, a dip in logins, a champion changing jobs, an invoice dragging on. None of these is alarming on its own. Together, they tell you someone is leaving.</span></p>
+   </div>
+   <div class="card">
+    <div class="ico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+    <h3><span data-lang="fr">Le CSM navigue à vue</span><span data-lang="en">CSMs are flying blind</span></h3>
+    <p><span data-lang="fr">Deux cents comptes dans un portefeuille, huit heures dans une journée. Le temps passé à fouiller les outils est du temps volé à la relation client — et il produit surtout des intuitions invérifiables.</span>
+       <span data-lang="en">Two hundred accounts in a book of business, eight hours in a day. Time spent digging through tools is time stolen from the customer relationship — and it mostly produces hunches nobody can check.</span></p>
+   </div>
+   <div class="card">
+    <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 17l5-6 4 4 5-7 4 5"/><path d="M3 21h18"/></svg></div>
+    <h3><span data-lang="fr">On priorise à l'instinct</span><span data-lang="en">Prioritisation runs on instinct</span></h3>
+    <p><span data-lang="fr">Le compte qui crie fort passe devant celui qui se tait. Or le client qui part discrètement ne réclame rien : il arrête simplement de se connecter, puis de renouveler.</span>
+       <span data-lang="en">The account that shouts gets attention before the one that has gone quiet. But the customer who leaves quietly asks for nothing: they simply stop logging in, then stop renewing.</span></p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ================= FONCTIONNEMENT ================= -->
+<section id="fonctionnement" style="background:var(--sand); border-block:1px solid var(--line)">
+ <div class="wrap">
+  <div class="narrow">
+   <div class="eyebrow"><span data-lang="fr">Fonctionnement</span><span data-lang="en">How it works</span></div>
+   <h2 class="h2"><span data-lang="fr">Unifier, scorer, agir.</span><span data-lang="en">Unify, score, act.</span></h2>
+   <p class="lead" style="margin-top:20px">
+     <span data-lang="fr">Trois étapes, et un principe : le score reste déterministe, l'IA se contente de synthétiser et de rédiger. C'est moins cher, c'est explicable, et c'est auditable.</span>
+     <span data-lang="en">Three steps, one principle: the score stays deterministic, the AI only summarises and drafts. Cheaper, explainable, auditable.</span>
+   </p>
+  </div>
+  <div class="steps">
+   <div class="step">
+    <div class="step-n">1</div>
+    <h3><span data-lang="fr">Unifier</span><span data-lang="en">Unify</span></h3>
+    <p><span data-lang="fr">Vos outils se connectent, loya réconcilie. Résolution d'identité entre les systèmes, arbitrage des sources maîtresses, contrôle qualité continu.</span>
+       <span data-lang="en">Your tools connect, loya reconciles. Identity resolution across systems, source-of-truth arbitration, continuous quality control.</span></p>
+    <ul>
+     <li><span data-lang="fr">Un modèle de données unifié, pas un tableau de bord de plus</span><span data-lang="en">A unified data model, not one more dashboard</span></li>
+     <li><span data-lang="fr">Détection des connecteurs silencieusement vides</span><span data-lang="en">Detection of silently empty connectors</span></li>
+     <li><span data-lang="fr">Import CSV universel disponible dès le premier jour</span><span data-lang="en">Universal CSV import available from day one</span></li>
+     <li><span data-lang="fr">Quatre connecteurs OAuth standards : opérationnel en une demi-journée</span><span data-lang="en">Four standard OAuth connectors: live in half a day</span></li>
+    </ul>
+   </div>
+   <div class="step">
+    <div class="step-n">2</div>
+    <h3><span data-lang="fr">Scorer</span><span data-lang="en">Score</span></h3>
+    <p><span data-lang="fr">Un score bâti sur ce que vos clients disent : voix du client, friction, relation, contrat. L'usage produit s'ajoute quand vous le branchez. Vous réglez les pondérations, loya calibre les seuils sur vos churns passés.</span>
+       <span data-lang="en">A score built on what your customers say: customer voice, friction, relationship, contract. Product usage joins in when you connect it. You set the weights, loya calibrates thresholds against your past churn.</span></p>
+    <ul>
+     <li><span data-lang="fr">Normalisation par cohorte : un compte de 8 sièges n'est pas comparé à un compte de 400</span><span data-lang="en">Cohort normalisation: an 8-seat account isn't compared to a 400-seat one</span></li>
+     <li><span data-lang="fr">Gestion explicite des données manquantes</span><span data-lang="en">Explicit handling of missing data</span></li>
+     <li><span data-lang="fr">Chaque point de score est traçable jusqu'à sa source</span><span data-lang="en">Every score point traces back to its source</span></li>
+    </ul>
+   </div>
+   <div class="step">
+    <div class="step-n">3</div>
+    <h3><span data-lang="fr">Agir</span><span data-lang="en">Act</span></h3>
+    <p><span data-lang="fr">Pour chaque compte qui bouge : la prochaine meilleure action et un brouillon de message prêt à envoyer. Le CSM décide, loya prépare.</span>
+       <span data-lang="en">For every account that moves: the next best action and a draft message ready to send. The CSM decides, loya prepares.</span></p>
+    <ul>
+     <li><span data-lang="fr">Chaque recommandation cite les faits qui la fondent</span><span data-lang="en">Every recommendation cites the facts behind it</span></li>
+     <li><span data-lang="fr">Accepté, modifié ou rejeté : tout est journalisé</span><span data-lang="en">Approved, edited or rejected: everything is logged</span></li>
+     <li><span data-lang="fr">Le motif de rejet nourrit la calibration</span><span data-lang="en">Rejection reasons feed back into calibration</span></li>
+    </ul>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ================= PRODUIT ================= -->
+<section id="produit">
+ <div class="wrap">
+  <div class="narrow">
+   <div class="eyebrow"><span data-lang="fr">Produit</span><span data-lang="en">Product</span></div>
+   <h2 class="h2"><span data-lang="fr">Ce que vos CSM ouvrent le matin.</span><span data-lang="en">What your CSMs open in the morning.</span></h2>
+  </div>
+  <div class="feat">
+   <div>
+    <h4><s></s><span data-lang="fr">Score de santé explicable</span><span data-lang="en">Explainable health score</span></h4>
+    <p><span data-lang="fr">Cinq dimensions, des pondérations que vous maîtrisez, et pour chaque compte le détail de ce qui fait monter ou descendre le score.</span>
+       <span data-lang="en">Five dimensions, weights you control, and for every account a breakdown of what pushes the score up or down.</span></p>
+   </div>
+   <div>
+    <h4><s></s><span data-lang="fr">Fiche compte 360°</span><span data-lang="en">360° account brief</span></h4>
+    <p><span data-lang="fr">Le contexte, la lecture du score, les signaux marquants et l'historique des échanges. Assez pour entrer en réunion préparé en trois minutes.</span>
+       <span data-lang="en">Context, score reading, standout signals and interaction history. Enough to walk into a meeting prepared in three minutes.</span></p>
+   </div>
+   <div>
+    <h4><s></s><span data-lang="fr">Prochaine meilleure action</span><span data-lang="en">Next best action</span></h4>
+    <p><span data-lang="fr">Une recommandation par compte, priorisée, argumentée, avec un brouillon de message qu'il ne reste qu'à relire.</span>
+       <span data-lang="en">One prioritised, argued recommendation per account, with a draft message you only need to review.</span></p>
+   </div>
+   <div>
+    <h4><s></s><span data-lang="fr">Détection d'upsell</span><span data-lang="en">Upsell detection</span></h4>
+    <p><span data-lang="fr">L'expansion se lit d'abord dans ce que le client demande : un besoin évoqué trois fois au support, une nouvelle équipe qui apparaît dans les échanges. L'usage le confirme quand vous l'avez branché.</span>
+       <span data-lang="en">Expansion shows up first in what customers ask for: a need raised three times with support, a new team appearing in the conversations. Usage confirms it once you've connected it.</span></p>
+   </div>
+   <div>
+    <h4><s></s><span data-lang="fr">Alertes sur variation</span><span data-lang="en">Change-based alerts</span></h4>
+    <p><span data-lang="fr">Pas de notification quotidienne inutile. Une alerte quand un signal bouge vraiment, avec le seuil que vous avez défini.</span>
+       <span data-lang="en">No pointless daily digest. An alert when a signal genuinely moves, at the threshold you defined.</span></p>
+   </div>
+   <div>
+    <h4><s></s><span data-lang="fr">Journal de validation</span><span data-lang="en">Approval log</span></h4>
+    <p><span data-lang="fr">Qui a validé quoi, quand, et ce qui a été modifié. Exigé par la réglementation, utile pour piloter l'équipe.</span>
+       <span data-lang="en">Who approved what, when, and what was changed. Required by regulation, useful for managing the team.</span></p>
+   </div>
+  </div>
+
+  <div style="margin-top:56px" class="narrow">
+   <h3 class="h3"><span data-lang="fr">Vos sources de données</span><span data-lang="en">Your data sources</span></h3>
+   <p class="small" style="margin-top:10px">
+     <span data-lang="fr">En vert : disponibles dès la première version. Les autres suivent par vagues.</span>
+     <span data-lang="en">In green: available in the first release. The rest follow in waves.</span>
+   </p>
+  </div>
+  <div class="conn">
+   <span class="w1"><span data-lang="fr">Import CSV universel</span><span data-lang="en">Universal CSV import</span></span>
+   <span class="w1">HubSpot</span><span class="w1">Intercom</span><span class="w1">Aircall</span><span class="w1">Ringover</span><span class="w1">Gmail</span>
+   <span>Stripe</span><span>Zendesk</span><span>Salesforce</span><span>Pipedrive</span><span>Front</span><span>Segment</span>
+   <span>Amplitude</span><span>Slack</span><span>Outlook</span><span>Gong</span><span>Modjo</span>
+   <span>Jira</span><span>Chargebee</span><span>Notion</span><span>Google Drive</span><span data-lang="fr">Enquêtes NPS</span><span data-lang="en">NPS surveys</span>
+  </div>
+  <p class="small" style="margin-top:18px">
+    <span data-lang="fr">Votre outil n'est pas dans la liste ? L'import CSV couvre tout le reste, et un connecteur sur mesure se spécifie en quelques jours.</span>
+    <span data-lang="en">Your tool isn't listed? CSV import covers everything else, and a custom connector takes a few days to spec.</span>
+  </p>
+ </div>
+</section>
+
+<!-- ================= DIFFÉRENCIATION ================= -->
+<section style="background:var(--sand); border-block:1px solid var(--line)">
+ <div class="wrap">
+  <div class="narrow">
+   <div class="eyebrow"><span data-lang="fr">Notre parti pris</span><span data-lang="en">Our stance</span></div>
+   <h2 class="h2"><span data-lang="fr">Quatre choix qui nous engagent.</span><span data-lang="en">Four choices we commit to.</span></h2>
+  </div>
+  <div class="diff">
+   <div>
+    <h4><span data-lang="fr">Le score est déterministe. L'IA rédige.</span><span data-lang="en">The score is deterministic. The AI writes.</span></h4>
+    <p><span data-lang="fr">Le calcul repose sur des règles et des pondérations lisibles, pas sur un modèle opaque. L'IA n'intervient que pour synthétiser et formuler. Résultat : un score que vous pouvez défendre devant votre direction et devant un auditeur.</span>
+       <span data-lang="en">The calculation rests on readable rules and weights, not an opaque model. The AI only summarises and phrases. The result: a score you can defend to your leadership and to an auditor.</span></p>
+   </div>
+   <div>
+    <h4><span data-lang="fr">Validation humaine par défaut.</span><span data-lang="en">Human approval by default.</span></h4>
+    <p><span data-lang="fr">Aucune action n'est envoyée à un client sans qu'un CSM l'ait relue. L'automatisation viendra plus tard, sur le segment low-touch, et seulement après une période d'observation mesurée.</span>
+       <span data-lang="en">No action reaches a customer without a CSM reading it first. Automation comes later, on the low-touch segment, and only after a measured observation period.</span></p>
+   </div>
+   <div>
+    <h4><span data-lang="fr">Européen par construction.</span><span data-lang="en">European by design.</span></h4>
+    <p><span data-lang="fr">Données hébergées dans l'Union, isolation stricte entre clients, pseudonymisation avant tout appel à un modèle, et aucun entraînement sur vos données. Ce n'est pas une option activable : c'est l'architecture.</span>
+       <span data-lang="en">Data hosted in the EU, strict tenant isolation, pseudonymisation before any model call, and no training on your data. Not a toggle: the architecture itself.</span></p>
+   </div>
+   <div>
+    <h4><span data-lang="fr">Mise en service en jours, pas en trimestres.</span><span data-lang="en">Live in days, not quarters.</span></h4>
+    <p><span data-lang="fr">Les plateformes établies facturent plusieurs milliers d'euros de mise en service et se déploient sur un trimestre. loya démarre sur un import CSV et une première lecture de votre portefeuille, puis branche les connecteurs.</span>
+       <span data-lang="en">Established platforms charge thousands in setup fees and deploy over a quarter. loya starts with a CSV import and a first read of your book of business, then plugs in the connectors.</span></p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<!-- ================= CONFORMITÉ ================= -->
+<section id="conformite" class="dark on-dark">
+ <div class="wrap">
+  <div class="narrow">
+   <div class="eyebrow"><span data-lang="fr">Conformité & sécurité</span><span data-lang="en">Compliance & security</span></div>
+   <h2 class="h2"><span data-lang="fr">L'IA appliquée aux clients est réglementée. Nous l'avons intégré dès la conception.</span>
+       <span data-lang="en">AI applied to customers is regulated. We built for it from the start.</span></h2>
+   <p class="lead" style="margin-top:20px">
+     <span data-lang="fr">Les obligations de transparence du règlement européen sur l'IA sont applicables depuis le 2 août 2026. Les rétro-adapter coûte cher ; les construire dès le départ ne coûte presque rien.</span>
+     <span data-lang="en">The EU AI Act transparency obligations have applied since 2 August 2026. Retrofitting them is expensive; building them in from the start costs almost nothing.</span>
+   </p>
+  </div>
+  <div class="comp-grid">
+   <div>
+    <span class="comp-tag"><span data-lang="fr">Règlement IA · Article 50</span><span data-lang="en">EU AI Act · Article 50</span></span>
+    <h4><span data-lang="fr">Transparence signalée</span><span data-lang="en">Signalled transparency</span></h4>
+    <p><span data-lang="fr">Toute synthèse et toute recommandation produite par un modèle porte une mention visible « généré par IA ». L'échéance de marquage lisible par machine du 2 décembre 2026 est inscrite à notre feuille de route.</span>
+       <span data-lang="en">Every model-generated summary and recommendation carries a visible "AI-generated" notice. The 2 December 2026 machine-readable marking deadline is on our roadmap.</span></p>
+   </div>
+   <div>
+    <span class="comp-tag"><span data-lang="fr">Supervision humaine</span><span data-lang="en">Human oversight</span></span>
+    <h4><span data-lang="fr">Journal de validation exportable</span><span data-lang="en">Exportable approval log</span></h4>
+    <p><span data-lang="fr">Qui, quand, accepté / modifié / rejeté, et pour quel motif. Le journal est consultable et exportable — c'est votre preuve de supervision humaine.</span>
+       <span data-lang="en">Who, when, approved / edited / rejected, and why. The log is browsable and exportable — it is your evidence of human oversight.</span></p>
+   </div>
+   <div>
+    <span class="comp-tag">RGPD</span>
+    <h4><span data-lang="fr">loya est votre sous-traitant</span><span data-lang="en">loya is your processor</span></h4>
+    <p><span data-lang="fr">Accord de traitement type, liste publique des sous-traitants ultérieurs — fournisseur de modèle inclus —, non-rétention activée côté fournisseur, politique de purge et pseudonymisation avant tout envoi.</span>
+       <span data-lang="en">Standard data processing agreement, public sub-processor list — model provider included —, zero-retention enabled with the provider, purge policy and pseudonymisation before any call.</span></p>
+   </div>
+   <div>
+    <span class="comp-tag"><span data-lang="fr">Hébergement & isolation</span><span data-lang="en">Hosting & isolation</span></span>
+    <h4><span data-lang="fr">Union européenne, cloisonnement par client</span><span data-lang="en">European Union, per-tenant partitioning</span></h4>
+    <p><span data-lang="fr">Base de données en région européenne, isolation appliquée au niveau des lignes, chiffrement en transit et au repos. La certification SOC 2 est planifiée pour 2027.</span>
+       <span data-lang="en">Database in an EU region, row-level tenant isolation, encryption in transit and at rest. SOC 2 certification is planned for 2027.</span></p>
+   </div>
+  </div>
+  <p class="small" style="margin-top:26px; max-width:70ch">
+    <span data-lang="fr">Ces engagements font l'objet d'une revue par un conseil juridique avant notre première signature client. Nous les documentons publiquement plutôt que de les promettre en réunion.</span>
+    <span data-lang="en">These commitments are under legal review ahead of our first customer signature. We document them publicly rather than promising them in a meeting.</span>
+  </p>
+ </div>
+</section>
+
+<!-- ================= POUR QUI ================= -->
+<section id="pourqui">
+ <div class="wrap req">
+  <div>
+   <div class="eyebrow"><span data-lang="fr">Pour qui</span><span data-lang="en">Who it's for</span></div>
+   <h2 class="h2"><span data-lang="fr">loya n'est pas fait pour tout le monde.</span><span data-lang="en">loya isn't for everyone.</span></h2>
+   <p class="lead" style="margin-top:20px">
+     <span data-lang="fr">Un outil d'intelligence client a besoin de matière : un historique, des churns observés, des interactions régulières. En dessous d'un certain volume, aucune solution du marché — la nôtre comprise — ne peut démontrer quoi que ce soit.</span>
+     <span data-lang="en">Customer intelligence needs material: history, observed churn, regular interactions. Below a certain volume, no tool on the market — ours included — can prove anything.</span>
+   </p>
+   <p class="lead" style="margin-top:18px">
+     <span data-lang="fr">Nous préférons vous le dire avant de vous vendre un abonnement.</span>
+     <span data-lang="en">We'd rather tell you before selling you a subscription.</span>
+   </p>
+   <a class="btn btn-primary" style="margin-top:26px" href="#contact"><span data-lang="fr">Vérifier si vous êtes éligible</span><span data-lang="en">Check if you qualify</span></a>
+  </div>
+  <div>
+   <ul class="req-list">
+    <li><b>80 <span data-lang="fr">comptes</span><span data-lang="en">accounts</span></b><span><span data-lang="fr">Comptes actifs au minimum — 150 pour une lecture confortable.</span><span data-lang="en">Active accounts minimum — 150 for a comfortable read.</span></span></li>
+    <li><b>12 <span data-lang="fr">mois</span><span data-lang="en">months</span></b><span><span data-lang="fr">D'historique disponible dans vos outils.</span><span data-lang="en">Of history available in your tools.</span></span></li>
+    <li><b>10 <span data-lang="fr">churns</span><span data-lang="en">churns</span></b><span><span data-lang="fr">Observés sur les douze derniers mois — c'est ce qui permet de calibrer le score.</span><span data-lang="en">Observed over the last twelve months — that's what lets us calibrate the score.</span></span></li>
+    <li><b>2 <span data-lang="fr">sources</span><span data-lang="en">sources</span></b><span><span data-lang="fr">Connectables au minimum : un CRM et un outil de support.</span><span data-lang="en">Connectable at minimum: a CRM and a support tool.</span></span></li>
+    <li><b>~5 <span data-lang="fr">/ mois</span><span data-lang="en">/ month</span></b><span><span data-lang="fr">Interactions par compte et par mois, en moyenne.</span><span data-lang="en">Interactions per account per month, on average.</span></span></li>
+   </ul>
+  </div>
+ </div>
+</section>
+
+<!-- ================= FONDATEUR ================= -->
+<section style="background:var(--sand); border-block:1px solid var(--line)">
+ <div class="wrap">
+  <div class="founder">
+   <img class="avatar" src="data:image/jpeg;base64,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" alt="Philippe Kanaan, fondateur de loya">
+   <div>
+    <div class="eyebrow"><span data-lang="fr">Pourquoi loya</span><span data-lang="en">Why loya</span></div>
+    <p class="quote">
+      <span data-lang="fr">« Pendant huit ans, j'ai dirigé des équipes Customer Success. Le churn que je n'ai pas vu venir, je l'ai toujours retrouvé dans les données — après coup. »</span>
+      <span data-lang="en">"For eight years I ran Customer Success teams. The churn I didn't see coming was always there in the data — after the fact."</span>
+    </p>
+    <p class="fbody">
+      <span data-lang="fr">Quinze ans dans les opérations de startups et de scale-ups. Premier salarié de <b>Taster</b>, accompagné de 0 à 70 M€ de GMV comme Directeur des Opérations Europe &amp; du Customer Success, puis COO de <b>Sensinov</b> (greentech) et de <b>Captain Contrat</b> (legaltech). Des portefeuilles suivis sur quatre marchés, une satisfaction client maintenue au-dessus de 90 %, un churn partenaires sous 2 %, et un revenu moyen par client relevé de 12 % en restructurant le rôle des CSM.</span>
+      <span data-lang="en">Fifteen years in startup and scale-up operations. First employee at <b>Taster</b>, taken from €0 to €70M GMV as Director of European Operations &amp; Customer Success, then COO of <b>Sensinov</b> (greentech) and <b>Captain Contrat</b> (legaltech). Portfolios managed across four markets, customer satisfaction held above 90%, partner churn under 2%, and average revenue per customer lifted 12% by restructuring the CSM role.</span>
+    </p>
+    <p class="fbody">
+      <span data-lang="fr">Le tout avec HubSpot, Intercom, Zendesk et Aircall ouverts en parallèle, sans jamais réussir à les faire parler entre eux. Et, avant cela, trois ans d'audit financier chez <b>KPMG</b> — d'où l'obsession pour un score que l'on peut auditer ligne à ligne plutôt que croire sur parole.</span>
+      <span data-lang="en">All of it with HubSpot, Intercom, Zendesk and Aircall open side by side, never quite getting them to talk to each other. And before that, three years of financial audit at <b>KPMG</b> — hence the obsession with a score you can audit line by line rather than take on faith.</span>
+    </p>
+    <p style="margin-top:20px; font-size:15px">
+      <b>Philippe Kanaan</b> — <span data-lang="fr">fondateur de loya</span><span data-lang="en">founder of loya</span>
+      · <a href="https://www.linkedin.com/in/philippe-kanaan-70430015/" target="_blank" rel="noopener" style="color:var(--loya); font-weight:600">LinkedIn ↗</a>
+    </p>
+   </div>
+  </div>
+  <div class="creds">
+   <div><b>15 <span data-lang="fr">ans</span><span data-lang="en">years</span></b><p><span data-lang="fr">d'opérations en startup et scale-up</span><span data-lang="en">of startup and scale-up operations</span></p></div>
+   <div><b>0 → 70 M€</b><p><span data-lang="fr">de GMV accompagnés chez Taster</span><span data-lang="en">GMV grown at Taster</span></p></div>
+   <div><b>&gt; 90 %</b><p><span data-lang="fr">de satisfaction client sur 4 marchés</span><span data-lang="en">customer satisfaction across 4 markets</span></p></div>
+   <div><b>+12 %</b><p><span data-lang="fr">de revenu moyen par client, via les CSM</span><span data-lang="en">average revenue per customer, via CSMs</span></p></div>
+  </div>
+ </div>
+</section>
+
+<!-- ================= PROGRAMME PILOTE ================= -->
+<section class="dark on-dark">
+ <div class="wrap">
+  <div class="narrow">
+   <div class="eyebrow"><span data-lang="fr">Programme design partners</span><span data-lang="en">Design partner programme</span></div>
+   <h2 class="h2"><span data-lang="fr">Trois à cinq éditeurs. Un engagement réciproque.</span><span data-lang="en">Three to five companies. A mutual commitment.</span></h2>
+   <p class="lead" style="margin-top:20px">
+     <span data-lang="fr">Nous construisons loya avec un petit nombre d'éditeurs SaaS B2B qui acceptent de nous montrer leur réalité, en échange d'une influence directe sur le produit.</span>
+     <span data-lang="en">We're building loya with a small number of B2B SaaS companies willing to show us their reality, in exchange for direct influence over the product.</span>
+   </p>
+  </div>
+  <div class="prog">
+   <div>
+    <h3 class="h3"><span data-lang="fr">Ce que vous obtenez</span><span data-lang="en">What you get</span></h3>
+    <ul>
+     <li><span data-lang="fr">Une lecture de votre portefeuille sur vos données réelles, dès les premières semaines</span><span data-lang="en">A read of your book of business on your real data, within the first weeks</span></li>
+     <li><span data-lang="fr">Un rétro-test sur vos churns passés : ce que loya aurait signalé, et quand</span><span data-lang="en">A back-test on your past churn: what loya would have flagged, and when</span></li>
+     <li><span data-lang="fr">Une influence directe sur la feuille de route et les connecteurs prioritaires</span><span data-lang="en">Direct influence over the roadmap and connector priorities</span></li>
+     <li><span data-lang="fr">Des conditions tarifaires préférentielles, maintenues après la phase pilote</span><span data-lang="en">Preferential pricing, maintained after the pilot phase</span></li>
+    </ul>
+   </div>
+   <div>
+    <h3 class="h3"><span data-lang="fr">Ce que nous attendons</span><span data-lang="en">What we ask</span></h3>
+    <ul>
+     <li><span data-lang="fr">L'accès en lecture à deux sources au minimum, ou un export CSV équivalent</span><span data-lang="en">Read access to at least two sources, or an equivalent CSV export</span></li>
+     <li><span data-lang="fr">Un point de trente minutes toutes les deux semaines avec l'équipe CSM</span><span data-lang="en">A thirty-minute check-in with the CSM team every two weeks</span></li>
+     <li><span data-lang="fr">Un retour franc sur les faux positifs — c'est le sujet sur lequel nous voulons être jugés</span><span data-lang="en">Blunt feedback on false positives — that's what we want to be judged on</span></li>
+     <li><span data-lang="fr">Le droit de citer votre retour d'expérience, si et seulement si vous l'autorisez</span><span data-lang="en">Permission to quote your experience, if and only if you allow it</span></li>
+    </ul>
+   </div>
+  </div>
+  <div style="margin-top:34px">
+   <a class="btn btn-amber" href="#contact"><span data-lang="fr">Candidater au programme</span><span data-lang="en">Apply to the programme</span></a>
+  </div>
+ </div>
+</section>
+
+<!-- ================= OFFRES TEASER ================= -->
+<section id="offres">
+ <div class="wrap">
+  <div class="narrow">
+   <div class="eyebrow"><span data-lang="fr">Offres</span><span data-lang="en">Plans</span></div>
+   <h2 class="h2"><span data-lang="fr">Trois formats, calés sur la taille de votre portefeuille.</span><span data-lang="en">Three tiers, sized to your book of business.</span></h2>
+   <p class="lead" style="margin-top:20px">
+     <span data-lang="fr">Un abonnement mensuel et des frais de mise en service volontairement bas. Les tarifs sont communiqués sur demande, après un échange de qualification — nous tenons à ne pas vendre à un portefeuille trop petit pour en tirer de la valeur.</span>
+     <span data-lang="en">A monthly subscription and deliberately low setup fees. Pricing is shared on request, after a qualification call — we'd rather not sell to a portfolio too small to benefit.</span>
+   </p>
+  </div>
+  <div class="plans">
+   <div class="plan">
+    <span class="tag"><span data-lang="fr">Équipe naissante</span><span data-lang="en">Emerging team</span></span>
+    <div class="n">Starter</div>
+    <div class="cap">100 <small><span data-lang="fr">comptes</span><span data-lang="en">accounts</span></small></div>
+    <p><span data-lang="fr">Le socle : unification, score de santé, fiches compte et alertes. Deux connecteurs inclus.</span>
+       <span data-lang="en">The foundation: unification, health score, account briefs and alerts. Two connectors included.</span></p>
+   </div>
+   <div class="plan hi">
+    <span class="tag"><span data-lang="fr">Le plus demandé</span><span data-lang="en">Most requested</span></span>
+    <div class="n">Growth</div>
+    <div class="cap">300 <small><span data-lang="fr">comptes</span><span data-lang="en">accounts</span></small></div>
+    <p><span data-lang="fr">Le format d'une équipe CSM constituée : recommandations et brouillons de messages, détection d'upsell, scoring paramétrable.</span>
+       <span data-lang="en">Built for an established CSM team: recommendations and draft messages, upsell detection, configurable scoring.</span></p>
+   </div>
+   <div class="plan">
+    <span class="tag"><span data-lang="fr">Plusieurs équipes</span><span data-lang="en">Multiple teams</span></span>
+    <div class="n">Scale</div>
+    <div class="cap">800 <small><span data-lang="fr">comptes</span><span data-lang="en">accounts</span></small></div>
+    <p><span data-lang="fr">Segmentation par équipe, connecteurs sur mesure, journal de conformité étendu et accompagnement dédié.</span>
+       <span data-lang="en">Team-level segmentation, custom connectors, extended compliance logging and dedicated support.</span></p>
+   </div>
+  </div>
+  <div style="margin-top:34px; display:flex; gap:12px; flex-wrap:wrap">
+   <a class="btn btn-primary" href="offres.html"><span data-lang="fr">Comparer les offres en détail</span><span data-lang="en">Compare plans in detail</span></a>
+   <a class="btn btn-ghost" href="#contact"><span data-lang="fr">Demander un devis</span><span data-lang="en">Request a quote</span></a>
+  </div>
+ </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section style="background:var(--sand); border-block:1px solid var(--line)">
+ <div class="wrap"><div class="narrow">
+  <div class="eyebrow"><span data-lang="fr">Questions fréquentes</span><span data-lang="en">Frequently asked</span></div>
+  <h2 class="h2"><span data-lang="fr">Ce qu'on nous demande le plus.</span><span data-lang="en">What we get asked most.</span></h2>
+  <div class="faq">
+   <details open>
+    <summary><span data-lang="fr">En quoi est-ce différent d'un tableau de bord de plus ?</span><span data-lang="en">How is this different from yet another dashboard?</span></summary>
+    <p><span data-lang="fr">Un tableau de bord affiche un état et vous laisse en tirer les conclusions. loya va jusqu'à la recommandation : quel compte traiter en priorité, pourquoi, et quoi lui écrire. La sortie de loya n'est pas un graphique, c'est une décision préparée que le CSM valide ou rejette.</span>
+       <span data-lang="en">A dashboard shows you a state and leaves you to draw conclusions. loya goes as far as the recommendation: which account to handle first, why, and what to write. loya's output isn't a chart, it's a prepared decision the CSM approves or rejects.</span></p>
+   </details>
+   <details>
+    <summary><span data-lang="fr">Comment évitez-vous les faux positifs ?</span><span data-lang="en">How do you avoid false positives?</span></summary>
+    <p><span data-lang="fr">C'est le risque que nous prenons le plus au sérieux : une équipe qui cesse de croire ses alertes n'utilise plus l'outil. Trois réponses. Le score est calibré sur vos churns passés avant la mise en service. Chaque alerte cite ses preuves, donc le CSM peut la contredire en dix secondes. Et le motif de rejet est obligatoire, ce qui alimente la recalibration.</span>
+       <span data-lang="en">This is the risk we take most seriously: a team that stops believing its alerts stops using the tool. Three answers. The score is calibrated against your past churn before go-live. Every alert cites its evidence, so a CSM can contradict it in ten seconds. And rejection reasons are mandatory, which feeds recalibration.</span></p>
+   </details>
+   <details>
+    <summary><span data-lang="fr">Est-ce que loya écrit directement à mes clients ?</span><span data-lang="en">Does loya email my customers directly?</span></summary>
+    <p><span data-lang="fr">Non. loya prépare un brouillon, un CSM le relit et décide. L'automatisation d'envoi n'est envisagée que plus tard, sur le segment low-touch uniquement, et après une période d'observation où l'on compare ce que loya aurait envoyé à ce que l'équipe a réellement envoyé.</span>
+       <span data-lang="en">No. loya prepares a draft, a CSM reviews it and decides. Automated sending is only considered later, on the low-touch segment, and after an observation period comparing what loya would have sent to what the team actually sent.</span></p>
+   </details>
+   <details>
+    <summary><span data-lang="fr">Mes données servent-elles à entraîner un modèle ?</span><span data-lang="en">Is my data used to train a model?</span></summary>
+    <p><span data-lang="fr">Non, ni par nous ni par notre fournisseur de modèle, chez qui la non-rétention est activée. Les données sont hébergées dans l'Union européenne, cloisonnées par client, et pseudonymisées avant tout appel à un modèle. Le score, lui, ne fait appel à aucun modèle : c'est un calcul déterministe sur vos données.</span>
+       <span data-lang="en">No, neither by us nor by our model provider, where zero-retention is enabled. Data is hosted in the European Union, partitioned per tenant, and pseudonymised before any model call. The score itself calls no model: it's a deterministic calculation on your data.</span></p>
+   </details>
+   <details>
+    <summary><span data-lang="fr">Combien de temps pour être opérationnel ?</span><span data-lang="en">How long until we're up and running?</span></summary>
+    <p><span data-lang="fr">Avec un import CSV, une première lecture de votre portefeuille est possible en quelques jours. Les connecteurs natifs demandent ensuite une configuration par source. Nous ne promettons pas de délai contractuel avant d'avoir vu votre stack — c'est précisément ce que l'échange de qualification sert à établir.</span>
+       <span data-lang="en">With a CSV import, a first read of your portfolio is possible within days. Native connectors then need per-source configuration. We won't promise a contractual timeline before seeing your stack — that's exactly what the qualification call establishes.</span></p>
+   </details>
+   <details>
+    <summary><span data-lang="fr">Pourquoi ne pas afficher vos tarifs ?</span><span data-lang="en">Why don't you show your prices?</span></summary>
+    <p><span data-lang="fr">Parce que la première question à trancher n'est pas le prix, mais l'éligibilité. Un portefeuille de quarante comptes sans historique ne tirera rien de loya, quel que soit le tarif. L'échange de qualification dure vingt minutes et se termine parfois par un « ce n'est pas pour vous » — ce qui nous coûte moins cher qu'un client déçu.</span>
+       <span data-lang="en">Because the first question isn't price, it's fit. A forty-account portfolio with no history will get nothing from loya, whatever the price. The qualification call takes twenty minutes and sometimes ends with "this isn't for you" — which costs us less than a disappointed customer.</span></p>
+   </details>
+  </div>
+ </div></div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact" class="contact">
+ <div class="wrap"><div class="narrow">
+  <div class="eyebrow"><span data-lang="fr">Parlons-en</span><span data-lang="en">Get in touch</span></div>
+  <h2 class="h2"><span data-lang="fr">Vingt minutes pour savoir si loya vous servira.</span><span data-lang="en">Twenty minutes to find out if loya will help.</span></h2>
+  <p class="lead" style="margin-top:18px">
+    <span data-lang="fr">Décrivez-nous votre portefeuille et votre stack. Nous revenons vers vous avec une réponse franche sur l'éligibilité, et les tarifs si c'est pertinent.</span>
+    <span data-lang="en">Tell us about your portfolio and your stack. We'll come back with a straight answer on fit, and pricing if it's relevant.</span>
+  </p>
+
+  <form id="contactForm" class="form-grid" novalidate>
+   <div class="field">
+    <label for="nom"><span data-lang="fr">Nom et prénom</span><span data-lang="en">Full name</span></label>
+    <input id="nom" name="nom" required autocomplete="name">
+   </div>
+   <div class="field">
+    <label for="email"><span data-lang="fr">Email professionnel</span><span data-lang="en">Work email</span></label>
+    <input id="email" name="email" type="email" required autocomplete="email">
+   </div>
+   <div class="field">
+    <label for="societe"><span data-lang="fr">Société</span><span data-lang="en">Company</span></label>
+    <input id="societe" name="societe" required autocomplete="organization">
+   </div>
+   <div class="field">
+    <label for="comptes"><span data-lang="fr">Nombre de comptes actifs</span><span data-lang="en">Number of active accounts</span></label>
+    <select id="comptes" name="comptes">
+     <option value="<80"><span>&lt; 80</span></option>
+     <option value="80-150">80 – 150</option>
+     <option value="150-300" selected>150 – 300</option>
+     <option value="300-800">300 – 800</option>
+     <option value=">800">&gt; 800</option>
+    </select>
+   </div>
+   <div class="field full">
+    <label for="stack"><span data-lang="fr">Vos outils (CRM, support, téléphonie, messagerie)</span><span data-lang="en">Your tools (CRM, support, phone, email)</span></label>
+    <input id="stack" name="stack" placeholder="HubSpot, Intercom, Aircall, Gmail…">
+   </div>
+   <div class="field full">
+    <label for="msg"><span data-lang="fr">Votre contexte</span><span data-lang="en">Your context</span></label>
+    <textarea id="msg" name="message"></textarea>
+   </div>
+   <label class="consent">
+    <input type="checkbox" id="consent" required>
+    <span>
+     <span data-lang="fr">J'accepte que loya utilise ces informations pour me recontacter au sujet de ma demande. Elles ne sont ni revendues ni utilisées à d'autres fins. <a href="#" style="color:var(--loya)">Politique de confidentialité</a>.</span>
+     <span data-lang="en">I agree that loya may use this information to get back to me about my request. It is neither resold nor used for other purposes. <a href="#" style="color:var(--loya)">Privacy policy</a>.</span>
+    </span>
+   </label>
+   <div class="field full">
+    <button class="btn btn-primary" type="submit" style="width:auto; align-self:flex-start">
+     <span data-lang="fr">Envoyer ma demande</span><span data-lang="en">Send my request</span>
+    </button>
+   </div>
+   <div class="form-msg" id="formMsg"></div>
+  </form>
+ </div></div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+ <div class="wrap">
+  <div class="foot-grid">
+   <div>
+    <div class="foot-logo">
+     <svg width="27" height="27" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#0E4F45"/><path d="M10 8v13h9" stroke="#E9B15A" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+     loya
+    </div>
+    <p style="max-width:38ch; color:#8C9C97">
+     <span data-lang="fr">L'intelligence client qui protège le revenu récurrent des éditeurs SaaS B2B. Conçu et hébergé en Europe.</span>
+     <span data-lang="en">Customer intelligence that protects recurring revenue for B2B SaaS. Built and hosted in Europe.</span>
+    </p>
+   </div>
+   <div>
+    <h5><span data-lang="fr">Produit</span><span data-lang="en">Product</span></h5>
+    <a href="#fonctionnement"><span data-lang="fr">Fonctionnement</span><span data-lang="en">How it works</span></a>
+    <a href="#produit"><span data-lang="fr">Fonctionnalités</span><span data-lang="en">Features</span></a>
+    <a href="offres.html"><span data-lang="fr">Offres</span><span data-lang="en">Plans</span></a>
+    <a href="#pourqui"><span data-lang="fr">Pour qui</span><span data-lang="en">Who it's for</span></a>
+   </div>
+   <div>
+    <h5><span data-lang="fr">Société</span><span data-lang="en">Company</span></h5>
+    <a href="#conformite"><span data-lang="fr">Conformité & sécurité</span><span data-lang="en">Compliance & security</span></a>
+    <a href="#contact"><span data-lang="fr">Nous contacter</span><span data-lang="en">Contact us</span></a>
+    <a href="https://www.linkedin.com/in/philippe-kanaan-70430015/" target="_blank" rel="noopener">LinkedIn</a>
+   </div>
+  </div>
+  <div class="foot-bot">
+   <span>© 2026 loya. <span data-lang="fr">Tous droits réservés.</span><span data-lang="en">All rights reserved.</span></span>
+   <span>
+     <span data-lang="fr">Mentions légales · Politique de confidentialité · DPA</span>
+     <span data-lang="en">Legal notice · Privacy policy · DPA</span>
+   </span>
+  </div>
+ </div>
+</footer>
+
+<script>
+/* ---------- bascule de langue ---------- */
+(function(){
+  var body=document.body;
+  function setLang(l){
+    body.setAttribute('data-l',l);
+    document.documentElement.lang=l;
+    document.querySelectorAll('[data-setlang]').forEach(function(b){
+      b.classList.toggle('on', b.getAttribute('data-setlang')===l);
+    });
+    var t=document.querySelector('title');
+    if(t) t.textContent = (l==='en')
+      ? 'loya — Customer intelligence that protects your recurring revenue'
+      : "loya — L'intelligence client qui protège votre revenu récurrent";
+    document.querySelectorAll('a[href^="offres.html"]').forEach(function(a){
+      var p=a.getAttribute('href').split('?')[0].split('#');
+      a.setAttribute('href', p[0] + (l==='en'?'?lang=en':'') + (p[1]?'#'+p[1]:''));
+    });
+    try{ history.replaceState(null,'', l==='en' ? '?lang=en' : location.pathname); }catch(e){}
+  }
+  document.querySelectorAll('[data-setlang]').forEach(function(b){
+    b.addEventListener('click',function(){ setLang(b.getAttribute('data-setlang')); });
+  });
+  var p=new URLSearchParams(location.search).get('lang');
+  if(p==='en'){ setLang('en'); }
+  else if(!p && (navigator.language||'').slice(0,2)!=='fr'){ setLang('en'); }
+})();
+
+/* ---------- formulaire ----------
+   PAR DÉFAUT : ouvre le client mail avec la demande pré-remplie.
+   POUR PASSER EN FORMULAIRE HÉBERGÉ : renseignez FORM_ENDPOINT
+   (ex. https://formspree.io/f/xxxxxxx ou une URL Tally / Make / n8n).
+------------------------------------ */
+var FORM_ENDPOINT = "";                       // ← à renseigner
+var CONTACT_EMAIL = "philippekanaan@gmail.com"; // ← à remplacer par l'adresse pro
+
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  var f=e.target, msg=document.getElementById('formMsg'), en=document.body.getAttribute('data-l')==='en';
+  if(!f.checkValidity()){ f.reportValidity(); return; }
+  var d=new FormData(f), o={};
+  d.forEach(function(v,k){ o[k]=v; });
+
+  if(FORM_ENDPOINT){
+    fetch(FORM_ENDPOINT,{method:'POST',headers:{'Accept':'application/json'},body:d})
+      .then(function(){ done(); })
+      .catch(function(){ mailto(o); });
+  } else {
+    mailto(o); done();
+  }
+
+  function mailto(o){
+    var subj = en ? 'loya — pilot programme request' : 'loya — demande de qualification';
+    var body = Object.keys(o).map(function(k){ return k+': '+o[k]; }).join('\n');
+    window.location.href='mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
+  }
+  function done(){
+    msg.className='form-msg ok';
+    msg.textContent = en
+      ? 'Thank you — your request is on its way. We reply within two working days.'
+      : 'Merci — votre demande part. Nous répondons sous deux jours ouvrés.';
+    f.reset();
+  }
+});
+</script>
+</body>
+</html>
