@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>loya — L'intelligence client qui protège votre revenu récurrent</title>
+<title>MARSĀ — L'intelligence client qui protège votre revenu récurrent</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#14150f; --sub:#57543f; --cream:#f5f1e7; --black:#0a0b08;
-    --panel:#15170f; --line:#e4ddc8; --line-dark:rgba(255,255,255,.1);
+    --panel:#15170f; --line:#e4ddc8; --line-dark:rgba(255,255,255,.2);
     --orange:#5a98fd; --orange-deep:#1e5bc6; --orange-tint:#e6f0ff; --orange-ondark:#0b1b3a; --orange-hover:#7aacff;
+    --brand:#2b6ce0; --brand-accent:#f5f1e7; --brand-hover:#3d7ee8; --brand-accent-hover:#ece5d2;
     --amber:#d99a3d;
     --red:#c0533f; --green:#3f8f5f;
   }
@@ -26,7 +27,7 @@
   .wrap{ max-width:1240px; margin:0 auto; padding-left:48px; padding-right:48px; }
   .kicker{ font-size:12.5px; font-weight:700; letter-spacing:.09em; text-transform:uppercase; margin-bottom:14px; }
   .kicker.on-light{ color:var(--orange-deep); }
-  .kicker.on-dark{ color:var(--orange); }
+  .kicker.on-dark{ color:var(--brand-accent); }
   h2.head{ font-size:34px; line-height:1.12; max-width:20ch; }
   .lede{ font-size:15.5px; color:var(--sub); max-width:60ch; margin-top:16px; line-height:1.62; }
   section.block{ padding:88px 0; }
@@ -39,20 +40,22 @@
   @media (max-width:960px){ .sec-visual{ display:none; } }
 
   /* ---------- NAV ---------- */
-  nav.topnav{ position:sticky; top:0; z-index:100; background:var(--black); }
+  nav.topnav{ position:sticky; top:0; z-index:100; background:var(--brand); }
   nav.topnav .wrap{ display:flex; align-items:center; justify-content:space-between; padding-top:20px; padding-bottom:20px; }
   .logo{ display:flex; align-items:center; gap:9px; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:18px; color:#fff; }
-  .logo .mark{ width:27px; height:27px; background:var(--orange); color:#0a0b08; display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; border-radius:2px; }
-  .navlinks{ display:flex; gap:28px; font-size:13.5px; font-weight:500; color:rgba(255,255,255,.65); }
+  .logo .mark{ width:27px; height:27px; background:var(--brand-accent); color:var(--brand); display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:14px; border-radius:2px; }
+  .navlinks{ display:flex; gap:28px; font-size:13.5px; font-weight:500; color:rgba(255,255,255,.78); }
   .navlinks a:hover{ color:#fff; }
   .navcta{ display:flex; align-items:center; gap:16px; }
-  .lang{ font-size:12.5px; color:rgba(255,255,255,.45); }
+  .lang{ font-size:12.5px; color:rgba(255,255,255,.62); }
   .lang-current{ color:#fff; font-weight:600; }
-  .lang-link{ color:rgba(255,255,255,.45); }
+  .lang-link{ color:rgba(255,255,255,.62); }
   .lang-link:hover{ color:#fff; }
   .btn{ display:inline-flex; align-items:center; gap:8px; padding:11px 20px; font-weight:700; font-size:13.5px; border-radius:3px; }
-  .btn.solid{ background:var(--orange); color:var(--orange-ondark); }
-  .btn.solid:hover{ background:var(--orange-hover); }
+  .btn.solid{ background:var(--brand); color:#fff; }
+  .btn.solid:hover{ background:var(--brand-hover); }
+  .btn.solid.on-brand{ background:var(--brand-accent); color:var(--brand); }
+  .btn.solid.on-brand:hover{ background:var(--brand-accent-hover); }
   .btn.ghost-dark{ background:transparent; color:#fff; border:1px solid rgba(255,255,255,.28); }
   .btn.ghost-dark:hover{ border-color:rgba(255,255,255,.6); }
   .btn.ink{ background:var(--ink); color:#fff; }
@@ -61,12 +64,12 @@
   .btn.ghost-light:hover{ border-color:var(--ink); }
 
   /* ---------- HERO ---------- */
-  .hero-wrap{ background:var(--black); color:#fff; }
+  .hero-wrap{ background:var(--brand); color:#fff; }
   .hero{ padding:64px 0 0; display:grid; grid-template-columns:1.05fr .95fr; gap:44px; align-items:start; }
-  .hero-eyebrow{ font-size:12.5px; font-weight:700; letter-spacing:.09em; color:var(--orange); text-transform:uppercase; margin-bottom:18px; }
+  .hero-eyebrow{ font-size:12.5px; font-weight:700; letter-spacing:.09em; color:var(--brand-accent); text-transform:uppercase; margin-bottom:18px; }
   h1{ font-family:'Space Grotesk',sans-serif; font-size:48px; line-height:1.08; letter-spacing:-.01em; }
-  h1 .hi{ color:var(--orange); text-decoration:underline; text-decoration-color:var(--orange-deep); text-decoration-thickness:5px; text-underline-offset:9px; }
-  .hero-sub{ margin-top:24px; font-size:16px; line-height:1.62; color:rgba(255,255,255,.66); max-width:52ch; }
+  h1 .hi{ color:#000; text-decoration:underline; text-decoration-color:rgba(0,0,0,.55); text-decoration-thickness:5px; text-underline-offset:9px; }
+  .hero-sub{ margin-top:24px; font-size:16px; line-height:1.62; color:rgba(255,255,255,.85); max-width:52ch; }
   .hero-cta{ display:flex; gap:18px; align-items:center; margin-top:30px; flex-wrap:wrap; }
   .arrow-link{ font-size:13.5px; font-weight:700; display:inline-flex; align-items:center; gap:6px; }
   .arrow-link.on-dark{ color:#fff; }
@@ -100,14 +103,14 @@
   .fc-footer .btn-valid{ background:var(--ink); color:#fff; }
 
   .trustline{ padding:56px 0 60px; }
-  .trust-label{ font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:18px; }
+  .trust-label{ font-size:11.5px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.62); margin-bottom:18px; }
   .trust-logos{ display:flex; gap:36px; flex-wrap:wrap; align-items:center; }
-  .trust-logos span{ font-weight:800; font-size:16px; color:rgba(255,255,255,.35); letter-spacing:-.01em; }
+  .trust-logos span{ font-weight:800; font-size:16px; color:rgba(255,255,255,.58); letter-spacing:-.01em; }
 
   .statsbar{ border-top:1px solid var(--line-dark); }
   .statsbar .wrap{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; padding:36px 48px; }
-  .statsbar .n{ font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--orange); font-weight:700; }
-  .statsbar .d{ font-size:13px; color:rgba(255,255,255,.55); margin-top:4px; }
+  .statsbar .n{ font-family:'Space Grotesk',sans-serif; font-size:28px; color:var(--brand-accent); font-weight:700; }
+  .statsbar .d{ font-size:13px; color:rgba(255,255,255,.78); margin-top:4px; }
 
   /* ---------- PRODUIT ---------- */
   .ring-card{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:22px; text-align:center; }
@@ -161,15 +164,15 @@
   .conviction p{ font-size:13.5px; color:var(--sub); line-height:1.6; }
 
   /* ---------- CONFORMITE ---------- */
-  .block.dark{ background:var(--black); color:#fff; }
-  .block.dark .lede{ color:rgba(255,255,255,.6); }
-  .grid2.on-dark .conviction{ background:var(--panel); border-color:var(--line-dark); }
+  .block.dark{ background:var(--brand); color:#fff; }
+  .block.dark .lede{ color:rgba(255,255,255,.82); }
+  .grid2.on-dark .conviction{ background:rgba(255,255,255,.1); border-color:rgba(255,255,255,.18); }
   .grid2.on-dark .conviction h3{ color:#fff; }
-  .grid2.on-dark .conviction p{ color:rgba(255,255,255,.6); }
-  .grid2.on-dark .conviction .tag{ color:var(--orange); }
-  .grid2.on-dark .conviction .icon{ background:rgba(90,152,253,.18); color:var(--orange); }
+  .grid2.on-dark .conviction p{ color:rgba(255,255,255,.8); }
+  .grid2.on-dark .conviction .tag{ color:var(--brand-accent); }
+  .grid2.on-dark .conviction .icon{ background:rgba(255,255,255,.16); color:var(--brand-accent); }
   .conviction .tag{ font-size:11px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--orange-deep); display:block; margin-bottom:8px; }
-  .conf-foot{ margin-top:28px; font-size:13.5px; color:rgba(255,255,255,.5); }
+  .conf-foot{ margin-top:28px; font-size:13.5px; color:rgba(255,255,255,.72); }
 
   /* ---------- FOUNDER ---------- */
   .founder{ display:flex; gap:32px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:16px; padding:44px; }
@@ -215,16 +218,16 @@
   .form-msg.ok{ color:var(--green); }
 
   /* ---------- FOOTER ---------- */
-  footer{ background:var(--black); color:rgba(255,255,255,.7); padding:64px 0 32px; }
+  footer{ background:var(--brand); color:rgba(255,255,255,.85); padding:64px 0 32px; }
   .foot-top{ display:flex; justify-content:space-between; gap:40px; flex-wrap:wrap; padding-bottom:40px; }
   .foot-brand .logo{ margin-bottom:14px; }
-  .foot-brand p{ font-size:13.5px; max-width:32ch; line-height:1.6; color:rgba(255,255,255,.5); }
+  .foot-brand p{ font-size:13.5px; max-width:32ch; line-height:1.6; color:rgba(255,255,255,.72); }
   .foot-cols{ display:flex; gap:64px; }
-  .foot-col h4{ font-size:11.5px; letter-spacing:.07em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:16px; }
-  .foot-col a{ display:block; font-size:13.5px; color:rgba(255,255,255,.7); margin-bottom:12px; }
+  .foot-col h4{ font-size:11.5px; letter-spacing:.07em; text-transform:uppercase; color:rgba(255,255,255,.62); margin-bottom:16px; }
+  .foot-col a{ display:block; font-size:13.5px; color:rgba(255,255,255,.82); margin-bottom:12px; }
   .foot-col a:hover{ color:#fff; }
-  .foot-bottom{ border-top:1px solid var(--line-dark); padding-top:24px; display:flex; justify-content:space-between; font-size:12.5px; color:rgba(255,255,255,.4); flex-wrap:wrap; gap:10px; }
-  .foot-bottom a{ margin-left:18px; color:rgba(255,255,255,.4); }
+  .foot-bottom{ border-top:1px solid rgba(255,255,255,.2); padding-top:24px; display:flex; justify-content:space-between; font-size:12.5px; color:rgba(255,255,255,.62); flex-wrap:wrap; gap:10px; }
+  .foot-bottom a{ margin-left:18px; color:rgba(255,255,255,.62); }
   .foot-bottom a:hover{ color:#fff; }
 
   @media (max-width:960px){
@@ -245,7 +248,7 @@
 
 <nav class="topnav">
   <div class="wrap">
-    <div class="logo"><span class="mark">L</span> loya</div>
+    <div class="logo"><span class="mark">M</span> MARSĀ</div>
     <div class="navlinks">
       <a href="#produit">Produit</a>
       <a href="#probleme">Le problème</a>
@@ -255,7 +258,7 @@
     </div>
     <div class="navcta">
       <span class="lang"><span class="lang-current">FR</span> · <a class="lang-link" href="index-en.html">EN</a></span>
-      <a class="btn solid" href="#contact">Demander une démo</a>
+      <a class="btn solid on-brand" href="#contact">Demander une démo</a>
     </div>
   </div>
 </nav>
@@ -266,9 +269,9 @@
     <div>
       <div class="hero-eyebrow">Plateforme d'intelligence clients d'optimisation du churn et de l'upsell</div>
       <h1 class="head">Vos clients ne partent jamais sans prévenir. <span class="hi">Vous ne les entendez juste pas.</span></h1>
-      <p class="hero-sub">loya se connecte à vos outils de relation clients (CRM, support clients, téléphonie, e-mails etc.) et suggère des actions correctives pour chaque CSM. Les résultats ? Des clients fidélisés, une baisse significative du churn et des opportunités d'upsell décelées.</p>
+      <p class="hero-sub">MARSĀ se connecte à vos outils de relation clients (CRM, support clients, téléphonie, e-mails etc.) et suggère des actions correctives pour chaque CSM. Les résultats ? Des clients fidélisés, une baisse significative du churn et des opportunités d'upsell décelées.</p>
       <div class="hero-cta">
-        <a class="btn solid" href="#contact">Demander une démo →</a>
+        <a class="btn solid on-brand" href="#contact">Demander une démo →</a>
         <a class="arrow-link on-dark" href="#fonctionnement">Voir comment ça marche →</a>
       </div>
     </div>
@@ -276,7 +279,7 @@
     <div class="fichecard">
       <div class="fc-top">
         <div class="fc-dots"><span></span><span></span><span></span></div>
-        <span class="fc-label">loya · Fiche compte</span>
+        <span class="fc-label">MARSĀ · Fiche compte</span>
       </div>
       <div class="fc-head">
         <div>
@@ -379,7 +382,7 @@
       </div>
     </div>
 
-    <p class="punch">loya ne se contente pas de repérer les comptes à risque : elle révèle aussi <b>ceux prêts à grandir</b>. Un besoin exprimé trois fois au support pèse autant qu'une alerte de churn.</p>
+    <p class="punch">MARSĀ ne se contente pas de repérer les comptes à risque : elle révèle aussi <b>ceux prêts à grandir</b>. Un besoin exprimé trois fois au support pèse autant qu'une alerte de churn.</p>
 
     <div class="sources">
       <h3>Vos sources de données</h3>
@@ -449,7 +452,7 @@
         <p>Le compte qui crie fort passe devant celui qui se tait. Or le client qui part discrètement ne réclame rien : il arrête simplement de se connecter, puis de renouveler.</p>
       </div>
     </div>
-    <p class="punch">Grâce à loya, vous réduisez votre churn jusqu'à <b>30 %</b> et fidélisez vos clients dans le temps.</p>
+    <p class="punch">Grâce à MARSĀ, vous réduisez votre churn jusqu'à <b>30 %</b> et fidélisez vos clients dans le temps.</p>
   </div>
 </section>
 
@@ -470,7 +473,7 @@
       <div class="step">
         <div class="num">1</div>
         <h3>Unifier</h3>
-        <p>Vos outils se connectent, loya réconcilie. Résolution d'identité entre les systèmes, arbitrage des sources maîtresses, contrôle qualité continu.</p>
+        <p>Vos outils se connectent, MARSĀ réconcilie. Résolution d'identité entre les systèmes, arbitrage des sources maîtresses, contrôle qualité continu.</p>
         <ul>
           <li>Un modèle de données unifié, pas un tableau de bord de plus</li>
           <li>Détection des connecteurs silencieusement vides</li>
@@ -490,7 +493,7 @@
       <div class="step">
         <div class="num">3</div>
         <h3>Agir</h3>
-        <p>Pour chaque compte qui bouge : la prochaine meilleure action et un brouillon de message prêt à envoyer. Le CSM décide, loya prépare.</p>
+        <p>Pour chaque compte qui bouge : la prochaine meilleure action et un brouillon de message prêt à envoyer. Le CSM décide, MARSĀ prépare.</p>
         <ul>
           <li>Chaque recommandation cite les faits qui la fondent</li>
           <li>Accepté, modifié ou rejeté : tout est journalisé</li>
@@ -525,7 +528,7 @@
       <div class="conviction">
         <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></div>
         <h3>Mise en service en jours, pas en trimestres.</h3>
-        <p>Les plateformes établies facturent plusieurs milliers d'euros de mise en service et se déploient sur un trimestre. loya démarre sur un import CSV et une première lecture de votre portefeuille, puis branche les connecteurs.</p>
+        <p>Les plateformes établies facturent plusieurs milliers d'euros de mise en service et se déploient sur un trimestre. MARSĀ démarre sur un import CSV et une première lecture de votre portefeuille, puis branche les connecteurs.</p>
       </div>
     </div>
   </div>
@@ -553,7 +556,7 @@
       <div class="conviction">
         <div class="icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div>
         <span class="tag">RGPD</span>
-        <h3>loya est votre sous-traitant</h3>
+        <h3>MARSĀ est votre sous-traitant</h3>
         <p>Accord de traitement type, liste publique des sous-traitants ultérieurs — fournisseur de modèle inclus —, non-rétention activée côté fournisseur, politique de purge et pseudonymisation avant tout envoi.</p>
       </div>
       <div class="conviction">
@@ -574,7 +577,7 @@
       <div class="f-photo"></div>
       <div>
         <p class="f-quote">« Pendant huit ans, j'ai dirigé des équipes Customer Success. Le churn que je n'ai pas vu venir, je l'ai toujours retrouvé dans les données — après coup. »</p>
-        <div class="f-quote-by">Philippe Kanaan — fondateur de loya · 15 ans d'opérations, ex-Taster, Sensinov, Captain Contrat, KPMG</div>
+        <div class="f-quote-by">Philippe Kanaan — fondateur de MARSĀ · 15 ans d'opérations, ex-Taster, Sensinov, Captain Contrat, KPMG</div>
       </div>
     </div>
     <div class="f-stats">
@@ -629,15 +632,15 @@
     <div class="faq">
       <details open>
         <summary>En quoi est-ce différent d'un tableau de bord de plus ? <span class="plus">+</span></summary>
-        <p>Un tableau de bord affiche un état et vous laisse en tirer les conclusions. loya va jusqu'à la recommandation : quel compte traiter en priorité, pourquoi, et quoi lui écrire. La sortie de loya n'est pas un graphique, c'est une décision préparée que le CSM valide ou rejette.</p>
+        <p>Un tableau de bord affiche un état et vous laisse en tirer les conclusions. MARSĀ va jusqu'à la recommandation : quel compte traiter en priorité, pourquoi, et quoi lui écrire. La sortie de MARSĀ n'est pas un graphique, c'est une décision préparée que le CSM valide ou rejette.</p>
       </details>
       <details>
         <summary>Comment évitez-vous les faux positifs ? <span class="plus">+</span></summary>
         <p>Le score est calibré sur vos churns passés, pas sur des seuils génériques. Chaque recommandation acceptée, modifiée ou rejetée par un CSM — et son motif — nourrit cette calibration. C'est un système qui s'améliore avec l'usage, pas un modèle figé.</p>
       </details>
       <details>
-        <summary>Est-ce que loya écrit directement à mes clients ? <span class="plus">+</span></summary>
-        <p>Non. Aucune action n'est envoyée à un client sans qu'un CSM l'ait relue et validée. loya prépare le brouillon et argumente la recommandation ; la décision d'envoyer reste toujours humaine.</p>
+        <summary>Est-ce que MARSĀ écrit directement à mes clients ? <span class="plus">+</span></summary>
+        <p>Non. Aucune action n'est envoyée à un client sans qu'un CSM l'ait relue et validée. MARSĀ prépare le brouillon et argumente la recommandation ; la décision d'envoyer reste toujours humaine.</p>
       </details>
       <details>
         <summary>Mes données servent-elles à entraîner un modèle ? <span class="plus">+</span></summary>
@@ -645,7 +648,7 @@
       </details>
       <details>
         <summary>Combien de temps pour être opérationnel ? <span class="plus">+</span></summary>
-        <p>loya démarre sur un import CSV et une première lecture de votre portefeuille en quelques jours, puis les connecteurs OAuth se branchent au fur et à mesure — sans le chantier d'intégration de plusieurs mois qu'imposent les plateformes établies.</p>
+        <p>MARSĀ démarre sur un import CSV et une première lecture de votre portefeuille en quelques jours, puis les connecteurs OAuth se branchent au fur et à mesure — sans le chantier d'intégration de plusieurs mois qu'imposent les plateformes établies.</p>
       </details>
       <details>
         <summary>Pourquoi ne pas afficher vos tarifs ? <span class="plus">+</span></summary>
@@ -659,7 +662,7 @@
 <section class="block cream-alt" id="contact">
   <div class="wrap">
     <div class="kicker on-light">Parlons-en</div>
-    <h2 class="head">Vingt minutes pour savoir si loya vous servira.</h2>
+    <h2 class="head">Vingt minutes pour savoir si MARSĀ vous servira.</h2>
     <p class="lede">Décrivez-nous votre portefeuille et votre stack. Nous revenons vers vous avec une réponse franche sur l'éligibilité, et les tarifs si c'est pertinent.</p>
     <form class="formgrid" id="contactForm">
       <div>
@@ -694,7 +697,7 @@
       </div>
       <div class="full consent">
         <input type="checkbox" required>
-        <span>J'accepte que loya utilise ces informations pour me recontacter au sujet de ma demande. Elles ne sont ni revendues ni utilisées à d'autres fins. <a href="#">Politique de confidentialité</a>.</span>
+        <span>J'accepte que MARSĀ utilise ces informations pour me recontacter au sujet de ma demande. Elles ne sont ni revendues ni utilisées à d'autres fins. <a href="#">Politique de confidentialité</a>.</span>
       </div>
       <div class="full">
         <button class="btn solid" type="submit">Envoyer ma demande</button>
@@ -708,7 +711,7 @@
   <div class="wrap">
     <div class="foot-top">
       <div class="foot-brand">
-        <div class="logo"><span class="mark">L</span> loya</div>
+        <div class="logo"><span class="mark">M</span> MARSĀ</div>
         <p>L'intelligence client qui protège le revenu récurrent des éditeurs SaaS B2B. Conçu et hébergé en Europe.</p>
       </div>
       <div class="foot-cols">
@@ -727,7 +730,7 @@
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 loya. Tous droits réservés.</span>
+      <span>© 2026 MARSĀ. Tous droits réservés.</span>
       <span><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a><a href="#">DPA</a></span>
     </div>
   </div>
@@ -758,7 +761,7 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
   }
 
   function mailto(o){
-    var subj = 'loya — demande de qualification';
+    var subj = 'MARSĀ — demande de qualification';
     var body = Object.keys(o).map(function(k){ return k+': '+o[k]; }).join('\n');
     window.location.href = 'mailto:'+CONTACT_EMAIL+'?subject='+encodeURIComponent(subj)+'&body='+encodeURIComponent(body);
   }
