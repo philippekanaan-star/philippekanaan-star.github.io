@@ -186,6 +186,7 @@
   /* ---------- OFFRES ---------- */
   .plans{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px; }
   .plans.plans-2{ grid-template-columns:1.15fr 1fr; }
+  .plans.plans-1{ grid-template-columns:1fr; max-width:540px; }
   .plan{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px; position:relative; }
   .plan.hi{ border:2px solid var(--orange); }
   .plan .tag{ font-size:10.5px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; background:var(--orange-tint); color:var(--orange-deep); padding:4px 10px; border-radius:999px; display:inline-block; margin-bottom:16px; }
@@ -261,7 +262,7 @@
       <a href="#probleme">Le problème</a>
       <a href="#fonctionnement">Fonctionnement</a>
       <a href="#conformite">Conformité</a>
-      <a href="#offres">Offres</a>
+      <a href="offres.html">Offres</a>
     </div>
     <div class="navcta">
       <span class="lang"><span class="lang-current">FR</span> · <a class="lang-link" href="index-en.html">EN</a></span>
@@ -600,21 +601,17 @@
 <section class="block cream-alt" id="offres">
   <div class="wrap">
     <div class="kicker on-light">Offres</div>
-    <h2 class="head">Un tarif, toute la plateforme.</h2>
+    <h2 class="head">Un seul tarif, publié.</h2>
     <p class="lede">Un accès à toute la plateforme, sans restriction.</p>
-    <div class="plans plans-2">
+    <div class="plans plans-1">
       <div class="plan hi price-card">
         <span class="tag">Tarif standard</span>
-        <div class="price"><span class="amount">490&nbsp;€</span><span class="unit">HT / utilisateur / mois</span></div>
-        <p>Jusqu'à 1&nbsp;000 comptes suivis dans votre portefeuille. Unification, score de santé, recommandations, connecteurs et journal de conformité — sans palier de fonctionnalités.</p>
-      </div>
-      <div class="plan enterprise-card">
-        <span class="tag">Grand volume</span>
-        <p class="enterprise-copy">Plus de 1&nbsp;000 comptes&nbsp;? <a href="#contact">Parlons d'un tarif Enterprise</a> adapté à votre volume.</p>
+        <div class="price"><span class="amount">490&nbsp;€</span><span class="unit">HT / licence / mois</span></div>
+        <p>Une licence, c'est un utilisateur et 500 comptes suivis dans votre portefeuille — vous en prenez autant qu'il en faut pour couvrir les deux. Unification, score de santé, recommandations, connecteurs et journal de conformité, sans version limitée ni engagement de durée.</p>
       </div>
     </div>
     <div class="plans-foot">
-      <a class="btn ink" href="#">Demander un devis</a>
+      <a class="btn ink" href="offres.html">Voir le détail de l'offre →</a>
       <a class="btn solid" href="roi.html">Estimer votre ROI →</a>
     </div>
   </div>
@@ -647,8 +644,8 @@
         <p>MARSĀ démarre sur un import CSV et une première lecture de votre portefeuille en quelques jours, puis les connecteurs OAuth se branchent au fur et à mesure — sans le chantier d'intégration de plusieurs mois qu'imposent les plateformes établies.</p>
       </details>
       <details>
-        <summary>Comment fonctionne le tarif au-delà de 1 000 comptes ? <span class="plus">+</span></summary>
-        <p>Le tarif standard — 490 € HT par utilisateur et par mois — couvre les portefeuilles jusqu'à 1 000 comptes suivis. Au-delà, nous établissons un tarif Enterprise adapté à votre volume, discuté lors d'un court échange.</p>
+        <summary>J'ai peu d'utilisateurs mais beaucoup de comptes ? <span class="plus">+</span></summary>
+        <p>C'est le volume qui détermine alors le nombre de licences : une licence couvre un utilisateur et 500 comptes suivis, et vous en prenez autant qu'il en faut pour couvrir les deux. Le détail complet, avec un exemple chiffré, est sur la <a href="offres.html">page Offres</a>.</p>
       </details>
     </div>
   </div>
@@ -659,7 +656,7 @@
   <div class="wrap">
     <div class="kicker on-light">Parlons-en</div>
     <h2 class="head">Vingt minutes pour savoir si MARSĀ vous servira.</h2>
-    <p class="lede">Décrivez-nous votre portefeuille et votre stack. Nous revenons vers vous avec une réponse franche sur l'éligibilité, et un tarif Enterprise si votre volume dépasse 1 000 comptes.</p>
+    <p class="lede">Décrivez-nous votre portefeuille et votre stack. Nous revenons vers vous avec une réponse franche sur l'éligibilité.</p>
     <form class="formgrid" id="contactForm">
       <div>
         <label>Nom et prénom</label>
@@ -713,7 +710,8 @@
           <h4>Produit</h4>
           <a href="#fonctionnement">Fonctionnement</a>
           <a href="#produit">Fonctionnalités</a>
-          <a href="#offres">Offres</a>
+          <a href="offres.html">Offres</a>
+          <a href="roi.html">Calculateur de ROI</a>
         </div>
         <div class="foot-col">
           <h4>Société</h4>

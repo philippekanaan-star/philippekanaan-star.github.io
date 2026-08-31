@@ -184,12 +184,15 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
   display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
 }
 .cta-bas p{font-size:16px;font-weight:500;max-width:44ch}
+.cta-bas .boutons{display:flex;gap:14px;flex-wrap:wrap}
 .cta-bas .btn{
   font:inherit;font-weight:600;font-size:15px;
   background:var(--bleu);color:var(--creme);
   padding:14px 26px;text-decoration:none;display:inline-block;white-space:nowrap;
 }
 .cta-bas .btn:hover{background:var(--bleu-profond)}
+.cta-bas .btn.ghost{background:transparent;color:var(--encre);border:1px solid var(--creme-ombre)}
+.cta-bas .btn.ghost:hover{border-color:var(--bleu)}
 @media(max-width:900px){.cta-bas{padding:0 20px 56px}}
 </style>
 </head>
@@ -244,6 +247,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     <div class="champ">
       <div class="ligne"><label for="licences">MARSĀ users</label><span class="valeur" id="v-licences"></span></div>
       <input type="range" id="licences" min="1" max="15" step="1" value="3">
+      <p class="aide" id="aide-licences"></p>
     </div>
   </section>
 
@@ -271,18 +275,24 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     <div class="detail">
       <div><span>Revenue lost today</span><span id="d-perdu"></span></div>
       <div><span>Of which recovered with MARSĀ</span><span id="d-recupere"></span></div>
-      <div class="total"><span>MARSĀ cost, 12 months</span><span id="d-total"></span></div>
+      <div><span>MARSĀ subscription, 12 months</span><span id="d-abo"></span></div>
+      <div class="total"><span>Annual subscription cost</span><span id="d-total"></span></div>
     </div>
   </aside>
 </div>
 
 <div class="note">
   <p><strong>How to read this calculation.</strong> MARSĀ flags accounts that are slipping away before the notice window closes, explains why, and prepares the action. The revenue recovered therefore depends on two things: the quality of the detection, and how your team responds.</p>
+  <p>This slider is a working hypothesis, not a commitment. Adjust it to match your reality.</p>
+  <p>The cost, on the other hand, is exact: €490 per license per month. One license is one user and 500 tracked accounts&nbsp;— take as many as you need to cover both. No commitment period.</p>
 </div>
 
 <div class="cta-bas">
   <p>A question about your specific situation? Twenty minutes is enough to know whether MARSĀ will help you.</p>
-  <a class="btn" href="index-en.html#contact">Request a demo →</a>
+  <div class="boutons">
+    <a class="btn ghost" href="offres-en.html">See the full offer</a>
+    <a class="btn" href="index-en.html#contact">Request a demo →</a>
+  </div>
 </div>
 
 <script>
@@ -295,7 +305,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     return '€'+Math.round(n);
   };
 
-  var TARIF_LICENCE=490, COMPTES_INCLUS=1000, PRIX_COMPTE=0.40;
+  var TARIF_LICENCE=490, COMPTES_PAR_LICENCE=500;
   var modeArr=true;
 
   function bascule(versArr){
@@ -325,8 +335,8 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     var perdu=arr*churn;
     var gain=perdu*evitePct;
 
-    var supplement=Math.max(0,comptes-COMPTES_INCLUS)*PRIX_COMPTE;
-    var abo=(TARIF_LICENCE*licences+supplement)*12;
+    var licencesFacturees=Math.max(licences,Math.ceil(comptes/COMPTES_PAR_LICENCE));
+    var abo=TARIF_LICENCE*licencesFacturees*12;
     var coutAn1=abo;
 
     var roi=coutAn1>0?gain/coutAn1:0;
@@ -341,6 +351,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     $('v-churn').textContent=(+$('churn').value).toLocaleString('en-US')+'%';
     $('v-evite').textContent=$('evite').value+'%';
     $('v-licences').textContent=licences+(licences>1?' users':' user');
+    $('aide-licences').textContent='\u20ac490 per license per month. One license is one user and 500 tracked accounts. Your configuration needs '+licencesFacturees+(licencesFacturees>1?' licenses.':' license.');
 
     // result
     $('r-gain').textContent=euroCourt(gain);
@@ -363,6 +374,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 
     $('d-perdu').textContent=euro(perdu);
     $('d-recupere').textContent=euro(gain);
+    $('d-abo').textContent=euro(abo);
     $('d-total').textContent=euro(coutAn1);
   }
 

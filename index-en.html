@@ -186,6 +186,7 @@
   /* ---------- OFFRES ---------- */
   .plans{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px; }
   .plans.plans-2{ grid-template-columns:1.15fr 1fr; }
+  .plans.plans-1{ grid-template-columns:1fr; max-width:540px; }
   .plan{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px; position:relative; }
   .plan.hi{ border:2px solid var(--orange); }
   .plan .tag{ font-size:10.5px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; background:var(--orange-tint); color:var(--orange-deep); padding:4px 10px; border-radius:999px; display:inline-block; margin-bottom:16px; }
@@ -261,7 +262,7 @@
       <a href="#probleme">The problem</a>
       <a href="#fonctionnement">How it works</a>
       <a href="#conformite">Compliance</a>
-      <a href="#offres">Plans</a>
+      <a href="offres-en.html">Plans</a>
     </div>
     <div class="navcta">
       <span class="lang"><a class="lang-link" href="index.html">FR</a> · <span class="lang-current">EN</span></span>
@@ -600,21 +601,17 @@
 <section class="block cream-alt" id="offres">
   <div class="wrap">
     <div class="kicker on-light">Plans</div>
-    <h2 class="head">One rate, the whole platform.</h2>
+    <h2 class="head">One published price.</h2>
     <p class="lede">Full access to the platform, with nothing held back.</p>
-    <div class="plans plans-2">
+    <div class="plans plans-1">
       <div class="plan hi price-card">
         <span class="tag">Standard rate</span>
-        <div class="price"><span class="amount">€490</span><span class="unit">per user / month</span></div>
-        <p>Covers up to 1,000 tracked accounts in your portfolio. Unification, health score, recommendations, connectors and compliance log — no feature tiers.</p>
-      </div>
-      <div class="plan enterprise-card">
-        <span class="tag">High volume</span>
-        <p class="enterprise-copy">More than 1,000 accounts? <a href="#contact">Let's talk about an Enterprise rate</a> suited to your volume.</p>
+        <div class="price"><span class="amount">€490</span><span class="unit">per license / month</span></div>
+        <p>One license is one user and 500 tracked accounts in your portfolio — take as many as you need to cover both. Unification, health score, recommendations, connectors and compliance log, with no limited version and no commitment period.</p>
       </div>
     </div>
     <div class="plans-foot">
-      <a class="btn ink" href="#">Request a quote</a>
+      <a class="btn ink" href="offres-en.html">See the full offer →</a>
       <a class="btn solid" href="roi-en.html">Estimate your ROI →</a>
     </div>
   </div>
@@ -647,8 +644,8 @@
         <p>MARSĀ starts from a CSV import and a first read of your portfolio within days, then OAuth connectors are plugged in progressively — without the months-long integration project established platforms require.</p>
       </details>
       <details>
-        <summary>How does pricing work above 1,000 accounts? <span class="plus">+</span></summary>
-        <p>The standard rate — €490 per user per month — covers portfolios of up to 1,000 tracked accounts. Beyond that, we work out an Enterprise rate suited to your volume, discussed in a short call.</p>
+        <summary>I have few users but a lot of accounts? <span class="plus">+</span></summary>
+        <p>Then it's your volume that determines the number of licenses: one license covers one user and 500 tracked accounts, and you take as many as you need to cover both. Full details, with a worked example, are on the <a href="offres-en.html">Pricing page</a>.</p>
       </details>
     </div>
   </div>
@@ -659,7 +656,7 @@
   <div class="wrap">
     <div class="kicker on-light">Let's talk</div>
     <h2 class="head">Twenty minutes to find out if MARSĀ is right for you.</h2>
-    <p class="lede">Tell us about your portfolio and your stack. We'll get back to you with a straight answer on eligibility, and an Enterprise rate if your volume goes beyond 1,000 accounts.</p>
+    <p class="lede">Tell us about your portfolio and your stack. We'll get back to you with a straight answer on eligibility.</p>
     <form class="formgrid" id="contactForm">
       <div>
         <label>Full name</label>
@@ -713,7 +710,8 @@
           <h4>Product</h4>
           <a href="#fonctionnement">How it works</a>
           <a href="#produit">Features</a>
-          <a href="#offres">Plans</a>
+          <a href="offres-en.html">Plans</a>
+          <a href="roi-en.html">ROI calculator</a>
         </div>
         <div class="foot-col">
           <h4>Company</h4>

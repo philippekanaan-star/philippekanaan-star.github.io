@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pricing — MARSĀ</title>
+<meta name="description" content="One published price. €490 per license per month. One license is one user and 500 tracked accounts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bleu:#2b6ce0; --bleu-nuit:#16336b; --creme:#f5f1e7; --creme-ombre:#e4ddcb;
+  --encre:#131f38; --gris:#5f6a80; --gain:#2f7d5c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--creme);color:var(--encre);line-height:1.55;font-size:16px}
+a{color:inherit}
+.enveloppe{max-width:1060px;margin:0 auto;padding:0 28px}
+h1,h2,h3,.chiffre{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
+
+/* nav bar */
+.nav{background:var(--bleu);color:var(--creme)}
+.nav .enveloppe{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;padding-bottom:20px;flex-wrap:wrap}
+.marque{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:.22em;text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.nav nav{display:flex;gap:26px;font-size:14.5px}
+.nav nav a{text-decoration:none;opacity:.85}
+.nav nav a:hover,.nav nav a[aria-current]{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.lang{font-size:12.5px;color:rgba(245,241,231,.62)}
+.lang-current{color:var(--creme);font-weight:600}
+.lang-link{color:rgba(245,241,231,.62);text-decoration:none}
+.lang-link:hover{color:var(--creme)}
+
+/* header */
+.entete{padding:64px 0 12px}
+.entete h1{font-size:clamp(34px,5.2vw,50px);font-weight:700;line-height:1.06;max-width:16ch}
+.entete p{font-size:18px;color:var(--gris);margin-top:16px;max-width:56ch}
+
+/* price */
+.prix{background:var(--bleu);color:var(--creme);margin-top:40px;padding:40px 36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.prix .montant{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(50px,9vw,76px);line-height:1;letter-spacing:-.03em;white-space:nowrap}
+.prix .unite{font-size:16px;opacity:.85;margin-top:8px}
+.prix ul{list-style:none;font-size:16px;line-height:1.9}
+.prix li::before{content:"— ";opacity:.6}
+@media(max-width:720px){.prix{grid-template-columns:1fr;gap:22px;padding:30px 24px}}
+
+/* reminder and link to the calculator */
+.section{padding:56px 0 0}
+.section h2{font-size:24px;font-weight:700;margin-bottom:8px}
+.section .intro{color:var(--gris);font-size:16px;margin-bottom:26px;max-width:62ch}
+
+.rappel{margin-top:22px;font-size:15px;color:var(--gris);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.lien-calc{display:inline-block;background:var(--encre);color:var(--creme);text-decoration:none;font-weight:600;font-size:15px;padding:13px 22px}
+.lien-calc:hover{background:var(--bleu-nuit)}
+
+/* included */
+.inclus{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;list-style:none;font-size:16px}
+@media(max-width:720px){.inclus{grid-template-columns:1fr}}
+.inclus li{padding:13px 0 13px 30px;border-bottom:1px solid var(--creme-ombre);position:relative}
+.inclus li::before{content:"";position:absolute;left:0;top:19px;width:14px;height:3px;background:var(--gain)}
+
+/* questions */
+.qr{border-top:1px solid var(--creme-ombre)}
+.qr details{border-bottom:1px solid var(--creme-ombre)}
+.qr summary{cursor:pointer;padding:17px 0;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.qr summary::-webkit-details-marker{display:none}
+.qr summary::after{content:"+";color:var(--bleu);font-weight:700}
+.qr details[open] summary::after{content:"–"}
+.qr p{padding:0 0 18px;color:var(--gris);font-size:15.5px;max-width:74ch}
+
+/* call to action */
+.appel{background:var(--bleu-nuit);color:var(--creme);margin:64px 0 0;padding:52px 36px;text-align:center}
+.appel h2{font-size:clamp(24px,3.6vw,32px);font-weight:700;margin-bottom:12px}
+.appel p{opacity:.85;max-width:52ch;margin:0 auto 26px}
+.bouton{display:inline-block;background:var(--creme);color:var(--bleu-nuit);text-decoration:none;font-weight:700;font-size:16px;padding:15px 30px}
+.bouton:hover{background:#fff}
+
+footer{padding:34px 0 56px;font-size:13.5px;color:var(--gris);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{opacity:.85}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="enveloppe">
+    <a class="marque" href="index-en.html">MARSĀ</a>
+    <div class="nav-right">
+      <nav>
+        <a href="index-en.html">Home</a>
+        <a href="offres-en.html" aria-current="page">Pricing</a>
+        <a href="roi-en.html">Calculator</a>
+        <a href="index-en.html#contact">Contact</a>
+      </nav>
+      <span class="lang"><a class="lang-link" href="offres.html">FR</a> · <span class="lang-current">EN</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="enveloppe">
+
+  <header class="entete">
+    <h1>One published price.</h1>
+    <p>No quotes, no hidden tiers, no limited version. One plan, the same for everyone.</p>
+  </header>
+
+  <section class="prix">
+    <div>
+      <div class="montant">€490</div>
+      <div class="unite">per license, per month</div>
+    </div>
+    <ul>
+      <li>One license is one user and 500 tracked accounts</li>
+      <li>Take as many as you need to cover both</li>
+      <li>The full product, no limited version</li>
+      <li>No commitment period</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="rappel">
+      <span>What it earns you back? The math is public.</span>
+      <a class="lien-calc" href="roi-en.html">Calculate what churn costs you →</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Included either way</h2>
+    <p class="intro">There is no limited version. Every customer gets the full product.</p>
+    <ul class="inclus">
+      <li>CRM, support, phone, and messaging connectors</li>
+      <li>Explained health score, every signal traced to its source</li>
+      <li>Score history, day by day</li>
+      <li>Drop-off alerts and opportunity detection</li>
+      <li>Account brief and a ready-to-send recovery message</li>
+      <li>Decision log and impact measurement</li>
+      <li>European hosting, compliant with GDPR and the EU AI Act</li>
+      <li>Customer support included</li>
+    </ul>
+  </section>
+
+  <section class="section qr">
+    <h2 style="margin-bottom:20px">Frequently asked questions</h2>
+
+    <details>
+      <summary>What do you mean by a "tracked account"?</summary>
+      <p>A customer in your portfolio that MARSĀ scores and monitors. Not a contact, not an end user — the client company. You choose which ones are tracked, and you can remove any at any time.</p>
+    </details>
+
+    <details>
+      <summary>I have few users but a lot of accounts?</summary>
+      <p>Then it's your volume that determines the number of licenses. A portfolio of 1,200 tracked accounts managed by two people needs three licenses, or €1,470 per month — and you get all three seats, even if only two are in use today.</p>
+    </details>
+
+    <details>
+      <summary>How long before I see something?</summary>
+      <p>Days, not months. MARSĀ plugs into standard connectors and requires no instrumentation of your product. We backfill your history at setup so the score is useful from day one.</p>
+    </details>
+
+    <details>
+      <summary>Where is my data stored?</summary>
+      <p>In Europe, with European hosting providers. Content generated by artificial intelligence is labeled as such, in line with Article 50 of the EU AI Act. The processing register and data processing agreement are provided with the product.</p>
+    </details>
+
+    <details>
+      <summary>Can I change my plan later?</summary>
+      <p>At any time, up or down, effective the following month. Each user has their own individual seat — which is what lets the decision log attribute every action to the right person.</p>
+    </details>
+  </section>
+
+</div>
+
+<div class="appel">
+  <h2>See it on your own data</h2>
+  <p>A thirty-minute demo, run on your real portfolio rather than a sample dataset.</p>
+  <a class="bouton" href="index-en.html#contact">Request a demo</a>
+</div>
+
+<div class="enveloppe">
+  <footer>
+    <span>MARSĀ — Marseille</span>
+    <span><a href="index-en.html">Home</a> · <a href="roi-en.html">Calculator</a> · <a href="#">Legal notice</a> · <a href="#">Privacy</a></span>
+  </footer>
+</div>
+
+</body>
+</html>

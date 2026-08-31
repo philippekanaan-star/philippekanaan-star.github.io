@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offres — MARSĀ</title>
+<meta name="description" content="Un seul tarif, publié. 490 € par licence et par mois. Une licence, c'est un utilisateur et 500 comptes suivis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bleu:#2b6ce0; --bleu-nuit:#16336b; --creme:#f5f1e7; --creme-ombre:#e4ddcb;
+  --encre:#131f38; --gris:#5f6a80; --gain:#2f7d5c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--creme);color:var(--encre);line-height:1.55;font-size:16px}
+a{color:inherit}
+.enveloppe{max-width:1060px;margin:0 auto;padding:0 28px}
+h1,h2,h3,.chiffre{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
+
+/* barre de navigation */
+.nav{background:var(--bleu);color:var(--creme)}
+.nav .enveloppe{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;padding-bottom:20px;flex-wrap:wrap}
+.marque{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:.22em;text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.nav nav{display:flex;gap:26px;font-size:14.5px}
+.nav nav a{text-decoration:none;opacity:.85}
+.nav nav a:hover,.nav nav a[aria-current]{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.lang{font-size:12.5px;color:rgba(245,241,231,.62)}
+.lang-current{color:var(--creme);font-weight:600}
+.lang-link{color:rgba(245,241,231,.62);text-decoration:none}
+.lang-link:hover{color:var(--creme)}
+
+/* en-tête */
+.entete{padding:64px 0 12px}
+.entete h1{font-size:clamp(34px,5.2vw,50px);font-weight:700;line-height:1.06;max-width:16ch}
+.entete p{font-size:18px;color:var(--gris);margin-top:16px;max-width:56ch}
+
+/* le prix */
+.prix{background:var(--bleu);color:var(--creme);margin-top:40px;padding:40px 36px;display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:center}
+.prix .montant{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(50px,9vw,76px);line-height:1;letter-spacing:-.03em;white-space:nowrap}
+.prix .unite{font-size:16px;opacity:.85;margin-top:8px}
+.prix ul{list-style:none;font-size:16px;line-height:1.9}
+.prix li::before{content:"— ";opacity:.6}
+@media(max-width:720px){.prix{grid-template-columns:1fr;gap:22px;padding:30px 24px}}
+
+/* rappel et lien vers le calculateur */
+.section{padding:56px 0 0}
+.section h2{font-size:24px;font-weight:700;margin-bottom:8px}
+.section .intro{color:var(--gris);font-size:16px;margin-bottom:26px;max-width:62ch}
+
+.rappel{margin-top:22px;font-size:15px;color:var(--gris);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+.lien-calc{display:inline-block;background:var(--encre);color:var(--creme);text-decoration:none;font-weight:600;font-size:15px;padding:13px 22px}
+.lien-calc:hover{background:var(--bleu-nuit)}
+
+/* inclus */
+.inclus{display:grid;grid-template-columns:1fr 1fr;gap:0 40px;list-style:none;font-size:16px}
+@media(max-width:720px){.inclus{grid-template-columns:1fr}}
+.inclus li{padding:13px 0 13px 30px;border-bottom:1px solid var(--creme-ombre);position:relative}
+.inclus li::before{content:"";position:absolute;left:0;top:19px;width:14px;height:3px;background:var(--gain)}
+
+/* questions */
+.qr{border-top:1px solid var(--creme-ombre)}
+.qr details{border-bottom:1px solid var(--creme-ombre)}
+.qr summary{cursor:pointer;padding:17px 0;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.qr summary::-webkit-details-marker{display:none}
+.qr summary::after{content:"+";color:var(--bleu);font-weight:700}
+.qr details[open] summary::after{content:"–"}
+.qr p{padding:0 0 18px;color:var(--gris);font-size:15.5px;max-width:74ch}
+
+/* appel */
+.appel{background:var(--bleu-nuit);color:var(--creme);margin:64px 0 0;padding:52px 36px;text-align:center}
+.appel h2{font-size:clamp(24px,3.6vw,32px);font-weight:700;margin-bottom:12px}
+.appel p{opacity:.85;max-width:52ch;margin:0 auto 26px}
+.bouton{display:inline-block;background:var(--creme);color:var(--bleu-nuit);text-decoration:none;font-weight:700;font-size:16px;padding:15px 30px}
+.bouton:hover{background:#fff}
+
+footer{padding:34px 0 56px;font-size:13.5px;color:var(--gris);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{opacity:.85}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="enveloppe">
+    <a class="marque" href="index.html">MARSĀ</a>
+    <div class="nav-right">
+      <nav>
+        <a href="index.html">Accueil</a>
+        <a href="offres.html" aria-current="page">Offres</a>
+        <a href="roi.html">Calculateur</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <span class="lang"><span class="lang-current">FR</span> · <a class="lang-link" href="offres-en.html">EN</a></span>
+    </div>
+  </div>
+</div>
+
+<div class="enveloppe">
+
+  <header class="entete">
+    <h1>Un seul tarif, publié.</h1>
+    <p>Pas de devis, pas de grille cachée, pas de version limitée. Une seule formule, la même pour tout le monde.</p>
+  </header>
+
+  <section class="prix">
+    <div>
+      <div class="montant">490 €</div>
+      <div class="unite">par licence et par mois</div>
+    </div>
+    <ul>
+      <li>Une licence, c'est un utilisateur et 500 comptes suivis</li>
+      <li>Vous en prenez autant qu'il en faut pour couvrir les deux</li>
+      <li>Tout le produit, sans version limitée</li>
+      <li>Sans engagement de durée</li>
+    </ul>
+  </section>
+
+  <section class="section">
+    <div class="rappel">
+      <span>Ce que ça vous rapporte&nbsp;? Le calcul est public.</span>
+      <a class="lien-calc" href="roi.html">Calculez ce que le churn vous coûte →</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Compris dans tous les cas</h2>
+    <p class="intro">Il n'y a pas de version limitée. Chaque client dispose de l'ensemble du produit.</p>
+    <ul class="inclus">
+      <li>Connecteurs CRM, support, téléphonie et messagerie</li>
+      <li>Score de santé expliqué, chaque signal tracé jusqu'à sa source</li>
+      <li>Historique du score, jour par jour</li>
+      <li>Alertes de décrochage et détection d'opportunités</li>
+      <li>Fiche compte et message de reprise préparé</li>
+      <li>Journal des décisions et mesure de leur effet</li>
+      <li>Hébergement européen, conforme au RGPD et au règlement sur l'IA</li>
+      <li>Support client inclus</li>
+    </ul>
+  </section>
+
+  <section class="section qr">
+    <h2 style="margin-bottom:20px">Questions fréquentes</h2>
+
+    <details>
+      <summary>Qu'appelez-vous un « compte suivi »&nbsp;?</summary>
+      <p>Un client de votre portefeuille que MARSĀ score et surveille. Ni un contact, ni un utilisateur final&nbsp;: l'entreprise cliente. Vous choisissez lesquels sont suivis, et vous pouvez en retirer à tout moment.</p>
+    </details>
+
+    <details>
+      <summary>J'ai peu d'utilisateurs mais beaucoup de comptes&nbsp;?</summary>
+      <p>C'est le volume qui détermine alors le nombre de licences. Un portefeuille de 1&nbsp;200 comptes suivi par deux personnes demande trois licences, soit 1&nbsp;470 € par mois — et vous disposez des trois accès, même si vous n'en utilisez que deux aujourd'hui.</p>
+    </details>
+
+    <details>
+      <summary>Combien de temps avant de voir quelque chose&nbsp;?</summary>
+      <p>Quelques jours, pas quelques mois. MARSĀ se branche sur des connecteurs standards et ne demande aucune instrumentation de votre produit. Nous reprenons votre historique à l'installation pour que le score soit utile dès le premier jour.</p>
+    </details>
+
+    <details>
+      <summary>Où sont mes données&nbsp;?</summary>
+      <p>En Europe, chez des hébergeurs européens. Les contenus générés par intelligence artificielle sont signalés comme tels, conformément à l'article 50 du règlement européen sur l'IA. Le registre des traitements et le contrat de sous-traitance vous sont remis avec le produit.</p>
+    </details>
+
+    <details>
+      <summary>Puis-je changer en cours de route&nbsp;?</summary>
+      <p>À tout moment, à la hausse comme à la baisse, avec effet le mois suivant. Chaque utilisateur dispose de son propre accès&nbsp;: c'est ce qui permet au journal des décisions d'attribuer chaque action à la bonne personne.</p>
+    </details>
+  </section>
+
+</div>
+
+<div class="appel">
+  <h2>Voyez-le sur vos données</h2>
+  <p>Une démonstration de trente minutes, sur votre portefeuille réel plutôt que sur un jeu de démonstration.</p>
+  <a class="bouton" href="index.html#contact">Demander une démonstration</a>
+</div>
+
+<div class="enveloppe">
+  <footer>
+    <span>MARSĀ — Marseille</span>
+    <span><a href="index.html">Accueil</a> · <a href="roi.html">Calculateur</a> · <a href="#">Mentions légales</a> · <a href="#">Confidentialité</a></span>
+  </footer>
+</div>
+
+</body>
+</html>
