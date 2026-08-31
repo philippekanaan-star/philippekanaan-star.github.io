@@ -244,7 +244,6 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     <div class="champ">
       <div class="ligne"><label for="licences">MARSĀ users</label><span class="valeur" id="v-licences"></span></div>
       <input type="range" id="licences" min="1" max="15" step="1" value="3">
-      <p class="aide">€490 per user per month. 1,000 accounts included, then €0.40 per account.</p>
     </div>
   </section>
 
@@ -272,9 +271,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     <div class="detail">
       <div><span>Revenue lost today</span><span id="d-perdu"></span></div>
       <div><span>Of which recovered with MARSĀ</span><span id="d-recupere"></span></div>
-      <div><span>MARSĀ subscription, 12 months</span><span id="d-abo"></span></div>
-      <div><span>One-time setup</span><span id="d-setup"></span></div>
-      <div class="total"><span>First-year cost</span><span id="d-total"></span></div>
+      <div class="total"><span>MARSĀ cost, 12 months</span><span id="d-total"></span></div>
     </div>
   </aside>
 </div>
@@ -298,7 +295,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     return '€'+Math.round(n);
   };
 
-  var TARIF_LICENCE=490, COMPTES_INCLUS=1000, PRIX_COMPTE=0.40, SETUP=3000;
+  var TARIF_LICENCE=490, COMPTES_INCLUS=1000, PRIX_COMPTE=0.40;
   var modeArr=true;
 
   function bascule(versArr){
@@ -330,7 +327,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 
     var supplement=Math.max(0,comptes-COMPTES_INCLUS)*PRIX_COMPTE;
     var abo=(TARIF_LICENCE*licences+supplement)*12;
-    var coutAn1=abo+SETUP;
+    var coutAn1=abo;
 
     var roi=coutAn1>0?gain/coutAn1:0;
     var moisPayback=gain>0?coutAn1/(gain/12):Infinity;
@@ -366,8 +363,6 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 
     $('d-perdu').textContent=euro(perdu);
     $('d-recupere').textContent=euro(gain);
-    $('d-abo').textContent=euro(abo);
-    $('d-setup').textContent=euro(SETUP);
     $('d-total').textContent=euro(coutAn1);
   }
 

@@ -185,6 +185,7 @@
 
   /* ---------- OFFRES ---------- */
   .plans{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:44px; }
+  .plans.plans-2{ grid-template-columns:1.15fr 1fr; }
   .plan{ background:#fff; border:1px solid var(--line); border-radius:16px; padding:30px; position:relative; }
   .plan.hi{ border:2px solid var(--orange); }
   .plan .tag{ font-size:10.5px; font-weight:800; letter-spacing:.05em; text-transform:uppercase; background:var(--orange-tint); color:var(--orange-deep); padding:4px 10px; border-radius:999px; display:inline-block; margin-bottom:16px; }
@@ -195,6 +196,12 @@
   .cap-meter{ height:6px; background:var(--orange-tint); border-radius:4px; overflow:hidden; margin-top:14px; }
   .cap-meter div{ height:100%; background:var(--orange-deep); border-radius:4px; }
   .plans-foot{ margin-top:34px; display:flex; gap:16px; align-items:center; }
+  .price-card .price{ display:flex; align-items:baseline; gap:10px; margin:16px 0 4px; }
+  .price-card .amount{ font-family:'Space Grotesk',sans-serif; font-size:46px; font-weight:700; color:var(--ink); line-height:1; }
+  .price-card .unit{ font-size:13.5px; color:var(--sub); }
+  .enterprise-card p.enterprise-copy{ font-size:15px; color:var(--sub); line-height:1.6; margin-top:16px; }
+  .enterprise-card p.enterprise-copy a{ color:var(--orange-deep); font-weight:600; }
+  @media(max-width:900px){ .plans.plans-2{ grid-template-columns:1fr; } }
 
   /* ---------- FAQ ---------- */
   .faq{ margin-top:40px; border-top:1px solid var(--line); }
@@ -593,32 +600,19 @@
 <section class="block cream-alt" id="offres">
   <div class="wrap">
     <div class="kicker on-light">Offres</div>
-    <h2 class="head">Trois formats, calés sur la taille de votre portefeuille.</h2>
-    <p class="lede">490&nbsp;€ HT par utilisateur et par mois, jusqu'à 1&nbsp;000 comptes suivis dans votre portefeuille. Au-delà, nous établissons un tarif Enterprise sur mesure. Frais de mise en service&nbsp;: 3&nbsp;000&nbsp;€ la première année, négociables selon votre situation.</p>
-    <div class="plans">
-      <div class="plan">
-        <span class="tag">Équipe naissante</span>
-        <h3 class="head">Starter</h3>
-        <div class="n"><b>100</b> comptes</div>
-        <div class="cap-meter"><div style="width:16%;"></div></div>
-        <p>Le socle : unification, score de santé, fiches compte et alertes. Deux connecteurs inclus.</p>
+    <h2 class="head">Un tarif, toute la plateforme.</h2>
+    <p class="lede">Un accès à toute la plateforme, sans restriction.</p>
+    <div class="plans plans-2">
+      <div class="plan hi price-card">
+        <span class="tag">Tarif standard</span>
+        <div class="price"><span class="amount">490&nbsp;€</span><span class="unit">HT / utilisateur / mois</span></div>
+        <p>Jusqu'à 1&nbsp;000 comptes suivis dans votre portefeuille. Unification, score de santé, recommandations, connecteurs et journal de conformité — sans palier de fonctionnalités.</p>
       </div>
-      <div class="plan hi">
-        <span class="tag">Le plus demandé</span>
-        <h3 class="head">Growth</h3>
-        <div class="n"><b>300</b> comptes</div>
-        <div class="cap-meter"><div style="width:45%;"></div></div>
-        <p>Le format d'une équipe CSM constituée : recommandations et brouillons de messages, détection d'upsell, scoring paramétrable.</p>
-      </div>
-      <div class="plan">
-        <span class="tag">Plusieurs équipes</span>
-        <h3 class="head">Scale</h3>
-        <div class="n"><b>800</b> comptes</div>
-        <div class="cap-meter"><div style="width:100%;"></div></div>
-        <p>Segmentation par équipe, connecteurs sur mesure, journal de conformité étendu et accompagnement dédié.</p>
+      <div class="plan enterprise-card">
+        <span class="tag">Grand volume</span>
+        <p class="enterprise-copy">Plus de 1&nbsp;000 comptes&nbsp;? <a href="#contact">Parlons d'un tarif Enterprise</a> adapté à votre volume.</p>
       </div>
     </div>
-    <p class="lede" style="margin-top:24px;font-size:15px;">Plus de 1&nbsp;000 comptes&nbsp;? <a href="#contact">Parlons d'un tarif Enterprise</a> adapté à votre volume.</p>
     <div class="plans-foot">
       <a class="btn ink" href="#">Demander un devis</a>
       <a class="btn solid" href="roi.html">Estimer votre ROI →</a>
