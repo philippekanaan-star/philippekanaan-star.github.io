@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MARSĀ — Ce que vous coûte le churn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Archivo+Expanded:wght@600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bleu:#2b6ce0;
+  --bleu-nuit:#16336b;
+  --bleu-profond:#1d4fa8;
+  --creme:#f5f1e7;
+  --creme-ombre:#e4ddcb;
+  --perte:#c2453a;
+  --gain:#2f7d5c;
+  --encre:#131f38;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  font-family:'Archivo',system-ui,sans-serif;
+  background:var(--creme);
+  color:var(--encre);
+  line-height:1.5;
+  font-size:16px;
+}
+
+/* ---------- bandeau ---------- */
+.bandeau{
+  background:var(--bleu);
+  color:var(--creme);
+  padding:22px 32px;
+  display:flex;
+  align-items:baseline;
+  gap:20px;
+  flex-wrap:wrap;
+}
+.marque{
+  font-family:'Archivo Expanded','Archivo',sans-serif;
+  font-weight:700;
+  font-size:22px;
+  letter-spacing:.22em;
+  color:inherit;
+  text-decoration:none;
+}
+.marque:hover{opacity:.85}
+.bandeau p{font-size:14px;opacity:.82;letter-spacing:.01em}
+
+/* ---------- grille ---------- */
+.grille{
+  max-width:1180px;
+  margin:0 auto;
+  padding:44px 32px 72px;
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,420px);
+  gap:56px;
+  align-items:start;
+}
+@media(max-width:900px){
+  .grille{grid-template-columns:1fr;gap:36px;padding:28px 20px 56px}
+  .bandeau{padding:18px 20px}
+}
+
+/* ---------- réglages ---------- */
+h2{
+  font-family:'Archivo Expanded','Archivo',sans-serif;
+  font-size:15px;
+  font-weight:600;
+  letter-spacing:.14em;
+  color:var(--bleu-profond);
+  margin-bottom:26px;
+  padding-bottom:10px;
+  border-bottom:2px solid var(--creme-ombre);
+}
+.champ{margin-bottom:30px}
+.ligne{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:14px;
+  margin-bottom:9px;
+}
+.ligne label{font-size:15px;font-weight:500}
+.valeur{
+  font-variant-numeric:tabular-nums;
+  font-weight:700;
+  font-size:19px;
+  color:var(--bleu-profond);
+  white-space:nowrap;
+}
+.aide{font-size:13px;color:#5f6a80;margin-top:7px}
+
+input[type=range]{
+  -webkit-appearance:none;appearance:none;
+  width:100%;height:26px;background:transparent;cursor:grab;display:block;
+}
+input[type=range]:active{cursor:grabbing}
+input[type=range]::-webkit-slider-runnable-track{
+  height:5px;background:var(--creme-ombre);border-radius:0;
+}
+input[type=range]::-moz-range-track{height:5px;background:var(--creme-ombre)}
+input[type=range]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:20px;height:20px;margin-top:-8px;
+  background:var(--bleu);border:3px solid var(--creme);border-radius:50%;
+}
+input[type=range]::-moz-range-thumb{
+  width:20px;height:20px;
+  background:var(--bleu);border:3px solid var(--creme);border-radius:50%;
+}
+input[type=range]:focus-visible::-webkit-slider-thumb{outline:3px solid var(--bleu-nuit);outline-offset:2px}
+input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-nuit);outline-offset:2px}
+
+.bascule{display:flex;gap:0;margin-bottom:26px;border:2px solid var(--bleu);width:fit-content}
+.bascule button{
+  font:inherit;font-size:13.5px;font-weight:600;
+  padding:8px 17px;border:0;background:transparent;color:var(--bleu-profond);cursor:pointer;
+}
+.bascule button[aria-pressed=true]{background:var(--bleu);color:var(--creme)}
+
+/* ---------- résultat ---------- */
+.resultat{
+  background:var(--bleu);
+  color:var(--creme);
+  padding:36px 32px 32px;
+  position:sticky;top:24px;
+}
+@media(max-width:900px){.resultat{position:static}}
+.resultat .intitule{
+  font-size:13.5px;letter-spacing:.1em;opacity:.8;font-weight:500;
+}
+.chiffre{
+  font-family:'Archivo Expanded','Archivo',sans-serif;
+  font-weight:700;
+  font-size:clamp(40px,7vw,58px);
+  line-height:1.02;
+  letter-spacing:-.02em;
+  font-variant-numeric:tabular-nums;
+  margin:8px 0 4px;
+}
+.sous{font-size:14.5px;opacity:.85;margin-bottom:30px}
+
+.paire{display:flex;gap:14px;margin-bottom:30px}
+.paire>div{flex:1;border-top:2px solid rgba(245,241,231,.3);padding-top:13px}
+.paire .n{
+  font-family:'Archivo Expanded','Archivo',sans-serif;
+  font-weight:700;font-size:29px;font-variant-numeric:tabular-nums;line-height:1.1;
+}
+.paire .l{font-size:12.5px;opacity:.8;margin-top:3px}
+
+/* barre empilée */
+.barre{display:flex;height:44px;width:100%;overflow:hidden;margin-bottom:12px}
+.barre span{display:block;transition:width .18s ease}
+.s-garde{background:rgba(245,241,231,.24)}
+.s-gain{background:var(--gain)}
+.s-perte{background:var(--perte)}
+.legende{display:flex;flex-wrap:wrap;gap:16px;font-size:12.5px;opacity:.9}
+.legende i{display:inline-block;width:11px;height:11px;margin-right:6px;vertical-align:-1px;font-style:normal}
+.i-garde{background:rgba(245,241,231,.24)}
+.i-gain{background:var(--gain)}
+.i-perte{background:var(--perte)}
+
+.detail{margin-top:30px;border-top:2px solid rgba(245,241,231,.3);padding-top:16px}
+.detail div{display:flex;justify-content:space-between;font-size:13.5px;padding:5px 0;gap:12px}
+.detail div span:last-child{font-variant-numeric:tabular-nums;font-weight:600}
+.detail .total{border-top:1px solid rgba(245,241,231,.3);margin-top:8px;padding-top:11px;font-weight:700}
+
+.note{
+  max-width:1180px;margin:0 auto;padding:0 32px 64px;
+  font-size:13.5px;color:#5f6a80;line-height:1.65;
+}
+.note strong{color:var(--encre)}
+.note p{max-width:68ch;margin-bottom:11px}
+@media(max-width:900px){.note{padding:0 20px 48px}}
+
+@media(prefers-reduced-motion:reduce){.barre span{transition:none}}
+
+/* ---------- appel à l'action bas de page ---------- */
+.cta-bas{
+  max-width:1180px;margin:0 auto;padding:0 32px 72px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;
+}
+.cta-bas p{font-size:16px;font-weight:500;max-width:44ch}
+.cta-bas .btn{
+  font:inherit;font-weight:600;font-size:15px;
+  background:var(--bleu);color:var(--creme);
+  padding:14px 26px;text-decoration:none;display:inline-block;white-space:nowrap;
+}
+.cta-bas .btn:hover{background:var(--bleu-profond)}
+@media(max-width:900px){.cta-bas{padding:0 20px 56px}}
+</style>
+</head>
+<body>
+
+<div class="bandeau">
+  <a class="marque" href="index.html">MARSĀ</a>
+  <p>Ce que le churn vous coûte, et ce qu'il vous en reste après.</p>
+</div>
+
+<div class="grille">
+
+  <section>
+    <h2>VOTRE SITUATION</h2>
+
+    <div class="champ">
+      <div class="ligne"><label for="comptes">Comptes clients suivis</label><span class="valeur" id="v-comptes"></span></div>
+      <input type="range" id="comptes" min="50" max="5000" step="10" value="800">
+    </div>
+
+    <div class="bascule" role="group" aria-label="Mode de saisie du revenu">
+      <button type="button" id="mode-arr" aria-pressed="true">Je connais mon ARR</button>
+      <button type="button" id="mode-arpu" aria-pressed="false">Je connais mon ARPU</button>
+    </div>
+
+    <div class="champ" id="bloc-arr">
+      <div class="ligne"><label for="arr">ARR annuel</label><span class="valeur" id="v-arr"></span></div>
+      <input type="range" id="arr" min="500000" max="30000000" step="100000" value="4000000">
+      <p class="aide" id="aide-arr"></p>
+    </div>
+
+    <div class="champ" id="bloc-arpu" hidden>
+      <div class="ligne"><label for="arpu">Revenu mensuel moyen par compte</label><span class="valeur" id="v-arpu"></span></div>
+      <input type="range" id="arpu" min="50" max="3000" step="10" value="417">
+      <p class="aide" id="aide-arpu"></p>
+    </div>
+
+    <div class="champ">
+      <div class="ligne"><label for="churn">Taux de churn annuel</label><span class="valeur" id="v-churn"></span></div>
+      <input type="range" id="churn" min="2" max="40" step="0.5" value="12">
+      <p class="aide">Part de votre revenu récurrent perdue chaque année.</p>
+    </div>
+
+    <h2 style="margin-top:44px">CE QUE MARSĀ CHANGE</h2>
+
+    <div class="champ">
+      <div class="ligne"><label for="evite">Ce que MARSĀ vous aide à éviter</label><span class="valeur" id="v-evite"></span></div>
+      <input type="range" id="evite" min="5" max="35" step="1" value="20">
+      <p class="aide">Part de votre churn total transformée en churn évité. Une faillite client reste inévitable&nbsp;: ce pourcentage en tient déjà compte.</p>
+    </div>
+
+    <div class="champ">
+      <div class="ligne"><label for="licences">Utilisateurs MARSĀ</label><span class="valeur" id="v-licences"></span></div>
+      <input type="range" id="licences" min="1" max="15" step="1" value="3">
+      <p class="aide">490 € par utilisateur et par mois. 1 000 comptes inclus, puis 0,40 € par compte.</p>
+    </div>
+  </section>
+
+  <aside class="resultat">
+    <p class="intitule">Revenu récupéré chaque année</p>
+    <p class="chiffre" id="r-gain"></p>
+    <p class="sous" id="r-sous"></p>
+
+    <div class="paire">
+      <div><p class="n" id="r-roi"></p><p class="l">de retour sur investissement</p></div>
+      <div><p class="n" id="r-payback"></p><p class="l">pour rembourser MARSĀ</p></div>
+    </div>
+
+    <div class="barre" role="img" aria-label="Répartition de votre revenu récurrent annuel">
+      <span class="s-garde" id="b-garde"></span>
+      <span class="s-gain" id="b-gain"></span>
+      <span class="s-perte" id="b-perte"></span>
+    </div>
+    <div class="legende">
+      <span><i class="i-garde"></i>Conservé</span>
+      <span><i class="i-gain"></i>Récupéré</span>
+      <span><i class="i-perte"></i>Perdu quand même</span>
+    </div>
+
+    <div class="detail">
+      <div><span>Revenu perdu aujourd'hui</span><span id="d-perdu"></span></div>
+      <div><span>Dont récupéré avec MARSĀ</span><span id="d-recupere"></span></div>
+      <div><span>Abonnement MARSĀ, 12 mois</span><span id="d-abo"></span></div>
+      <div><span>Mise en service, une fois</span><span id="d-setup"></span></div>
+      <div class="total"><span>Coût première année</span><span id="d-total"></span></div>
+    </div>
+  </aside>
+</div>
+
+<div class="note">
+  <p><strong>Comment lire ce calcul.</strong> MARSĀ repère les comptes qui décrochent avant que la fenêtre de préavis ne se referme, explique pourquoi, et prépare l'action. Le revenu récupéré dépend donc de deux choses : la qualité de la détection, et la réaction de votre équipe.</p>
+</div>
+
+<div class="cta-bas">
+  <p>Une question sur votre situation précise ? Vingt minutes suffisent pour savoir si MARSĀ vous servira.</p>
+  <a class="btn" href="index.html#contact">Demander une démo →</a>
+</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var euro=function(n){return Math.round(n).toLocaleString('fr-FR')+' €'};
+  var euroCourt=function(n){
+    if(n>=1000000) return (n/1000000).toLocaleString('fr-FR',{maximumFractionDigits:2})+' M€';
+    if(n>=1000) return Math.round(n/1000).toLocaleString('fr-FR')+' k€';
+    return Math.round(n)+' €';
+  };
+
+  var TARIF_LICENCE=490, COMPTES_INCLUS=1000, PRIX_COMPTE=0.40, SETUP=3000;
+  var modeArr=true;
+
+  function bascule(versArr){
+    modeArr=versArr;
+    $('mode-arr').setAttribute('aria-pressed',versArr);
+    $('mode-arpu').setAttribute('aria-pressed',!versArr);
+    $('bloc-arr').hidden=!versArr;
+    $('bloc-arpu').hidden=versArr;
+    if(versArr){
+      var a=(+$('arpu').value)*12*(+$('comptes').value);
+      $('arr').value=Math.min(30000000,Math.max(500000,Math.round(a/100000)*100000));
+    }else{
+      var p=(+$('arr').value)/12/(+$('comptes').value);
+      $('arpu').value=Math.min(3000,Math.max(50,Math.round(p/10)*10));
+    }
+    calcule();
+  }
+
+  function calcule(){
+    var comptes=+$('comptes').value;
+    var arr = modeArr ? +$('arr').value : (+$('arpu').value)*12*comptes;
+    var arpu = arr/12/comptes;
+    var churn=(+$('churn').value)/100;
+    var evitePct=(+$('evite').value)/100;
+    var licences=+$('licences').value;
+
+    var perdu=arr*churn;
+    var gain=perdu*evitePct;
+
+    var supplement=Math.max(0,comptes-COMPTES_INCLUS)*PRIX_COMPTE;
+    var abo=(TARIF_LICENCE*licences+supplement)*12;
+    var coutAn1=abo+SETUP;
+
+    var roi=coutAn1>0?gain/coutAn1:0;
+    var moisPayback=gain>0?coutAn1/(gain/12):Infinity;
+
+    // réglages
+    $('v-comptes').textContent=comptes.toLocaleString('fr-FR');
+    $('v-arr').textContent=euroCourt(arr);
+    $('v-arpu').textContent=euro(modeArr?arpu:+$('arpu').value)+' /mois';
+    $('aide-arr').textContent='Soit environ '+euro(arpu)+' par compte et par mois.';
+    $('aide-arpu').textContent='Soit un ARR d\u2019environ '+euroCourt(arr)+'.';
+    $('v-churn').textContent=(+$('churn').value).toLocaleString('fr-FR')+' %';
+    $('v-evite').textContent=$('evite').value+' %';
+    $('v-licences').textContent=licences+(licences>1?' utilisateurs':' utilisateur');
+
+    // résultat
+    $('r-gain').textContent=euroCourt(gain);
+    $('r-sous').textContent='sur '+euroCourt(perdu)+' actuellement perdus chaque année';
+    $('r-roi').textContent=(roi>=10?Math.round(roi):roi.toLocaleString('fr-FR',{maximumFractionDigits:1}))+' \u00d7';
+
+    if(!isFinite(moisPayback)||moisPayback>60){
+      $('r-payback').textContent='\u2014';
+    }else if(moisPayback<1){
+      $('r-payback').textContent=Math.max(1,Math.round(moisPayback*30.4))+' j';
+    }else{
+      $('r-payback').textContent=moisPayback.toLocaleString('fr-FR',{maximumFractionDigits:1})+' mois';
+    }
+
+    var pGain=arr>0?gain/arr*100:0;
+    var pPerte=arr>0?(perdu-gain)/arr*100:0;
+    $('b-gain').style.width=pGain+'%';
+    $('b-perte').style.width=pPerte+'%';
+    $('b-garde').style.width=Math.max(0,100-pGain-pPerte)+'%';
+
+    $('d-perdu').textContent=euro(perdu);
+    $('d-recupere').textContent=euro(gain);
+    $('d-abo').textContent=euro(abo);
+    $('d-setup').textContent=euro(SETUP);
+    $('d-total').textContent=euro(coutAn1);
+  }
+
+  ['comptes','arr','arpu','churn','evite','licences'].forEach(function(id){
+    $(id).addEventListener('input',calcule);
+  });
+  $('mode-arr').addEventListener('click',function(){bascule(true)});
+  $('mode-arpu').addEventListener('click',function(){bascule(false)});
+  calcule();
+})();
+</script>
+</body>
+</html>
