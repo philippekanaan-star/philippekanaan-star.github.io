@@ -308,6 +308,16 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
   var TARIF_LICENCE=490, COMPTES_PAR_LICENCE=500;
   var modeArr=true;
 
+  function licencesMin(comptes){
+    return Math.max(1,Math.ceil(comptes/COMPTES_PAR_LICENCE));
+  }
+
+  function ajusteLicences(){
+    var min=licencesMin(+$('comptes').value);
+    $('licences').min=min;
+    if(+$('licences').value<min){$('licences').value=min}
+  }
+
   function bascule(versArr){
     modeArr=versArr;
     $('mode-arr').setAttribute('aria-pressed',versArr);
@@ -335,7 +345,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     var perdu=arr*churn;
     var gain=perdu*evitePct;
 
-    var licencesFacturees=Math.max(licences,Math.ceil(comptes/COMPTES_PAR_LICENCE));
+    var licencesFacturees=Math.max(licences,licencesMin(comptes));
     var abo=TARIF_LICENCE*licencesFacturees*12;
     var coutAn1=abo;
 
@@ -351,7 +361,8 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     $('v-churn').textContent=(+$('churn').value).toLocaleString('en-US')+'%';
     $('v-evite').textContent=$('evite').value+'%';
     $('v-licences').textContent=licences+(licences>1?' users':' user');
-    $('aide-licences').textContent='\u20ac490 per license per month. One license is one user and 500 tracked accounts. Your configuration needs '+licencesFacturees+(licencesFacturees>1?' licenses.':' license.');
+    var minLic=licencesMin(comptes);
+    $('aide-licences').textContent='\u20ac490 per license per month. One license is one user and 500 tracked accounts. With '+comptes.toLocaleString('en-US')+' tracked accounts, you need at least '+minLic+(minLic>1?' licenses':' license')+' \u2014 you can add more, never fewer.';
 
     // result
     $('r-gain').textContent=euroCourt(gain);
@@ -378,11 +389,13 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     $('d-total').textContent=euro(coutAn1);
   }
 
-  ['comptes','arr','arpu','churn','evite','licences'].forEach(function(id){
+  ['arr','arpu','churn','evite','licences'].forEach(function(id){
     $(id).addEventListener('input',calcule);
   });
+  $('comptes').addEventListener('input',function(){ajusteLicences();calcule();});
   $('mode-arr').addEventListener('click',function(){bascule(true)});
   $('mode-arpu').addEventListener('click',function(){bascule(false)});
+  ajusteLicences();
   calcule();
 })();
 </script>
