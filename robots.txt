@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /ancien-site.html
+Disallow: /ancien-site-offres.html
+
+Sitemap: https://www.joinmarsa.com/sitemap.xml
