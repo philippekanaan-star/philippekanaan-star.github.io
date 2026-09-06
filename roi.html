@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MARSĀ — Ce que vous coûte le churn</title>
+<meta name="description" content="Calculez en ligne ce que le churn coûte à votre entreprise SaaS B2B et ce que MARSĀ vous permettrait de récupérer chaque année. Simulateur gratuit et sans engagement.">
+<link rel="canonical" href="https://www.joinmarsa.com/roi.html">
+<link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/roi.html">
+<link rel="alternate" hreflang="en" href="https://www.joinmarsa.com/roi-en.html">
+<link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/roi.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -357,20 +362,20 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     $('v-arr').textContent=euroCourt(arr);
     $('v-arpu').textContent=euro(modeArr?arpu:+$('arpu').value)+' /mois';
     $('aide-arr').textContent='Soit environ '+euro(arpu)+' par compte et par mois.';
-    $('aide-arpu').textContent='Soit un ARR d\u2019environ '+euroCourt(arr)+'.';
+    $('aide-arpu').textContent='Soit un ARR d’environ '+euroCourt(arr)+'.';
     $('v-churn').textContent=(+$('churn').value).toLocaleString('fr-FR')+' %';
     $('v-evite').textContent=$('evite').value+' %';
     $('v-licences').textContent=licences+(licences>1?' utilisateurs':' utilisateur');
     var minLic=licencesMin(comptes);
-    $('aide-licences').textContent='490 € par licence et par mois. Une licence, c\u2019est un utilisateur et 500 comptes suivis. Avec '+comptes.toLocaleString('fr-FR')+' comptes suivis, il vous faut au moins '+minLic+(minLic>1?' licences':' licence')+' — vous pouvez en prendre plus, jamais moins.';
+    $('aide-licences').textContent='490 € par licence et par mois. Une licence, c’est un utilisateur et 500 comptes suivis. Avec '+comptes.toLocaleString('fr-FR')+' comptes suivis, il vous faut au moins '+minLic+(minLic>1?' licences':' licence')+' — vous pouvez en prendre plus, jamais moins.';
 
     // résultat
     $('r-gain').textContent=euroCourt(gain);
     $('r-sous').textContent='sur '+euroCourt(perdu)+' actuellement perdus chaque année';
-    $('r-roi').textContent=(roi>=10?Math.round(roi):roi.toLocaleString('fr-FR',{maximumFractionDigits:1}))+' \u00d7';
+    $('r-roi').textContent=(roi>=10?Math.round(roi):roi.toLocaleString('fr-FR',{maximumFractionDigits:1}))+' ×';
 
     if(!isFinite(moisPayback)||moisPayback>60){
-      $('r-payback').textContent='\u2014';
+      $('r-payback').textContent='—';
     }else if(moisPayback<1){
       $('r-payback').textContent=Math.max(1,Math.round(moisPayback*30.4))+' j';
     }else{

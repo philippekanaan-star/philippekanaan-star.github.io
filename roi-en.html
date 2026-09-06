@@ -4,6 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MARSĀ — What churn costs you</title>
+<meta name="description" content="Calculate online what churn costs your B2B SaaS business and how much MARSĀ could help you recover each year. Free, no-commitment simulator.">
+<link rel="canonical" href="https://www.joinmarsa.com/roi-en.html">
+<link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/roi.html">
+<link rel="alternate" hreflang="en" href="https://www.joinmarsa.com/roi-en.html">
+<link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/roi.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -356,21 +361,21 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     $('v-comptes').textContent=comptes.toLocaleString('en-US');
     $('v-arr').textContent=euroCourt(arr);
     $('v-arpu').textContent=euro(modeArr?arpu:+$('arpu').value)+' /mo';
-    $('aide-arr').textContent='That\u2019s about '+euro(arpu)+' per account per month.';
-    $('aide-arpu').textContent='That\u2019s an ARR of about '+euroCourt(arr)+'.';
+    $('aide-arr').textContent='That’s about '+euro(arpu)+' per account per month.';
+    $('aide-arpu').textContent='That’s an ARR of about '+euroCourt(arr)+'.';
     $('v-churn').textContent=(+$('churn').value).toLocaleString('en-US')+'%';
     $('v-evite').textContent=$('evite').value+'%';
     $('v-licences').textContent=licences+(licences>1?' users':' user');
     var minLic=licencesMin(comptes);
-    $('aide-licences').textContent='\u20ac490 per license per month. One license is one user and 500 tracked accounts. With '+comptes.toLocaleString('en-US')+' tracked accounts, you need at least '+minLic+(minLic>1?' licenses':' license')+' \u2014 you can add more, never fewer.';
+    $('aide-licences').textContent='€490 per license per month. One license is one user and 500 tracked accounts. With '+comptes.toLocaleString('en-US')+' tracked accounts, you need at least '+minLic+(minLic>1?' licenses':' license')+' — you can add more, never fewer.';
 
     // result
     $('r-gain').textContent=euroCourt(gain);
     $('r-sous').textContent='out of '+euroCourt(perdu)+' currently lost every year';
-    $('r-roi').textContent=(roi>=10?Math.round(roi):roi.toLocaleString('en-US',{maximumFractionDigits:1}))+' \u00d7';
+    $('r-roi').textContent=(roi>=10?Math.round(roi):roi.toLocaleString('en-US',{maximumFractionDigits:1}))+' ×';
 
     if(!isFinite(moisPayback)||moisPayback>60){
-      $('r-payback').textContent='\u2014';
+      $('r-payback').textContent='—';
     }else if(moisPayback<1){
       $('r-payback').textContent=Math.max(1,Math.round(moisPayback*30.4))+' d';
     }else{
