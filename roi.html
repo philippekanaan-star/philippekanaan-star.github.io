@@ -199,6 +199,17 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 .cta-bas .btn.ghost{background:transparent;color:var(--encre);border:1px solid var(--creme-ombre)}
 .cta-bas .btn.ghost:hover{border-color:var(--bleu)}
 @media(max-width:900px){.cta-bas{padding:0 20px 56px}}
+
+/* ---------- pied de page ---------- */
+.pied-site{
+  max-width:1180px;margin:0 auto;padding:24px 32px 56px;
+  border-top:1px solid var(--creme-ombre);
+  font-size:13.5px;color:#5f6a80;
+  display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;
+}
+.pied-site a{color:inherit;opacity:.85}
+.pied-site a:hover{opacity:1}
+@media(max-width:900px){.pied-site{padding:20px 20px 40px}}
 </style>
 </head>
 <body>
@@ -298,6 +309,11 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     <a class="btn ghost" href="offres.html">Voir le détail de l'offre</a>
     <a class="btn" href="index.html#contact">Demander une démo →</a>
   </div>
+</div>
+
+<div class="pied-site">
+  <span>marsā — Marseille</span>
+  <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a></span>
 </div>
 
 <script>
