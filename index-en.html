@@ -182,7 +182,7 @@
 
   /* ---------- FOUNDER ---------- */
   .founder{ display:flex; gap:32px; align-items:center; background:#fff; border:1px solid var(--line); border-radius:16px; padding:44px; }
-  .f-photo{ width:80px; height:80px; flex:none; border-radius:50%; background:linear-gradient(135deg,var(--orange),#0b2c66); }
+  .f-photo{ width:80px; height:80px; flex:none; border-radius:50%; object-fit:cover; }
   .f-quote{ font-family:'Space Grotesk',sans-serif; font-size:21px; line-height:1.35; font-weight:600; }
   .f-quote-by{ margin-top:12px; font-size:13px; color:var(--sub); }
   .f-stats{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:32px; }
@@ -522,7 +522,7 @@
 <section class="block" id="pourquoi">
   <div class="wrap">
     <div class="founder">
-      <div class="f-photo"></div>
+      <img class="f-photo" src="data:image/jpeg;base64,PLACEHOLDER_B64" alt="Philippe Kanaan, founder of marsā">
       <div>
         <p class="f-quote">"For eight years, I led Customer Success teams. The churn I didn't see coming — I always found it in the data, after the fact."</p>
         <div class="f-quote-by">Philippe Kanaan — founder of marsā · 15 years of operations, formerly Taster, Sensinov, Captain Contrat, KPMG</div>
@@ -662,7 +662,7 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 marsā. All rights reserved.</span>
-      <span><a href="#">Legal notice</a><a href="#">Privacy policy</a><a href="#">DPA</a></span>
+      <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a><a href="#">Legal notice</a><a href="#">Privacy policy</a><a href="#">DPA</a></span>
     </div>
   </div>
 </footer>
