@@ -3,10 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
-<!-- NOINDEX TEMPORAIRE : retirer le jour du lancement du lot, et ajouter l'URL dans /sitemap.xml -->
-<meta name="robots" content="noindex, follow">
-
 <title>Score de santé client : définition, calcul et seuils (2026) | marsā</title>
 <meta name="description" content="Les 4 dimensions à mesurer, comment les pondérer, où placer les seuils d'alerte, et pourquoi 73 % des scores de santé client ne prédisent pas le churn.">
 <link rel="canonical" href="https://www.joinmarsa.com/blog/score-de-sante-client.html">
@@ -14,7 +10,6 @@
 <link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/blog/score-de-sante-client.html">
 
 <!-- TODO Open Graph : nécessite une image de partage 1200x630 dans le dépôt.
-     Sans elle, un lien partagé sur LinkedIn s'affiche sans visuel.
 <meta property="og:title" content="Score de santé client : comment le calculer en 2026 ?">
 <meta property="og:description" content="Les 4 dimensions, les pondérations, les seuils, et l'angle mort qui explique pourquoi 73 % des scores ne prédisent pas le churn.">
 <meta property="og:image" content="https://www.joinmarsa.com/img/og-score-de-sante-client.png">
@@ -26,85 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bleu:#2b6ce0;--bleu-nuit:#16336b;--creme:#f5f1e7;--creme-ombre:#e4ddcb;--encre:#131f38;--gris:#5f6a80;--gain:#2f7d5c}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--creme);color:var(--encre);line-height:1.62;font-size:16.5px}
-a{color:inherit}
-.enveloppe{max-width:1060px;margin:0 auto;padding:0 28px}
-h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
-
-.nav{background:var(--bleu);color:var(--creme)}
-.nav .enveloppe{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;padding-bottom:20px;flex-wrap:wrap}
-.marque{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:.22em;text-decoration:none}
-.nav-right{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
-.nav nav{display:flex;gap:26px;font-size:14.5px}
-.nav nav a{text-decoration:none;opacity:.85}
-.nav nav a:hover,.nav nav a[aria-current]{opacity:1;text-decoration:underline;text-underline-offset:4px}
-.lang{font-size:12.5px;color:rgba(245,241,231,.62)}
-.lang-current{color:var(--creme);font-weight:600}
-
-.ariane{padding:26px 0 0;font-size:13.5px;color:var(--gris)}
-.ariane a{text-decoration:none}
-.ariane a:hover{color:var(--bleu)}
-
-.entete{padding:20px 0 0}
-.entete h1{font-size:clamp(31px,4.4vw,44px);font-weight:700;line-height:1.1;max-width:24ch}
-.meta{margin-top:16px;font-size:13px;color:var(--gris);letter-spacing:.05em;text-transform:uppercase}
-.chapo{font-size:18.5px;color:var(--gris);margin-top:18px;max-width:66ch;line-height:1.55}
-
-.corps{padding:8px 0 0;max-width:70ch}
-.corps h2{font-size:25px;font-weight:700;margin:46px 0 14px;line-height:1.22}
-.corps h3{font-size:18.5px;font-weight:700;margin:30px 0 10px}
-.corps p{margin:0 0 18px}
-.corps ul,.corps ol{margin:0 0 22px 20px}
-.corps li{margin-bottom:11px}
-.corps a{color:var(--bleu);text-decoration:underline;text-underline-offset:3px}
-.corps strong{font-weight:600}
-
-figure{margin:30px 0 28px}
-figure svg{width:100%;height:auto;display:block}
-figcaption{font-size:13.5px;color:var(--gris);margin-top:12px;line-height:1.5}
-
-table{border-collapse:collapse;width:100%;margin:8px 0 24px;font-size:15.5px}
-th,td{text-align:left;padding:11px 14px 11px 0;border-bottom:1px solid var(--creme-ombre);vertical-align:top}
-th{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--gris)}
-
-.encadre{background:var(--bleu);color:var(--creme);padding:28px 32px;margin:40px 0}
-.encadre h2{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin:0 0 14px;text-transform:uppercase;letter-spacing:.07em}
-.encadre ul{list-style:none;margin:0;font-size:16.5px;line-height:1.65}
-.encadre li{margin-bottom:10px}
-.encadre li::before{content:"— ";opacity:.6}
-
-.faq details{border-bottom:1px solid var(--creme-ombre)}
-.faq summary{cursor:pointer;padding:17px 0;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";color:var(--bleu);font-weight:700}
-.faq details[open] summary::after{content:"–"}
-.faq p{padding:0 0 18px;color:var(--gris);font-size:15.5px}
-
-.sources{border-top:1px solid var(--creme-ombre);margin-top:44px;padding-top:20px;font-size:14.5px;color:var(--gris);max-width:70ch}
-.auteur{border-top:1px solid var(--creme-ombre);margin-top:22px;padding-top:22px;font-size:15px;color:var(--gris);max-width:70ch}
-.auteur strong{color:var(--encre)}
-
-.aussi{padding:44px 0 0;max-width:70ch}
-.aussi h2{font-size:20px;font-weight:700;margin-bottom:12px}
-.aussi a{display:block;padding:15px 0;border-bottom:1px solid var(--creme-ombre);text-decoration:none}
-.aussi a strong{display:block;font-size:16.5px;font-weight:700;margin-bottom:3px}
-.aussi a span{font-size:14.5px;color:var(--gris)}
-.aussi a:hover strong{color:var(--bleu)}
-
-.appel{background:var(--bleu-nuit);color:var(--creme);margin:64px 0 0;padding:52px 36px}
-.appel .enveloppe{padding:0}
-.appel h2{font-size:clamp(23px,3.4vw,30px);font-weight:700;margin-bottom:14px;max-width:24ch}
-.appel ul{list-style:none;max-width:60ch;margin:0 0 26px;font-size:16px;line-height:1.7;opacity:.9}
-.appel li::before{content:"— ";opacity:.55}
-.bouton{display:inline-block;background:var(--creme);color:var(--bleu-nuit);text-decoration:none;font-weight:700;font-size:16px;padding:15px 30px}
-.bouton:hover{background:#fff}
-
-footer{padding:34px 0 56px;font-size:13.5px;color:var(--gris);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
-footer a{opacity:.85}
-</style>
+<link rel="stylesheet" href="blog.css">
 </head>
 <body>
 
@@ -312,7 +229,7 @@ footer a{opacity:.85}
 
     <h2>Quels outils calculent un score de santé client ?</h2>
 
-    <p>Les plateformes de Customer Success — Gainsight, ChurnZero, Totango, Planhat, Vitally, Custify — permettent toutes de composer un indice pondéré à partir de l'usage produit, du cycle de vie, de l'activité de support et des enquêtes de satisfaction, puis de déclencher des actions quand un compte passe à l'orange ou au rouge. Il reste également possible de construire un premier score à la main, dans un tableur ou dans le CRM — bonne façon de valider les dimensions qui comptent chez vous, tant que le portefeuille reste sous la centaine de comptes.</p>
+    <p>Les plateformes de Customer Success — Gainsight, ChurnZero, Totango, Planhat, Vitally, Custify — permettent toutes de composer un indice pondéré à partir de l'usage produit, du cycle de vie, de l'activité de support et des enquêtes de satisfaction, puis de déclencher des actions quand un compte passe à l'orange ou au rouge. Il reste également possible de construire un premier score à la main, dans un tableur ou dans le CRM — bonne façon de valider les dimensions qui comptent chez vous, tant que le portefeuille reste sous la centaine de comptes, comme le détaille le guide sur <a href="suivi-retention-excel.html">le suivi de la rétention sous Excel</a>.</p>
 
     <p>Quatre questions à poser à un éditeur avant de signer, qui recoupent les angles morts décrits plus haut :</p>
 
@@ -320,7 +237,7 @@ footer a{opacity:.85}
       <li><strong>Quelles sources lisez-vous&nbsp;?</strong> Si la réponse se limite à la télémétrie produit et à un champ de sentiment rempli par le CSM, le score héritera de cet angle mort.</li>
       <li><strong>Puis-je remonter du score à l'échange qui l'explique&nbsp;?</strong> Demandez la démonstration sur un compte réel, pas la capture d'écran.</li>
       <li><strong>Que se passe-t-il quand une donnée manque&nbsp;?</strong> S'il n'existe pas de notion de couverture, les comptes mal connus seront verts.</li>
-      <li><strong>Combien de temps avant le premier score utile&nbsp;?</strong> Une configuration qui se compte en trimestres et suppose un administrateur dédié n'est pas le même achat qu'un branchement en quelques jours.</li>
+      <li><strong>Comment vérifiez-vous que le score détecte vraiment&nbsp;?</strong> Demandez un <a href="retro-test-score-de-churn.html">rétro-test</a>, avec la précision et le rappel, pas seulement un taux de détection.</li>
     </ul>
 
     <div class="encadre">
@@ -341,7 +258,7 @@ footer a{opacity:.85}
     <div class="faq">
       <details>
         <summary>Quelle différence entre un score de santé client et un NPS&nbsp;?</summary>
-        <p>Le NPS est une mesure déclarative, ponctuelle et volontaire : il ne renseigne que sur les clients qui répondent, au moment où ils répondent. Le score de santé est calculé en continu sur l'ensemble du portefeuille à partir de données observées. Le NPS est une des entrées possibles du score, pas son équivalent.</p>
+        <p>Le NPS est une mesure déclarative, ponctuelle et volontaire : il ne renseigne que sur les clients qui répondent, au moment où ils répondent. Le score de santé est calculé en continu sur l'ensemble du portefeuille à partir de données observées. Le NPS est une des entrées possibles du score, pas son équivalent — le sujet est détaillé dans <a href="nps-ou-score-de-sante-client.html">un guide séparé</a>.</p>
       </details>
       <details>
         <summary>À quelle fréquence recalculer un score de santé&nbsp;?</summary>
@@ -365,9 +282,9 @@ footer a{opacity:.85}
 
   <section class="aussi">
     <h2>Guides associés</h2>
-    <!-- À remplacer par les articles du lot dès qu'ils existent -->
-    <a href="../roi.html"><strong>Combien vous coûte réellement votre churn</strong><span>Le calcul, ligne par ligne, à partir de votre ARR et de votre taux de perte annuel.</span></a>
-    <a href="../offres.html"><strong>Ce que fait marsā, et à quel prix</strong><span>Un seul tarif publié, ce qui est inclus, et à partir de quand ça vaut le coût.</span></a>
+    <a href="signaux-de-churn-saas-b2b.html"><strong>Signaux de churn : où ils se cachent dans vos outils</strong><span>La liste des signaux observables, l'outil où chacun apparaît, et comment les hiérarchiser.</span></a>
+    <a href="retro-test-score-de-churn.html"><strong>Comment savoir si votre score fonctionne vraiment</strong><span>La méthode du rétro-test et les trois façons de tricher sans le savoir.</span></a>
+    <a href="decrochage-silencieux.html"><strong>Décrochage silencieux : repérer un client qui se tait</strong><span>Comment mesurer un silence, et pourquoi aucun seuil fixe n'y arrive.</span></a>
   </section>
 
 </div>
@@ -411,26 +328,10 @@ footer a{opacity:.85}
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Quelle différence entre un score de santé client et un NPS ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Le NPS est une mesure déclarative et ponctuelle, limitée aux clients qui répondent. Le score de santé est calculé en continu sur tout le portefeuille à partir de données observées. Le NPS est une entrée possible du score, pas son équivalent." }
-    },
-    {
-      "@type": "Question",
-      "name": "À quelle fréquence recalculer un score de santé client ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Un recalcul quotidien suffit en B2B : tickets, échanges et ARR bougent à l'échelle du jour. L'essentiel est de conserver l'historique quotidien pour lire une trajectoire." }
-    },
-    {
-      "@type": "Question",
-      "name": "Combien de comptes faut-il pour qu'un score de santé ait du sens ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "En dessous d'une cinquantaine de comptes comparables, la normalisation par cohorte devient instable. Il faut aussi six à douze mois d'historique pour qu'une tendance existe." }
-    },
-    {
-      "@type": "Question",
-      "name": "Un score de santé client peut-il prédire le churn ?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Il priorise plutôt qu'il ne prédit. Un bon score désigne les comptes qui méritent l'attention de la semaine et explique pourquoi ; la décision et le résultat restent le travail de l'équipe." }
-    }
+    { "@type": "Question", "name": "Quelle différence entre un score de santé client et un NPS ?", "acceptedAnswer": { "@type": "Answer", "text": "Le NPS est une mesure déclarative et ponctuelle, limitée aux clients qui répondent. Le score de santé est calculé en continu sur tout le portefeuille à partir de données observées. Le NPS est une entrée possible du score, pas son équivalent." } },
+    { "@type": "Question", "name": "À quelle fréquence recalculer un score de santé client ?", "acceptedAnswer": { "@type": "Answer", "text": "Un recalcul quotidien suffit en B2B : tickets, échanges et ARR bougent à l'échelle du jour. L'essentiel est de conserver l'historique quotidien pour lire une trajectoire." } },
+    { "@type": "Question", "name": "Combien de comptes faut-il pour qu'un score de santé ait du sens ?", "acceptedAnswer": { "@type": "Answer", "text": "En dessous d'une cinquantaine de comptes comparables, la normalisation par cohorte devient instable. Il faut aussi six à douze mois d'historique pour qu'une tendance existe." } },
+    { "@type": "Question", "name": "Un score de santé client peut-il prédire le churn ?", "acceptedAnswer": { "@type": "Answer", "text": "Il priorise plutôt qu'il ne prédit. Un bon score désigne les comptes qui méritent l'attention de la semaine et explique pourquoi ; la décision et le résultat restent le travail de l'équipe." } }
   ]
 }
 </script>
