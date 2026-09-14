@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow"><!-- retirer au lancement du lot -->
+<title>Suivre la rétention client sous Excel : le modèle et ses limites | marsā</title>
+<meta name="description" content="La structure de fichier qui fonctionne pour piloter la rétention sous Excel, les colonnes à prévoir, et les cinq points précis où le tableur cesse de tenir.">
+<link rel="canonical" href="https://www.joinmarsa.com/blog/suivi-retention-excel.html">
+<link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/blog/suivi-retention-excel.html">
+<link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/blog/suivi-retention-excel.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="enveloppe">
+    <a class="marque" href="../index.html">marsā</a>
+    <div class="nav-right">
+      <nav>
+        <a href="../index.html">Accueil</a>
+        <a href="../offres.html">Offres</a>
+        <a href="../roi.html">Calculateur</a>
+        <a href="index.html" aria-current="page">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <span class="lang"><span class="lang-current">FR</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="enveloppe">
+
+  <div class="ariane"><a href="../index.html">Accueil</a> · <a href="index.html">Blog</a> · Rétention sous Excel</div>
+
+  <header class="entete">
+    <h1>Suivre la rétention client sous Excel : le modèle, et où il casse</h1>
+    <div class="meta">7 min de lecture · 14 septembre 2026</div>
+    <p class="chapo">Un tableur reste le bon outil pour commencer : il coûte zéro, il se modifie en direct et il oblige à décider ce qui compte. Voici la structure de fichier qui fonctionne, et les cinq points précis où elle cesse de tenir — pour savoir quand changer plutôt que de s'en apercevoir après coup.</p>
+  </header>
+
+  <article class="corps">
+
+    <p>La majorité des équipes Customer Success des éditeurs entre 1 et 20 M€ d'ARR pilotent leur rétention dans un tableur. Ce n'est pas un retard : c'est souvent le bon choix au départ. Le tableur force à expliciter ce qu'on suit, et il ne coûte rien tant que le portefeuille reste lisible d'un coup d'œil.</p>
+
+    <p>Le problème n'est pas Excel. Le problème est qu'on continue à s'en servir bien après le point où il a cessé de dire la vérité, parce que rien ne le signale.</p>
+
+    <h2>La structure de fichier qui fonctionne</h2>
+
+    <p>Un onglet par usage, et surtout pas tout dans le même.</p>
+
+    <table>
+      <tr><th>Onglet</th><th>Une ligne par</th><th>Colonnes essentielles</th></tr>
+      <tr>
+        <td><strong>Comptes</strong></td>
+        <td>Client</td>
+        <td>Nom, segment, ARR, date de début, date de renouvellement, CSM référent, statut</td>
+      </tr>
+      <tr>
+        <td><strong>Contacts</strong></td>
+        <td>Personne</td>
+        <td>Compte, nom, rôle, sponsor oui/non, date du dernier échange, actif oui/non</td>
+      </tr>
+      <tr>
+        <td><strong>Journal</strong></td>
+        <td>Événement</td>
+        <td>Date, compte, type (échange, escalade, incident, jalon), résumé en une ligne, auteur</td>
+      </tr>
+      <tr>
+        <td><strong>Rev
+
+ue</strong></td>
+        <td>Compte et mois</td>
+        <td>Mois, compte, note de risque, raison, action décidée, échéance</td>
+      </tr>
+    </table>
+
+    <p>Trois règles font la différence entre un fichier qui survit un an et un fichier abandonné au bout de six semaines :</p>
+
+    <ul>
+      <li><strong>N'écrasez jamais une valeur, ajoutez une ligne.</strong> C'est le rôle de l'onglet Revue : une note de risque par compte et par mois. Sans cela, vous n'aurez jamais de tendance, seulement un instantané — et <a href="score-de-sante-client.html">la tendance compte plus que le niveau</a>.</li>
+      <li><strong>Datez tout.</strong> Une colonne « dernier échange » sans date est inutilisable trois mois plus tard, et rend impossible tout <a href="retro-test-score-de-churn.html">rétro-test</a>.</li>
+      <li><strong>Une seule source par information.</strong> Si l'ARR est saisi à la fois dans Comptes et dans Revue, les deux divergeront, et personne ne saura lequel fait foi.</li>
+    </ul>
+
+    <h2>Les indicateurs à calculer</h2>
+
+    <ul>
+      <li><strong>Taux de rétention logo</strong> — comptes présents en fin de période parmi ceux présents au début, hors nouveaux clients.</li>
+      <li><strong>Taux de rétention brut du revenu</strong> — ARR conservé sur ARR de départ, sans compter les expansions. Il ne peut pas dépasser 100 %.</li>
+      <li><strong>Net revenue retention</strong> — même calcul, expansions comprises. C'est celui que regardent les investisseurs, et il peut masquer une hémorragie de petits comptes derrière quelques gros upsells.</li>
+      <li><strong>Répartition du risque</strong> — nombre de comptes et ARR par bande de risque. C'est ce tableau qui doit rester traitable par l'équipe.</li>
+    </ul>
+
+    <p>Calculez toujours la rétention brute à côté de la nette. Les regarder ensemble est le seul moyen de voir si la croissance vient de la fidélité ou d'un rattrapage commercial.</p>
+
+    <h2>Les cinq points où le tableur casse</h2>
+
+    <h3>1. La note de risque devient un jugement, pas une mesure</h3>
+
+    <p>Dans un fichier, la colonne « risque » est remplie à la main par le CSM qui suit le compte. Elle capte son intuition, ce qui n'est pas rien — mais elle est incomparable d'un CSM à l'autre, et elle bouge quand l'humeur du CSM bouge. Deux portefeuilles ne se comparent plus.</p>
+
+    <h3>2. Il n'y a pas d'historique exploitable</h3>
+
+    <p>La plupart des fichiers écrasent les valeurs. On sait où en est un compte aujourd'hui, jamais comment il y est arrivé. Or c'est la trajectoire qui informe : un compte à 60 qui descend est plus urgent qu'un compte à 55 stable depuis deux ans.</p>
+
+    <h3>3. Le silence ne remplit aucune cellule</h3>
+
+    <p>Un tableur est mis à jour par quelqu'un qui a quelque chose à y mettre. Un compte dont on n'a plus de nouvelles ne génère aucune saisie — sa ligne reste telle quelle, avec les informations du dernier jour où il a parlé. C'est exactement le mécanisme du <a href="decrochage-silencieux.html">décrochage silencieux</a>, et le tableur y est structurellement aveugle.</p>
+
+    <h3>4. La comparaison entre comptes est fausse</h3>
+
+    <p>Une note attribuée à la main n'est jamais normalisée par segment. Trois tickets par mois, c'est beaucoup pour une TPE et peu pour une ETI, mais dans un fichier les deux reçoivent la même couleur. Le tri par risque devient alors un tri par taille de compte déguisé.</p>
+
+    <h3>5. Le fichier appartient à une personne</h3>
+
+    <p>Il existe en plusieurs versions, il vit dans un téléchargement, et il part quand la personne part. La connaissance du portefeuille n'est pas dans le fichier, elle est dans la tête de celui qui le tient à jour.</p>
+
+    <h2>À partir de quand faut-il changer ?</h2>
+
+    <p>Il n'y a pas de seuil universel, mais quatre déclencheurs assez nets :</p>
+
+    <ul>
+      <li><strong>Plus d'une centaine de comptes suivis</strong>, ou plus d'un CSM qui saisit dans le même fichier.</li>
+      <li><strong>La mise à jour dépasse une demi-journée par mois.</strong> Ce temps est pris sur la relation client, et il augmente à mesure que le portefeuille grandit.</li>
+      <li><strong>Un départ n'a été vu par personne.</strong> C'est le signal le plus fiable que la couverture réelle est inférieure à celle qu'affiche le fichier.</li>
+      <li><strong>Vous ne pouvez pas répondre à « pourquoi ce compte est-il orange ? »</strong> avec une date et une source.</li>
+    </ul>
+
+    <p>Le point de bascule n'est pas la taille du portefeuille : c'est le moment où le fichier demande plus de travail qu'il n'en fait économiser.</p>
+
+    <div class="encadre">
+      <h2>À retenir</h2>
+      <ul>
+        <li>Le tableur est un bon départ : il oblige à décider ce qu'on suit.</li>
+        <li>Quatre onglets — comptes, contacts, journal, revue mensuelle — et jamais tout dans un seul.</li>
+        <li>N'écrasez pas les valeurs : ajoutez une ligne par mois, sinon aucune tendance n'existe.</li>
+        <li>Calculez la rétention brute à côté de la nette ; la nette masque l'hémorragie des petits comptes.</li>
+        <li>Un tableur est aveugle au silence : il n'enregistre que ce que quelqu'un vient y saisir.</li>
+        <li>Changez quand le fichier coûte plus de temps qu'il n'en fait gagner, pas à un nombre de lignes.</li>
+      </ul>
+    </div>
+
+    <h2>Questions fréquentes</h2>
+
+    <div class="faq">
+      <details>
+        <summary>Excel suffit-il pour piloter la rétention client&nbsp;?</summary>
+        <p>Il suffit tant que le portefeuille est petit, qu'une seule personne le tient à jour et que la question posée reste « où en sommes-nous ». Il cesse de suffire dès qu'il faut prioriser des comptes entre eux ou expliquer pourquoi l'un est plus à risque qu'un autre.</p>
+      </details>
+      <details>
+        <summary>Quelle différence entre rétention brute et net revenue retention&nbsp;?</summary>
+        <p>La rétention brute mesure l'ARR conservé sans compter les expansions et ne peut pas dépasser 100 %. La net revenue retention intègre les expansions et peut donc dépasser 100 % tout en masquant des pertes réelles sur les petits comptes.</p>
+      </details>
+      <details>
+        <summary>Comment garder un historique dans un tableur&nbsp;?</summary>
+        <p>En ajoutant une ligne par compte et par mois dans un onglet dédié, plutôt qu'en mettant à jour une colonne. C'est plus lourd à tenir, mais c'est la seule façon d'obtenir une trajectoire et de pouvoir vérifier plus tard si les alertes étaient justes.</p>
+      </details>
+      <details>
+        <summary>Le CRM peut-il remplacer le tableur pour suivre la rétention&nbsp;?</summary>
+        <p>Il règle le problème du fichier personnel et du partage, mais pas celui de la mesure : un CRM enregistre ce qui s'y passe et reste, lui aussi, aveugle à ce qui se passe ailleurs et à ce qui ne se passe plus.</p>
+      </details>
+    </div>
+
+    <p class="sources"><strong>Sources et méthode.</strong> Cet article ne cite pas de données chiffrées externes. La structure de fichier proposée et les déclencheurs de bascule sont des repères de pratique, issus d'entretiens avec des responsables Customer Success d'éditeurs SaaS B2B.</p>
+
+    <p class="auteur"><strong>Philippe Kanaan</strong> est le fondateur de marsā. Basé à Marseille.</p>
+
+  </article>
+
+  <section class="aussi">
+    <h2>Guides associés</h2>
+    <a href="score-de-sante-client.html"><strong>Score de santé client : comment le calculer</strong><span>Ce que devient la colonne « risque » quand elle est calculée plutôt que saisie.</span></a>
+    <a href="combien-de-comptes-par-csm.html"><strong>Combien de comptes par CSM&nbsp;?</strong><span>Les repères de marché et la méthode pour calculer le vôtre.</span></a>
+    <a href="retro-test-score-de-churn.html"><strong>Comment savoir si votre score fonctionne vraiment</strong><span>Pourquoi un historique horodaté est la condition de toute vérification.</span></a>
+  </section>
+
+</div>
+
+<div class="appel">
+  <div class="enveloppe">
+    <h2>Le jour où le fichier coûte plus qu'il ne rapporte</h2>
+    <ul>
+      <li>marsā calcule la note de risque au lieu de la faire saisir, et la même règle s'applique à tous les comptes.</li>
+      <li>L'historique est conservé jour par jour, donc la trajectoire existe et se vérifie.</li>
+      <li>Branchement en quelques jours, en reprenant vos données existantes.</li>
+    </ul>
+    <a class="bouton" href="../index.html#contact">Voir ce que ça donne sur votre portefeuille</a>
+  </div>
+</div>
+
+<div class="enveloppe">
+  <footer>
+    <span>marsā — Marseille</span>
+    <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="../index.html">Accueil</a> · <a href="index.html">Blog</a> · <a href="../roi.html">Calculateur</a></span>
+  </footer>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Suivre la rétention client sous Excel : le modèle, et où il casse",
+  "description": "La structure de fichier qui fonctionne pour piloter la rétention sous Excel, et les cinq points précis où le tableur cesse de tenir.",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "inLanguage": "fr-FR",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.joinmarsa.com/blog/suivi-retention-excel.html" },
+  "author": { "@type": "Person", "name": "Philippe Kanaan", "url": "https://www.joinmarsa.com/" },
+  "publisher": { "@type": "Organization", "name": "marsā", "url": "https://www.joinmarsa.com/" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Excel suffit-il pour piloter la rétention client ?", "acceptedAnswer": { "@type": "Answer", "text": "Il suffit tant que le portefeuille est petit, qu'une seule personne le tient à jour et que la question reste où en sommes-nous. Il cesse de suffire dès qu'il faut prioriser des comptes entre eux ou expliquer pourquoi l'un est plus à risque qu'un autre." } },
+    { "@type": "Question", "name": "Quelle différence entre rétention brute et net revenue retention ?", "acceptedAnswer": { "@type": "Answer", "text": "La rétention brute mesure l'ARR conservé sans compter les expansions et ne peut pas dépasser 100 %. La net revenue retention intègre les expansions et peut dépasser 100 % tout en masquant des pertes réelles sur les petits comptes." } },
+    { "@type": "Question", "name": "Comment garder un historique de rétention dans un tableur ?", "acceptedAnswer": { "@type": "Answer", "text": "En ajoutant une ligne par compte et par mois dans un onglet dédié plutôt qu'en mettant à jour une colonne. C'est la seule façon d'obtenir une trajectoire et de vérifier plus tard si les alertes étaient justes." } },
+    { "@type": "Question", "name": "Le CRM peut-il remplacer le tableur pour suivre la rétention ?", "acceptedAnswer": { "@type": "Answer", "text": "Il règle le problème du fichier personnel et du partage, mais pas celui de la mesure : un CRM enregistre ce qui s'y passe et reste aveugle à ce qui se passe ailleurs et à ce qui ne se passe plus." } }
+  ]
+}
+</script>
+
+</body>
+</html>
