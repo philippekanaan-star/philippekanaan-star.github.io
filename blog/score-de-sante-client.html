@@ -8,7 +8,7 @@
 <meta name="robots" content="noindex, follow">
 
 <title>Score de santé client : définition, calcul et seuils (2026) | marsā</title>
-<meta name="description" content="Les 4 dimensions à mesurer, comment les pondérer, où placer les seuils d'alerte et les 3 erreurs qui rendent un score de santé client inutilisable.">
+<meta name="description" content="Les 4 dimensions à mesurer, comment les pondérer, où placer les seuils d'alerte, et pourquoi 73 % des scores de santé client ne prédisent pas le churn.">
 <link rel="canonical" href="https://www.joinmarsa.com/blog/score-de-sante-client.html">
 <link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/blog/score-de-sante-client.html">
 <link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/blog/score-de-sante-client.html">
@@ -79,9 +79,11 @@ th{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;text-
 .aussi a span{font-size:14.5px;color:var(--gris)}
 .aussi a:hover strong{color:var(--bleu)}
 
-.appel{background:var(--bleu-nuit);color:var(--creme);margin:64px 0 0;padding:52px 36px;text-align:center}
-.appel h2{font-size:clamp(24px,3.6vw,32px);font-weight:700;margin-bottom:12px}
-.appel p{opacity:.85;max-width:54ch;margin:0 auto 26px}
+.appel{background:var(--bleu-nuit);color:var(--creme);margin:64px 0 0;padding:52px 36px}
+.appel .enveloppe{padding:0}
+.appel h2{font-size:clamp(23px,3.4vw,30px);font-weight:700;margin-bottom:14px;max-width:24ch}
+.appel ul{list-style:none;max-width:60ch;margin:0 0 26px;font-size:16px;line-height:1.7;opacity:.9}
+.appel li::before{content:"— ";opacity:.55}
 .bouton{display:inline-block;background:var(--creme);color:var(--bleu-nuit);text-decoration:none;font-weight:700;font-size:16px;padding:15px 30px}
 .bouton:hover{background:#fff}
 
@@ -113,15 +115,15 @@ footer a{opacity:.85}
 
   <header class="entete">
     <h1>Score de santé client : comment le calculer en 2026 ?</h1>
-    <div class="meta">8 min de lecture · 14 septembre 2026</div>
-    <p class="chapo">Les quatre dimensions à mesurer, comment les pondérer, où placer les seuils rouge et orange, et les trois erreurs de conception qui transforment un score de santé client en générateur de fausses alertes.</p>
+    <div class="meta">9 min de lecture · 14 septembre 2026</div>
+    <p class="chapo">Les quatre dimensions à mesurer, comment les pondérer, où placer les seuils rouge et orange, les trois erreurs de conception qui produisent de fausses alertes — et l'angle mort qui explique pourquoi la majorité des scores ne prédisent rien.</p>
   </header>
 
   <article class="corps">
 
-    <p>La plupart des scores de santé client ne fonctionnent pas. Dans l'étude Customer Revenue Leadership menée par ChurnZero en 2025 auprès de près de 800 responsables post-vente, <strong>73 % déclarent que leur score de santé ne prédit pas fiablement le churn</strong>. Ce n'est pas un problème d'outil : la plupart de ces équipes disposent d'une plateforme qui calcule un score. C'est un problème de conception.</p>
+    <p>La plupart des scores de santé client ne fonctionnent pas. Dans l'étude Customer Revenue Leadership menée par ChurnZero en 2025 auprès de près de 800 responsables post-vente, <strong>73 % déclarent que leur score de santé ne prédit pas fiablement le churn</strong>. Ce n'est pas un problème d'outil : la plupart de ces équipes disposent d'une plateforme qui calcule un score. C'est un problème de conception, et pour une partie d'entre eux, un problème de matière première.</p>
 
-    <p>Un score utile repose sur quatre mesures indépendantes — ce que le client dit, ce que la relation lui coûte, si elle est encore vivante, ce que dit le contrat — notées par rapport aux comptes comparables plutôt qu'à un seuil universel, et pondérées davantage par leur tendance que par leur niveau. Ce guide détaille le calcul, les seuils, les pièges, et les outils qui le font à votre place.</p>
+    <p>Un score utile repose sur quatre mesures indépendantes — ce que le client dit, ce que la relation lui coûte, si elle est encore vivante, ce que dit le contrat — notées par rapport aux comptes comparables plutôt qu'à un seuil universel, et pondérées davantage par leur tendance que par leur niveau. Ce guide détaille le calcul, les seuils, les pièges, et ce qu'il faut exiger d'un outil avant de l'acheter.</p>
 
     <h2>Qu'est-ce qu'un score de santé client ?</h2>
 
@@ -149,7 +151,7 @@ footer a{opacity:.85}
     <p>Ces poids sont un point de départ à adapter, pas une vérité. Deux principes gouvernent leur ajustement :</p>
 
     <ul>
-      <li><strong>Si vous avez les données d'usage produit</strong>, ajoutez une cinquième dimension, l'Adoption, autour de 20 %, et redescendez la Voix à 30 %. C'est la dimension la plus prédictive quand elle est disponible.</li>
+      <li><strong>Si vous avez les données d'usage produit</strong>, ajoutez une cinquième dimension, l'Adoption, autour de 20 %, et redescendez la Voix à 30 %.</li>
       <li><strong>Si vous ne les avez pas</strong>, ne montez pas la Voix au-delà d'un tiers du score. C'est la dimension la moins auditable, parce qu'elle repose sur l'interprétation de textes. Lui faire porter la majorité du chiffre rend le score indéfendable dès qu'on le conteste.</li>
     </ul>
 
@@ -208,7 +210,7 @@ footer a{opacity:.85}
 
     <ul>
       <li><strong>Affichez une couverture</strong> avec chaque score : la part de ce qui a réellement pu être mesuré.</li>
-      <li><strong>En dessous de 50 % de couverture</strong>, n'affichez pas de score. Écrivez « données insuffisantes ». Un chiffre calculé sur la moitié de l'information sera lu comme les autres.</li>
+      <li><strong>En dessous de 50 % de couverture</strong>, n'affichez pas de score. Écrivez « données insuffisantes ».</li>
       <li><strong>Redistribuez, ne comblez pas</strong> — une dimension trop peu mesurable sort du calcul, elle ne reçoit pas une note par défaut.</li>
     </ul>
 
@@ -224,6 +226,18 @@ footer a{opacity:.85}
 
     <p>Le silence, en particulier, ne doit jamais être lu comme de la satisfaction. Il se juge par rapport au rythme habituel du compte lui-même : « n'a rien dit depuis 40 jours » n'a de sens que comparé à sa propre habitude.</p>
 
+    <h2>L'angle mort : la matière première du score</h2>
+
+    <p>Les trois erreurs ci-dessus se corrigent en changeant la formule. Il reste un problème qu'aucune pondération ne résout, et qui explique une bonne part des 73 % cités en ouverture : <strong>un score ne peut pas voir ce que ses sources ne contiennent pas.</strong></p>
+
+    <ul>
+      <li><strong>Le signal calculé sur une seule source.</strong> Un CRM qui détecte lui-même le sentiment ne voit que ce qui transite par le CRM. Or le client écrit au support, appelle, envoie des mails. Un sentiment mesuré sur un seul canal ne permet ni de comparer les canaux entre eux, ni de repérer un décrochage — qui se manifeste précisément dans le canal où le client s'est taise.</li>
+      <li><strong>La domination de la télémétrie produit.</strong> La plupart des plateformes construisent d'abord le score sur l'usage. C'est efficace pour un produit à usage quotidien, et aveugle pour un éditeur dont la relation passe par des humains — comme pour les comptes qui se connectent tous les jours et partent quand même.</li>
+      <li><strong>L'absence de trace jusqu'à l'échange.</strong> Beaucoup d'outils indiquent quelle dimension a baissé. Peu ramènent au mail daté ou au ticket précis qui l'explique. Sans cette trace, le CSM refait l'enquête à la main, et le score lui fait gagner une minute au lieu d'une heure.</li>
+    </ul>
+
+    <p>Ces trois points ne sont pas des défauts d'implémentation : ils découlent du choix des sources et de l'architecture. C'est pour ça qu'une équipe peut passer six mois à configurer un scoring et se retrouver avec un chiffre auquel personne ne se fie.</p>
+
     <h2>Faut-il que l'IA calcule le score ?</h2>
 
     <p>Non, et c'est un choix d'architecture plutôt que de prudence. Un modèle de langage sait faire une chose que rien d'autre ne sait faire : lire un ticket, un mail ou un compte rendu d'appel, et en extraire un ton, des signaux nommés et un résumé. Il doit s'arrêter là. Ce qui suit est de l'arithmétique.</p>
@@ -238,15 +252,16 @@ footer a{opacity:.85}
 
     <h2>Quels outils calculent un score de santé client ?</h2>
 
-    <p>Les plateformes de Customer Success — Gainsight, ChurnZero, Totango, Planhat, Vitally, Custify — permettent toutes de composer un indice pondéré à partir de l'usage produit, du cycle de vie, de l'activité de support et des enquêtes de satisfaction, puis de déclencher des actions quand un compte passe à l'orange ou au rouge. Leurs différences se jouent sur trois axes :</p>
+    <p>Les plateformes de Customer Success — Gainsight, ChurnZero, Totango, Planhat, Vitally, Custify — permettent toutes de composer un indice pondéré à partir de l'usage produit, du cycle de vie, de l'activité de support et des enquêtes de satisfaction, puis de déclencher des actions quand un compte passe à l'orange ou au rouge. Il reste également possible de construire un premier score à la main, dans un tableur ou dans le CRM — bonne façon de valider les dimensions qui comptent chez vous, tant que le portefeuille reste sous la centaine de comptes.</p>
+
+    <p>Quatre questions à poser à un éditeur avant de signer, qui recoupent les angles morts décrits plus haut :</p>
 
     <ul>
-      <li><strong>Les sources lues</strong> — la plupart s'appuient d'abord sur la télémétrie produit. Un éditeur dont les clients parlent surtout par mail, téléphone et support aura peu à y mettre.</li>
-      <li><strong>L'explicabilité</strong> — certains affichent la contribution de chaque facteur avec sa source datée, d'autres livrent un chiffre et une couleur.</li>
-      <li><strong>Le coût de mise en œuvre</strong> — la configuration d'un scoring sur les plateformes les plus flexibles se compte en semaines et suppose un administrateur dédié.</li>
+      <li><strong>Quelles sources lisez-vous&nbsp;?</strong> Si la réponse se limite à la télémétrie produit et à un champ de sentiment rempli par le CSM, le score héritera de cet angle mort.</li>
+      <li><strong>Puis-je remonter du score à l'échange qui l'explique&nbsp;?</strong> Demandez la démonstration sur un compte réel, pas la capture d'écran.</li>
+      <li><strong>Que se passe-t-il quand une donnée manque&nbsp;?</strong> S'il n'existe pas de notion de couverture, les comptes mal connus seront verts.</li>
+      <li><strong>Combien de temps avant le premier score utile&nbsp;?</strong> Une configuration qui se compte en trimestres et suppose un administrateur dédié n'est pas le même achat qu'un branchement en quelques jours.</li>
     </ul>
-
-    <p>Il reste également possible de construire un premier score à la main, dans un tableur ou directement dans le CRM. C'est une bonne façon de valider les dimensions qui comptent chez vous avant d'acheter quoi que ce soit — à condition d'accepter que la mise à jour manuelle ne tienne pas au-delà d'une centaine de comptes.</p>
 
     <div class="encadre">
       <h2>À retenir</h2>
@@ -257,7 +272,7 @@ footer a{opacity:.85}
         <li>En dessous de 50 % de couverture, pas de score du tout.</li>
         <li>Calez vos bandes pour qu'une liste rouge reste traitable : environ 7 % en critique.</li>
         <li>Sortez signaux forts et profils contradictoires de la moyenne, sinon elle les efface.</li>
-        <li>L'IA lit les textes ; elle ne calcule pas le score.</li>
+        <li>Un score ne voit que ses sources : si vos clients parlent par mail, téléphone et support, un score bâti sur l'usage produit ne les entendra pas.</li>
       </ul>
     </div>
 
@@ -284,7 +299,7 @@ footer a{opacity:.85}
 
     <p class="sources"><strong>Sources et méthode.</strong> Le chiffre de 73 % provient de l'étude Customer Revenue Leadership publiée par ChurnZero en 2025, menée auprès de près de 800 responsables post-vente. Les capacités de scoring des plateformes citées sont établies d'après leurs documentations publiques. Les pondérations et seuils proposés sont un modèle de référence issu de la pratique et d'entretiens avec des responsables Customer Success d'éditeurs SaaS B2B : ils sont à calibrer sur votre portefeuille, pas à reprendre tels quels.</p>
 
-    <p class="auteur"><strong>Philippe Kanaan</strong> est le fondateur de marsā, qui détecte les risques de départ et les opportunités d'expansion dans les outils que les équipes Customer Success utilisent déjà — CRM, support, téléphonie, messagerie. Basé à Marseille.</p>
+    <p class="auteur"><strong>Philippe Kanaan</strong> est le fondateur de marsā. Basé à Marseille.</p>
 
   </article>
 
@@ -298,9 +313,15 @@ footer a{opacity:.85}
 </div>
 
 <div class="appel">
-  <h2>Un score de santé sans projet de six mois</h2>
-  <p>marsā calcule ce score sur vos comptes à partir des outils que vous utilisez déjà, avec chaque signal tracé jusqu'à sa source. Vingt minutes pour savoir si votre portefeuille s'y prête.</p>
-  <a class="bouton" href="../index.html#contact">Nous contacter</a>
+  <div class="enveloppe">
+    <h2>Un score qui lit tous les canaux, pas seulement le produit</h2>
+    <ul>
+      <li>marsā se branche sur le CRM, le support, la téléphonie et la messagerie — là où vos clients parlent vraiment.</li>
+      <li>Chaque signal est tracé jusqu'à l'échange daté qui l'explique, et la couverture est affichée avec le score.</li>
+      <li>Branchement en quelques jours, sans instrumenter votre produit ni mobiliser un administrateur dédié.</li>
+    </ul>
+    <a class="bouton" href="../index.html#contact">Voir ce que ça donne sur votre portefeuille</a>
+  </div>
 </div>
 
 <div class="enveloppe">
@@ -315,7 +336,7 @@ footer a{opacity:.85}
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": "Score de santé client : comment le calculer en 2026 ?",
-  "description": "Les 4 dimensions à mesurer, comment les pondérer, où placer les seuils d'alerte et les 3 erreurs qui rendent un score de santé client inutilisable.",
+  "description": "Les 4 dimensions à mesurer, comment les pondérer, où placer les seuils d'alerte, et pourquoi 73 % des scores de santé client ne prédisent pas le churn.",
   "datePublished": "2026-09-14",
   "dateModified": "2026-09-14",
   "inLanguage": "fr-FR",
