@@ -12,6 +12,17 @@
 <link rel="canonical" href="https://www.joinmarsa.com/blog/score-de-sante-client.html">
 <link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/blog/score-de-sante-client.html">
 <link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/blog/score-de-sante-client.html">
+
+<!-- TODO Open Graph : nécessite une image de partage 1200x630 dans le dépôt.
+     Sans elle, un lien partagé sur LinkedIn s'affiche sans visuel.
+<meta property="og:title" content="Score de santé client : comment le calculer en 2026 ?">
+<meta property="og:description" content="Les 4 dimensions, les pondérations, les seuils, et l'angle mort qui explique pourquoi 73 % des scores ne prédisent pas le churn.">
+<meta property="og:image" content="https://www.joinmarsa.com/img/og-score-de-sante-client.png">
+<meta property="og:url" content="https://www.joinmarsa.com/blog/score-de-sante-client.html">
+<meta property="og:type" content="article">
+<meta name="twitter:card" content="summary_large_image">
+-->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -50,6 +61,10 @@ h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
 .corps li{margin-bottom:11px}
 .corps a{color:var(--bleu);text-decoration:underline;text-underline-offset:3px}
 .corps strong{font-weight:600}
+
+figure{margin:30px 0 28px}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:13.5px;color:var(--gris);margin-top:12px;line-height:1.5}
 
 table{border-collapse:collapse;width:100%;margin:8px 0 24px;font-size:15.5px}
 th,td{text-align:left;padding:11px 14px 11px 0;border-bottom:1px solid var(--creme-ombre);vertical-align:top}
@@ -140,6 +155,51 @@ footer a{opacity:.85}
 
     <p>Quatre familles de signaux suffisent à couvrir ce qu'on peut observer d'un compte B2B sans instrumenter son produit, c'est-à-dire avec un CRM, un outil de support, la téléphonie et la messagerie.</p>
 
+    <figure>
+      <svg viewBox="0 0 660 168" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="titreSchema descSchema">
+        <title id="titreSchema">Répartition des quatre dimensions d'un score de santé client</title>
+        <desc id="descSchema">Voix du client 35 %, Friction 25 %, Engagement relationnel 20 %, Santé contractuelle 20 %.</desc>
+
+        <rect x="0"   y="8" width="231" height="58" fill="var(--bleu)"/>
+        <rect x="231" y="8" width="165" height="58" fill="var(--bleu-nuit)"/>
+        <rect x="396" y="8" width="132" height="58" fill="var(--gain)"/>
+        <rect x="528" y="8" width="132" height="58" fill="var(--gris)"/>
+
+        <g font-family="Space Grotesk, Inter, sans-serif" font-weight="700" font-size="22" fill="#f5f1e7">
+          <text x="16"  y="45">35 %</text>
+          <text x="247" y="45">25 %</text>
+          <text x="412" y="45">20 %</text>
+          <text x="544" y="45">20 %</text>
+        </g>
+
+        <g font-family="Space Grotesk, Inter, sans-serif" font-weight="700" font-size="13.5" fill="#131f38">
+          <text x="0"   y="96">Voix du client</text>
+          <text x="231" y="96">Friction</text>
+          <text x="396" y="96">Engagement</text>
+          <text x="528" y="96">Santé contractuelle</text>
+        </g>
+
+        <g font-family="Inter, sans-serif" font-size="12.5" fill="#5f6a80">
+          <text x="0"   y="118">Qu'est-ce qui a été dit&#160;?</text>
+          <text x="0"   y="136">Ton, signaux de risque,</text>
+          <text x="0"   y="154">NPS ou CSAT.</text>
+
+          <text x="231" y="118">Combien ça lui a</text>
+          <text x="231" y="136">coûté&#160;? Allers-retours,</text>
+          <text x="231" y="154">réouvertures, délais.</text>
+
+          <text x="396" y="118">La relation vit-elle&#160;?</text>
+          <text x="396" y="136">Récence, réciprocité,</text>
+          <text x="396" y="154">départs de contacts.</text>
+
+          <text x="528" y="118">Où va le contrat&#160;?</text>
+          <text x="528" y="136">ARR, renouvellement,</text>
+          <text x="528" y="154">paiement, ancienneté.</text>
+        </g>
+      </svg>
+      <figcaption>Modèle de référence à quatre dimensions, pour un éditeur SaaS B2B sans données d'usage produit. Les poids sont un point de départ à calibrer sur votre portefeuille.</figcaption>
+    </figure>
+
     <table>
       <tr><th>Dimension</th><th>Poids de référence</th><th>Ce qu'elle mesure</th></tr>
       <tr><td><strong>Voix du client</strong></td><td>35 %</td><td>Le ton des échanges, les signaux explicites de risque, le NPS ou CSAT déclaré</td></tr>
@@ -148,7 +208,7 @@ footer a{opacity:.85}
       <tr><td><strong>Santé contractuelle</strong></td><td>20 %</td><td>Trajectoire de l'ARR, proximité du renouvellement, statut de paiement, ancienneté</td></tr>
     </table>
 
-    <p>Ces poids sont un point de départ à adapter, pas une vérité. Deux principes gouvernent leur ajustement :</p>
+    <p>Deux principes gouvernent l'ajustement de ces poids :</p>
 
     <ul>
       <li><strong>Si vous avez les données d'usage produit</strong>, ajoutez une cinquième dimension, l'Adoption, autour de 20 %, et redescendez la Voix à 30 %.</li>
@@ -231,7 +291,7 @@ footer a{opacity:.85}
     <p>Les trois erreurs ci-dessus se corrigent en changeant la formule. Il reste un problème qu'aucune pondération ne résout, et qui explique une bonne part des 73 % cités en ouverture : <strong>un score ne peut pas voir ce que ses sources ne contiennent pas.</strong></p>
 
     <ul>
-      <li><strong>Le signal calculé sur une seule source.</strong> Un CRM qui détecte lui-même le sentiment ne voit que ce qui transite par le CRM. Or le client écrit au support, appelle, envoie des mails. Un sentiment mesuré sur un seul canal ne permet ni de comparer les canaux entre eux, ni de repérer un décrochage — qui se manifeste précisément dans le canal où le client s'est taise.</li>
+      <li><strong>Le signal calculé sur une seule source.</strong> Un CRM qui détecte lui-même le sentiment ne voit que ce qui transite par le CRM. Or le client écrit au support, appelle, envoie des mails. Un sentiment mesuré sur un seul canal ne permet ni de comparer les canaux entre eux, ni de repérer un décrochage — qui se manifeste précisément dans le canal où le client s'est tu.</li>
       <li><strong>La domination de la télémétrie produit.</strong> La plupart des plateformes construisent d'abord le score sur l'usage. C'est efficace pour un produit à usage quotidien, et aveugle pour un éditeur dont la relation passe par des humains — comme pour les comptes qui se connectent tous les jours et partent quand même.</li>
       <li><strong>L'absence de trace jusqu'à l'échange.</strong> Beaucoup d'outils indiquent quelle dimension a baissé. Peu ramènent au mail daté ou au ticket précis qui l'explique. Sans cette trace, le CSM refait l'enquête à la main, et le score lui fait gagner une minute au lieu d'une heure.</li>
     </ul>
