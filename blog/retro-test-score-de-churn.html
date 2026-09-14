@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow"><!-- retirer au lancement du lot -->
+<title>Rétro-tester un score de churn : la méthode | marsā</title>
+<meta name="description" content="Comment vérifier qu'un score de santé client détecte vraiment les départs : la méthode du rétro-test, les trois façons de tricher sans le savoir, et ce qu'il ne prouve pas.">
+<link rel="canonical" href="https://www.joinmarsa.com/blog/retro-test-score-de-churn.html">
+<link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/blog/retro-test-score-de-churn.html">
+<link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/blog/retro-test-score-de-churn.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="enveloppe">
+    <a class="marque" href="../index.html">marsā</a>
+    <div class="nav-right">
+      <nav>
+        <a href="../index.html">Accueil</a>
+        <a href="../offres.html">Offres</a>
+        <a href="../roi.html">Calculateur</a>
+        <a href="index.html" aria-current="page">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <span class="lang"><span class="lang-current">FR</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="enveloppe">
+
+  <div class="ariane"><a href="../index.html">Accueil</a> · <a href="index.html">Blog</a> · Rétro-test</div>
+
+  <header class="entete">
+    <h1>Comment savoir si votre score de santé client fonctionne vraiment ?</h1>
+    <div class="meta">8 min de lecture · 14 septembre 2026</div>
+    <p class="chapo">La seule façon de le savoir est de le rejouer sur des clients déjà partis, en se plaçant à la date où l'alerte aurait été utile. C'est un rétro-test. Voici la méthode, les trois façons de tricher sans s'en apercevoir, et ce que le résultat ne prouve pas.</p>
+  </header>
+
+  <article class="corps">
+
+    <p>Un score de santé client que personne n'a jamais confronté aux départs réels est une opinion pondérée. Il peut paraître sensé, produire des couleurs crédibles et n'avoir aucun pouvoir de détection — c'est même le cas le plus courant, puisqu'une <a href="score-de-sante-client.html">majorité d'équipes déclare que son score ne prédit pas fiablement le churn</a>.</p>
+
+    <p>Le rétro-test est l'exercice qui tranche. Il coûte quelques jours, il ne demande aucun outil particulier, et il répond à la seule question qui compte : si ce score avait tourné l'an dernier, aurait-il désigné les comptes qui sont effectivement partis, et assez tôt pour qu'on puisse agir ?</p>
+
+    <h2>Qu'est-ce qu'un rétro-test ?</h2>
+
+    <p>Un rétro-test consiste à recalculer le score sur une période passée, en n'utilisant que les données disponibles à cette date, puis à comparer le classement obtenu avec ce qui s'est réellement produit ensuite. La démarche tient en cinq étapes.</p>
+
+    <ul>
+      <li><strong>Choisir une date d'observation</strong> — par exemple le 1er janvier de l'année dernière.</li>
+      <li><strong>Choisir une fenêtre de résultat</strong> — les six ou douze mois qui suivent cette date.</li>
+      <li><strong>Reconstituer l'état des données à la date d'observation</strong>, et rien d'autre.</li>
+      <li><strong>Calculer le score de chaque compte</strong> à cette date.</li>
+      <li><strong>Comparer</strong> les comptes que le score aurait signalés et ceux qui sont effectivement partis pendant la fenêtre.</li>
+    </ul>
+
+    <p>La troisième étape est celle qui fait échouer la plupart des rétro-tests, et c'est aussi celle qu'on croit avoir réussie.</p>
+
+    <h2>Les trois façons de tricher sans le savoir</h2>
+
+    <h3>1. La fuite temporelle</h3>
+
+    <p>C'est l'erreur principale. Elle consiste à laisser entrer dans le calcul une information qui n'existait pas encore à la date d'observation. Les formes les plus fréquentes :</p>
+
+    <ul>
+      <li><strong>Un champ mis à jour depuis.</strong> Le statut du compte dans le CRM porte aujourd'hui « perdu ». Si le calcul lit ce champ, le score « prédit » le départ parce qu'il le connaît déjà.</li>
+      <li><strong>L'ARR actuel plutôt que l'ARR d'alors.</strong> Un compte dont le contrat a été réduit après la date d'observation apparaît en baisse alors qu'il ne l'était pas encore.</li>
+      <li><strong>Les échanges postérieurs à la date.</strong> Le mail de résiliation du mois de mars ne doit pas exister dans un calcul arrêté au 1er janvier.</li>
+    </ul>
+
+    <p>La vérification est simple à formuler et pénible à réaliser : <strong>chaque donnée utilisée doit porter une date, et cette date doit être antérieure à la date d'observation.</strong> Un champ sans horodatage est un champ à exclure.</p>
+
+    <h3>2. Choisir le seuil après avoir vu le résultat</h3>
+
+    <p>On lance le rétro-test, le seuil à 60 donne un résultat médiocre, on essaie 55, puis 52, et on garde celui qui donne le meilleur chiffre. Le score n'a alors pas été testé : il a été ajusté aux réponses.</p>
+
+    <p>La parade est de figer les règles avant de regarder quoi que ce soit, et, si vous avez assez de comptes, de calibrer sur une période et de vérifier sur une autre.</p>
+
+    <h3>3. Ignorer le taux de base</h3>
+
+    <p>Si 5 % de vos comptes partent chaque année, un score qui déclare tout le monde en bonne santé a raison 95 % du temps. Le taux de bonnes réponses est donc une mesure vide.</p>
+
+    <p>La question utile n'est jamais « à quelle fréquence le score a-t-il raison », mais <strong>« parmi les comptes qu'il a signalés, combien sont réellement partis, et parmi ceux qui sont partis, combien avait-il signalés »</strong>.</p>
+
+    <h2>Pourquoi un taux de détection seul est un mensonge</h2>
+
+    <p>Deux mesures comptent, et elles s'opposent.</p>
+
+    <table>
+      <tr><th>Mesure</th><th>Ce qu'elle répond</th><th>Comment on la gonfle artificiellement</th></tr>
+      <tr><td><strong>Rappel</strong><br>(taux de détection)</td><td>Parmi les comptes partis, quelle part le score avait-il signalés&nbsp;?</td><td>En signalant tout le monde. Un score qui met 100 % du portefeuille en alerte a un rappel parfait.</td></tr>
+      <tr><td><strong>Précision</strong></td><td>Parmi les comptes signalés, quelle part est réellement partie&nbsp;?</td><td>En ne signalant que les cas désespérés. La précision monte, mais on détecte trois comptes sur cent.</td></tr>
+    </table>
+
+    <p><strong>Annoncer l'une sans l'autre ne veut rien dire.</strong> Un éditeur qui met en avant un taux de détection de 90 % sans préciser la part du portefeuille qu'il faut mettre en alerte pour l'atteindre ne vous a rien dit. Demandez systrématiquement les deux, plus la taille de la liste rouge que ça implique.</p>
+
+    <p>Le critère d'arbitrage est opérationnel, pas statistique : une liste d'alertes n'a de valeur que si l'équipe qui la reçoit peut la traiter. C'est la logique qui gouverne aussi <a href="score-de-sante-client.html">le placement des seuils rouge et orange</a>.</p>
+
+    <h2>Le délai d'anticipation : détecter ne suffit pas</h2>
+
+    <p>Un score qui signale un compte trois semaines avant l'échéance a techniquement raison et pratiquement tort. À ce stade, la décision est prise chez le client et le budget est réalloué.</p>
+
+    <p>Mesurez donc, pour chaque compte correctement détecté, <strong>le nombre de jours entre la première alerte et le départ effectif</strong>, et regardez la médiane. C'est souvent le chiffre le plus instructif du rétro-test, et le plus rarement publié.</p>
+
+    <ul>
+      <li><strong>Moins de 30 jours</strong> — le score constate, il n'alerte pas.</li>
+      <li><strong>60 à 120 jours</strong> — fenêtre exploitable pour une action de rétention.</li>
+      <li><strong>Plus de 180 jours</strong> — confortable, mais vérifiez la précision : un score qui alerte très tôt alerte souvent sur beaucoup de monde.</li>
+    </ul>
+
+    <h2>Combien d'historique faut-il ?</h2>
+
+    <ul>
+      <li><strong>Assez de départs pour que le résultat signifie quelque chose.</strong> En dessous d'une dizaine de churns avérés dans la fenêtre, un compte de différence fait bouger le taux de plusieurs points : le chiffre n'est pas interprétable.</li>
+      <li><strong>Assez de profondeur avant la date d'observation</strong> — six à douze mois d'échanges, faute de quoi aucune tendance n'existe et le score ne repose que sur des niveaux.</li>
+      <li><strong>Des données horodatées</strong>, sur toute la période. C'est la contrainte qui bloque le plus souvent : beaucoup d'équipes ont l'historique des tickets mais pas celui des échanges, ou l'ARR actuel sans ses variations.</li>
+    </ul>
+
+    <h2>Ce qu'un rétro-test ne prouve pas</h2>
+
+    <p>Il ne prouve pas que le score aurait sauvé les comptes. Il montre qu'ils auraient été désignés, ce qui est une condition nécessaire et pas une condition suffisante. <strong>Signalé n'est pas sauvé</strong> : entre l'alerte et le renouvellement, il reste tout le travail de l'équipe.</p>
+
+    <p>Il ne prouve pas non plus que le résultat tiendra. Un modèle vérifié sur l'année dernière décrit le portefeuille de l'année dernière ; un changement d'offre, de segment ou de modèle de service peut le périmer. Un rétro-test se refait.</p>
+
+    <p>Enfin, il ne dit rien des comptes que le score aurait signalés et qui sont restés <em>parce qu'on est intervenu</em>. C'est la limite structurelle de l'exercice : comptabilisés comme faux positifs, ces cas sont pourtant exactement ce qu'on cherche à produire.</p>
+
+    <div class="encadre">
+      <h2>À retenir</h2>
+      <ul>
+        <li>Un score jamais confronté aux départs réels est une opinion pondérée.</li>
+        <li>Chaque donnée du calcul doit être horodatée antérieurement à la date d'observation.</li>
+        <li>Figez les seuils avant de regarder les résultats, jamais après.</li>
+        <li>Le taux de bonnes réponses est vide : demandez précision et rappel ensemble.</li>
+        <li>Mesurez le délai médian entre l'alerte et le départ : c'est lui qui dit si le score sert.</li>
+        <li>Signalé n'est pas sauvé. Un rétro-test mesure la détection, pas la rétention.</li>
+      </ul>
+    </div>
+
+    <h2>Questions fréquentes</h2>
+
+    <div class="faq">
+      <details>
+        <summary>Quelle durée de fenêtre choisir pour un rétro-test&nbsp;?</summary>
+        <p>Six à douze mois après la date d'observation, selon la durée de vos contrats. Une fenêtre plus courte que votre cycle de renouvellement contient trop peu de départs pour être interprétable.</p>
+      </details>
+      <details>
+        <summary>Peut-on rétro-tester sans données historiques complètes&nbsp;?</summary>
+        <p>Partiellement, en limitant le test aux dimensions dont vous avez l'historique horodaté et en le disant explicitement. Un rétro-test mené sur des données incomplètes reste utile s'il annonce sa couverture ; il devient trompeur s'il la cache.</p>
+      </details>
+      <details>
+        <summary>Un bon taux de détection suffit-il à valider un outil&nbsp;?</summary>
+        <p>Non. Demandez toujours la précision associée et la part du portefeuille qu'il faut placer en alerte pour atteindre ce taux. Un rappel de 90 % obtenu en signalant 60 % des comptes ne produit aucune priorisation.</p>
+      </details>
+      <details>
+        <summary>À quelle fréquence refaire un rétro-test&nbsp;?</summary>
+        <p>Une fois par an, et systématiquement après un changement d'offre, de segment cible ou de modèle de service. Un score validé sur un portefeuille ne reste pas valide sur un portefeuille qui a changé de nature.</p>
+      </details>
+    </div>
+
+    <p class="sources"><strong>Sources et méthode.</strong> Cet article décrit une méthode d'évaluation, sans données chiffrées externes. Les repères de délai d'anticipation sont des ordres de grandeur issus de la pratique, à vérifier sur votre propre cycle de renouvellement.</p>
+
+    <p class="auteur"><strong>Philippe Kanaan</strong> est le fondateur de marsā. Basé à Marseille.</p>
+
+  </article>
+
+  <section class="aussi">
+    <h2>Guides associés</h2>
+    <a href="score-de-sante-client.html"><strong>Score de santé client : comment le calculer</strong><span>Les quatre dimensions, les pondérations, les seuils, et les trois erreurs à éviter.</span></a>
+    <a href="signaux-de-churn-saas-b2b.html"><strong>Signaux de churn : où ils se cachent dans vos outils</strong><span>La liste des signaux observables, l'outil où chacun apparaît, et comment les hiérarchiser.</span></a>
+    <a href="decrochage-silencieux.html"><strong>Décrochage silencieux : repérer un client qui se tait</strong><span>Comment mesurer un silence, et pourquoi aucun seuil fixe n'y arrive.</span></a>
+  </section>
+
+</div>
+
+<div class="appel">
+  <div class="enveloppe">
+    <h2>Un score qu'on peut vérifier, pas seulement croire</h2>
+    <ul>
+      <li>marsā archive chaque score avec ses facteurs datés et sourcés, ce qui rend le rétro-test possible sans reconstruction.</li>
+      <li>La couverture est affichée avec le score : vous savez sur quelle part de l'information il repose.</li>
+      <li>Branchement en quelques jours, en reprenant votre historique existant.</li>
+    </ul>
+    <a class="bouton" href="../index.html#contact">Voir ce que ça donne sur votre portefeuille</a>
+  </div>
+</div>
+
+<div class="enveloppe">
+  <footer>
+    <span>marsā — Marseille</span>
+    <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="../index.html">Accueil</a> · <a href="index.html">Blog</a> · <a href="../roi.html">Calculateur</a></span>
+  </footer>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Comment savoir si votre score de santé client fonctionne vraiment ?",
+  "description": "La méthode du rétro-test, les trois façons de tricher sans le savoir, et ce que le résultat ne prouve pas.",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "inLanguage": "fr-FR",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.joinmarsa.com/blog/retro-test-score-de-churn.html" },
+  "author": { "@type": "Person", "name": "Philippe Kanaan", "url": "https://www.joinmarsa.com/" },
+  "publisher": { "@type": "Organization", "name": "marsā", "url": "https://www.joinmarsa.com/" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "Quelle durée de fenêtre choisir pour un rétro-test ?", "acceptedAnswer": { "@type": "Answer", "text": "Six à douze mois après la date d'observation, selon la durée des contrats. Une fenêtre plus courte que le cycle de renouvellement contient trop peu de départs pour être interprétable." } },
+    { "@type": "Question", "name": "Peut-on rétro-tester sans données historiques complètes ?", "acceptedAnswer": { "@type": "Answer", "text": "Partiellement, en limitant le test aux dimensions dont l'historique est horodaté et en annonçant la couverture obtenue. Un rétro-test incomplet reste utile s'il dit sa couverture, trompeur s'il la cache." } },
+    { "@type": "Question", "name": "Un bon taux de détection suffit-il à valider un outil ?", "acceptedAnswer": { "@type": "Answer", "text": "Non. Il faut la précision associée et la part du portefeuille à placer en alerte pour atteindre ce taux. Un rappel de 90 % obtenu en signalant 60 % des comptes ne produit aucune priorisation." } },
+    { "@type": "Question", "name": "À quelle fréquence refaire un rétro-test ?", "acceptedAnswer": { "@type": "Answer", "text": "Une fois par an, et après tout changement d'offre, de segment cible ou de modèle de service : un score validé sur un portefeuille ne reste pas valide sur un portefeuille qui a changé de nature." } }
+  ]
+}
+</script>
+
+</body>
+</html>
