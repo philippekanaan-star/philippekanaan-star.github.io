@@ -3,7 +3,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, follow"><!-- retirer au lancement du lot -->
 <title>Rétro-tester un score de churn : la méthode | marsā</title>
 <meta name="description" content="Comment vérifier qu'un score de santé client détecte vraiment les départs : la méthode du rétro-test, les trois façons de tricher sans le savoir, et ce qu'il ne prouve pas.">
 <link rel="canonical" href="https://www.joinmarsa.com/blog/retro-test-score-de-churn.html">
@@ -74,7 +73,7 @@
       <li><strong>Les échanges postérieurs à la date.</strong> Le mail de résiliation du mois de mars ne doit pas exister dans un calcul arrêté au 1er janvier.</li>
     </ul>
 
-    <p>La vérification est simple à formuler et pénible à réaliser : <strong>chaque donnée utilisée doit porter une date, et cette date doit être antérieure à la date d'observation.</strong> Un champ sans horodatage est un champ à exclure.</p>
+    <p>La vérification est simple à formuler et pénible à réaliser : <strong>chaque donnée utilisée doit porter une date, et cette date doit être antérieure à la date d'observation.</strong> Un champ sans horodatage est un champ à exclure. C'est aussi la raison pour laquelle <a href="suivi-retention-excel.html">un suivi sous tableur qui écrase ses valeurs</a> rend tout rétro-test impossible.</p>
 
     <h3>2. Choisir le seuil après avoir vu le résultat</h3>
 
@@ -98,7 +97,7 @@
       <tr><td><strong>Précision</strong></td><td>Parmi les comptes signalés, quelle part est réellement partie&nbsp;?</td><td>En ne signalant que les cas désespérés. La précision monte, mais on détecte trois comptes sur cent.</td></tr>
     </table>
 
-    <p><strong>Annoncer l'une sans l'autre ne veut rien dire.</strong> Un éditeur qui met en avant un taux de détection de 90 % sans préciser la part du portefeuille qu'il faut mettre en alerte pour l'atteindre ne vous a rien dit. Demandez systrématiquement les deux, plus la taille de la liste rouge que ça implique.</p>
+    <p><strong>Annoncer l'une sans l'autre ne veut rien dire.</strong> Un éditeur qui met en avant un taux de détection de 90 % sans préciser la part du portefeuille qu'il faut mettre en alerte pour l'atteindre ne vous a rien dit. Demandez systématiquement les deux, plus la taille de la liste rouge que ça implique.</p>
 
     <p>Le critère d'arbitrage est opérationnel, pas statistique : une liste d'alertes n'a de valeur que si l'équipe qui la reçoit peut la traiter. C'est la logique qui gouverne aussi <a href="score-de-sante-client.html">le placement des seuils rouge et orange</a>.</p>
 
