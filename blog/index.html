@@ -5,17 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <!--
-  ATTENTION — cette page est en noindex tant qu'aucun article n'est publié.
-  Un sommaire vide est du contenu mince et nuit au domaine.
-  LE JOUR DE LA PUBLICATION DU PREMIER ARTICLE :
-    1. supprimer la balise <meta name="robots" content="noindex, follow"> ci-dessous ;
-    2. ajouter /blog/ et l'article dans /sitemap.xml ;
-    3. remplacer la liste « À paraître » par les vraies entrées.
+  NOINDEX TEMPORAIRE — le blog est en cours de constitution.
+  Le lot complet d'articles est publié le même jour.
+  LE JOUR DU LANCEMENT :
+    1. supprimer la balise <meta name="robots" content="noindex, follow"> ci-dessous
+       ici ET dans chaque article ;
+    2. ajouter /blog/ et chaque article dans /sitemap.xml ;
+    3. remettre le lien « Blog » dans la nav et le pied de page des 6 pages du site.
 -->
 <meta name="robots" content="noindex, follow">
 
 <title>Blog — marsā</title>
-<meta name="description" content="Rétention, churn et intelligence client : comment se calcule un score de santé, où se cachent les signaux de départ, et ce qu'on mesure honnêtement.">
+<meta name="description" content="Churn, rétention et intelligence client : comment se calcule un score de santé, où se cachent les signaux de départ, ce qu'un rétro-test mesure vraiment.">
 <link rel="canonical" href="https://www.joinmarsa.com/blog/">
 <link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/blog/">
 <link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/blog/">
@@ -43,28 +44,16 @@ h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
 .lang{font-size:12.5px;color:rgba(245,241,231,.62)}
 .lang-current{color:var(--creme);font-weight:600}
 
-.entete{padding:64px 0 12px}
-.entete h1{font-size:clamp(32px,4.8vw,46px);font-weight:700;line-height:1.08;max-width:20ch}
-.entete p{font-size:18px;color:var(--gris);margin-top:18px;max-width:62ch}
+.entete{padding:64px 0 6px}
+.entete h1{font-size:clamp(34px,5.2vw,50px);font-weight:700;line-height:1.06}
+.entete p{font-size:18px;color:var(--gris);margin-top:16px;max-width:58ch}
 
-.piliers{display:grid;grid-template-columns:repeat(3,1fr);gap:0 40px;margin-top:44px;border-top:1px solid var(--creme-ombre);padding-top:26px}
-@media(max-width:820px){.piliers{grid-template-columns:1fr;gap:26px}}
-.piliers h2{font-size:16px;font-weight:700;margin-bottom:8px}
-.piliers p{font-size:15px;color:var(--gris);max-width:44ch}
-
-.liste{padding:56px 0 0}
-.liste h2{font-size:24px;font-weight:700;margin-bottom:8px}
-.liste .intro{color:var(--gris);font-size:16px;margin-bottom:24px;max-width:66ch}
-
-.article{display:block;text-decoration:none;padding:24px 0;border-bottom:1px solid var(--creme-ombre)}
-.article:hover h3{color:var(--bleu)}
+.liste{padding:40px 0 0;border-top:1px solid var(--creme-ombre);margin-top:40px}
+.article{display:block;text-decoration:none;padding:26px 0;border-bottom:1px solid var(--creme-ombre)}
+.article:hover h2{color:var(--bleu)}
 .article .date{font-size:13px;color:var(--gris);letter-spacing:.04em;text-transform:uppercase}
-.article h3{font-size:22px;font-weight:700;margin:6px 0 8px;line-height:1.2;max-width:34ch}
-.article p{font-size:15.5px;color:var(--gris);max-width:72ch}
-
-.aparaitre{list-style:none;font-size:16px;margin-top:6px}
-.aparaitre li{padding:13px 0 13px 30px;border-bottom:1px solid var(--creme-ombre);position:relative;color:var(--gris)}
-.aparaitre li::before{content:"";position:absolute;left:0;top:19px;width:14px;height:3px;background:var(--creme-ombre)}
+.article h2{font-size:23px;font-weight:700;margin:7px 0 9px;line-height:1.2;max-width:36ch}
+.article p{font-size:15.5px;color:var(--gris);max-width:74ch}
 
 .appel{background:var(--bleu-nuit);color:var(--creme);margin:64px 0 0;padding:52px 36px;text-align:center}
 .appel h2{font-size:clamp(24px,3.6vw,32px);font-weight:700;margin-bottom:12px}
@@ -97,47 +86,27 @@ footer a{opacity:.85}
 <div class="enveloppe">
 
   <header class="entete">
-    <h1>Ce qu'on apprend en regardant partir des clients.</h1>
-    <p>Comment se calcule un score de santé client, où se cachent les signaux de départ dans vos outils, et ce qu'on mesure vraiment quand on annonce un taux de détection. Écrit depuis la construction de marsā, avec les chiffres tels qu'ils sortent.</p>
+    <h1>Blog</h1>
+    <p>Churn, rétention et intelligence client, pour les équipes Customer Success des éditeurs de logiciels.</p>
   </header>
 
-  <section class="piliers">
-    <div>
-      <h2>Le métier vécu</h2>
-      <p>Le silence comme signal. Le départ du champion sans successeur. « Trois tickets, c'est beaucoup ou c'est peu ? »</p>
-    </div>
-    <div>
-      <h2>La mesure honnête</h2>
-      <p>Pourquoi un taux de rappel seul est un mensonge, et comment on triche sans le savoir sur un rétro-test.</p>
-    </div>
-    <div>
-      <h2>Le journal de bord</h2>
-      <p>Ce que coûte réellement l'IA par compte, pourquoi aucun frais de mise en service, et où passe le point mort.</p>
-    </div>
-  </section>
-
   <section class="liste">
-    <h2>Articles</h2>
-    <p class="intro">Un article de fond par mois. Pas de contenu de remplissage : si le sujet n'apprend rien à quelqu'un qui fait le métier, il n'est pas publié.</p>
+
+    <a class="article" href="score-de-sante-client.html">
+      <span class="date">14 septembre 2026</span>
+      <h2>Comment calculer un score de santé client</h2>
+      <p>Les dimensions à mesurer, le poids à leur donner, où placer les seuils — et les trois erreurs qui transforment un score en générateur de fausses alertes.</p>
+    </a>
 
     <!--
-      GABARIT D'UNE ENTRÉE — à dupliquer pour chaque article publié.
-      <a class="article" href="slug-de-l-article.html">
-        <span class="date">14 septembre 2026</span>
-        <h3>Titre de l'article</h3>
-        <p>Chapô en une ou deux phrases, repris de la meta description.</p>
+      GABARIT D'UNE ENTRÉE — dupliquer pour chaque article publié :
+      <a class="article" href="slug.html">
+        <span class="date">JJ mois AAAA</span>
+        <h2>Titre</h2>
+        <p>Chapô, repris de la meta description.</p>
       </a>
     -->
 
-    <p class="intro" style="margin-top:28px;margin-bottom:10px"><strong>À paraître</strong></p>
-    <ul class="aparaitre">
-      <li>Choisir un outil de Customer Success entre 1 et 20 M€ d'ARR</li>
-      <li>Comment se calcule un score de santé client</li>
-      <li>Les signaux de churn, et où ils se cachent dans vos outils</li>
-      <li>Piloter la rétention sous Excel : ce qu'on y perd</li>
-      <li>RGPD et IA en Customer Success : ce qu'il faut documenter</li>
-      <li>Rétro-tester un score de churn sans se mentir</li>
-    </ul>
   </section>
 
 </div>
