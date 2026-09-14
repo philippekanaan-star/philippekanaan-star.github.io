@@ -6,64 +6,24 @@
 
 <!--
   NOINDEX TEMPORAIRE — le blog est en cours de constitution.
-  Le lot complet d'articles est publié le même jour.
+  La grappe complète est publiée le même jour.
   LE JOUR DU LANCEMENT :
-    1. supprimer la balise <meta name="robots" content="noindex, follow"> ci-dessous
-       ici ET dans chaque article ;
+    1. supprimer la balise noindex ici ET dans chaque article ;
     2. ajouter /blog/ et chaque article dans /sitemap.xml ;
-    3. remettre le lien « Blog » dans la nav et le pied de page des 6 pages du site.
+    3. remettre le lien « Blog » dans la nav et le pied de page des 6 pages du site ;
+    4. décommenter les balises Open Graph des articles (nécessite les images 1200x630).
 -->
 <meta name="robots" content="noindex, follow">
 
 <title>Blog — marsā</title>
-<meta name="description" content="Churn, rétention et intelligence client : comment se calcule un score de santé, où se cachent les signaux de départ, ce qu'un rétro-test mesure vraiment.">
+<meta name="description" content="Churn, rétention et score de santé client : guides pratiques pour les équipes Customer Success des éditeurs SaaS B2B.">
 <link rel="canonical" href="https://www.joinmarsa.com/blog/">
 <link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/blog/">
 <link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/blog/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --bleu:#2b6ce0; --bleu-nuit:#16336b; --creme:#f5f1e7; --creme-ombre:#e4ddcb;
-  --encre:#131f38; --gris:#5f6a80; --gain:#2f7d5c;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--creme);color:var(--encre);line-height:1.55;font-size:16px}
-a{color:inherit}
-.enveloppe{max-width:1060px;margin:0 auto;padding:0 28px}
-h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
-
-.nav{background:var(--bleu);color:var(--creme)}
-.nav .enveloppe{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;padding-bottom:20px;flex-wrap:wrap}
-.marque{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:.22em;text-decoration:none}
-.nav-right{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
-.nav nav{display:flex;gap:26px;font-size:14.5px}
-.nav nav a{text-decoration:none;opacity:.85}
-.nav nav a:hover,.nav nav a[aria-current]{opacity:1;text-decoration:underline;text-underline-offset:4px}
-.lang{font-size:12.5px;color:rgba(245,241,231,.62)}
-.lang-current{color:var(--creme);font-weight:600}
-
-.entete{padding:64px 0 6px}
-.entete h1{font-size:clamp(34px,5.2vw,50px);font-weight:700;line-height:1.06}
-.entete p{font-size:18px;color:var(--gris);margin-top:16px;max-width:58ch}
-
-.liste{padding:40px 0 0;border-top:1px solid var(--creme-ombre);margin-top:40px}
-.article{display:block;text-decoration:none;padding:26px 0;border-bottom:1px solid var(--creme-ombre)}
-.article:hover h2{color:var(--bleu)}
-.article .date{font-size:13px;color:var(--gris);letter-spacing:.04em;text-transform:uppercase}
-.article h2{font-size:23px;font-weight:700;margin:7px 0 9px;line-height:1.2;max-width:36ch}
-.article p{font-size:15.5px;color:var(--gris);max-width:74ch}
-
-.appel{background:var(--bleu-nuit);color:var(--creme);margin:64px 0 0;padding:52px 36px;text-align:center}
-.appel h2{font-size:clamp(24px,3.6vw,32px);font-weight:700;margin-bottom:12px}
-.appel p{opacity:.85;max-width:52ch;margin:0 auto 26px}
-.bouton{display:inline-block;background:var(--creme);color:var(--bleu-nuit);text-decoration:none;font-weight:700;font-size:16px;padding:15px 30px}
-.bouton:hover{background:#fff}
-
-footer{padding:34px 0 56px;font-size:13.5px;color:var(--gris);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
-footer a{opacity:.85}
-</style>
+<link rel="stylesheet" href="blog.css">
 </head>
 <body>
 
@@ -94,8 +54,20 @@ footer a{opacity:.85}
 
     <a class="article" href="score-de-sante-client.html">
       <span class="date">14 septembre 2026</span>
-      <h2>Comment calculer un score de santé client</h2>
-      <p>Les dimensions à mesurer, le poids à leur donner, où placer les seuils — et les trois erreurs qui transforment un score en générateur de fausses alertes.</p>
+      <h2>Score de santé client : comment le calculer en 2026 ?</h2>
+      <p>Les quatre dimensions à mesurer, comment les pondérer, où placer les seuils d'alerte, et l'angle mort qui explique pourquoi la majorité des scores ne prédisent rien.</p>
+    </a>
+
+    <a class="article" href="signaux-de-churn-saas-b2b.html">
+      <span class="date">14 septembre 2026</span>
+      <h2>Signaux de churn en SaaS B2B : où ils se cachent dans vos outils</h2>
+      <p>Les signaux qui précèdent un départ, l'outil où chacun apparaît, et comment distinguer un signal fort d'un bruit de fond qui fait sonner tout le portefeuille.</p>
+    </a>
+
+    <a class="article" href="decrochage-silencieux.html">
+      <span class="date">14 septembre 2026</span>
+      <h2>Décrochage silencieux : repérer un client qui se tait avant qu'il parte</h2>
+      <p>Pourquoi le silence d'un client n'est jamais de la satisfaction, comment le mesurer par rapport au rythme propre du compte, et ce qu'aucun seuil fixe ne voit.</p>
     </a>
 
     <!--
@@ -105,6 +77,12 @@ footer a{opacity:.85}
         <h2>Titre</h2>
         <p>Chapô, repris de la meta description.</p>
       </a>
+
+      RESTENT À ÉCRIRE DANS CETTE GRAPPE :
+      - Comment savoir si votre score de santé fonctionne vraiment (rétro-test)
+      - Suivre la rétention sous Excel : le modèle, et où il casse
+      - Combien de comptes par CSM : les repères par segment
+      - NPS ou score de santé : ce que chacun mesure
     -->
 
   </section>
@@ -112,9 +90,14 @@ footer a{opacity:.85}
 </div>
 
 <div class="appel">
-  <h2>Parlons-en</h2>
-  <p>Vingt minutes pour savoir si marsā vous servira. Décrivez-nous votre portefeuille et votre stack, nous revenons vers vous avec une réponse franche sur l'éligibilité.</p>
-  <a class="bouton" href="../index.html#contact">Nous contacter</a>
+  <div class="enveloppe">
+    <h2>Parlons-en</h2>
+    <ul>
+      <li>Vingt minutes pour savoir si marsā servira à votre équipe.</li>
+      <li>Décrivez votre portefeuille et vos outils, nous revenons avec une réponse franche sur l'éligibilité.</li>
+    </ul>
+    <a class="bouton" href="../index.html#contact">Nous contacter</a>
+  </div>
 </div>
 
 <div class="enveloppe">
