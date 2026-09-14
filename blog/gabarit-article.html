@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+  ============================================================
+  GABARIT D'ARTICLE marsā — NE PAS PUBLIER TEL QUEL
+  ============================================================
+  Cette page est en noindex et exclue du crawl par /robots.txt.
+  Pour créer un article : dupliquer ce fichier sous blog/slug-de-l-article.html,
+  remplacer tous les champs entre crochets, PUIS retirer la balise noindex
+  ci-dessous et ajouter l'URL dans /sitemap.xml.
+
+  CE QU'IL FAUT REMPLACER :
+    [TITRE]        titre de l'article, 55-60 caractères si possible
+    [DESCRIPTION]  meta description, 140-155 caractères, une promesse concrète
+    [SLUG]         nom du fichier sans .html, en minuscules avec des tirets
+    [DATE-ISO]     2026-09-14
+    [DATE-FR]      14 septembre 2026
+    [CHAPO]        deux à trois phrases, la réponse en résumé dès le début
+
+  GARDE-FOUS ÉDITORIAUX — NON NÉGOCIABLES :
+    - Aucun verbatim d'entretien Fireflies publié sous le nom de la personne
+      sans accord explicite. Écrire l'idée sans la source si l'accord manque.
+    - Ne pas nommer Captain Contrat comme design partner tant que rien n'est signé.
+    - Ne jamais écrire « européen par construction ». Formulation exacte :
+      stockage en Union européenne, traitement IA encadré contractuellement,
+      aucune donnée client utilisée pour entraîner un modèle.
+    - Tout chiffre issu du rétro-test (55 %, 89 jours, 140 comptes sur 220)
+      est publiable, mais JAMAIS sans préciser qu'il provient de données
+      fabriquées. Sinon c'est de la fausse traction.
+    - Aucune affirmation sur un concurrent sans démo, document de benchmark
+      ou page publique à l'appui.
+    - Pas de promesse chiffrée de résultat (« jusqu'à 30 % de churn en moins »),
+      retirée du site le 1er septembre 2026 et non réintroduite ici.
+
+  RÈGLES SEO DE LA PAGE :
+    - Un seul <h1>, qui reprend la requête cible en langage naturel.
+    - Les <h2> formulés en questions : c'est sous cette forme que la requête
+      est tapée, et c'est ce que les moteurs de réponse citent.
+    - Au moins deux liens internes sortants (offres, calculateur, autre article).
+    - Le bloc JSON-LD en bas doit être mis à jour à chaque publication.
+  ============================================================
+-->
+<meta name="robots" content="noindex, nofollow">
+
+<title>[TITRE] — marsā</title>
+<meta name="description" content="[DESCRIPTION]">
+<link rel="canonical" href="https://www.joinmarsa.com/blog/[SLUG].html">
+<link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/blog/[SLUG].html">
+<link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/blog/[SLUG].html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bleu:#2b6ce0; --bleu-nuit:#16336b; --creme:#f5f1e7; --creme-ombre:#e4ddcb;
+  --encre:#131f38; --gris:#5f6a80; --gain:#2f7d5c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--creme);color:var(--encre);line-height:1.6;font-size:16px}
+a{color:inherit}
+.enveloppe{max-width:1060px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
+
+.nav{background:var(--bleu);color:var(--creme)}
+.nav .enveloppe{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;padding-bottom:20px;flex-wrap:wrap}
+.marque{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:.22em;text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.nav nav{display:flex;gap:26px;font-size:14.5px}
+.nav nav a{text-decoration:none;opacity:.85}
+.nav nav a:hover,.nav nav a[aria-current]{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.lang{font-size:12.5px;color:rgba(245,241,231,.62)}
+.lang-current{color:var(--creme);font-weight:600}
+
+/* fil d'ariane */
+.ariane{padding:28px 0 0;font-size:13.5px;color:var(--gris)}
+.ariane a{text-decoration:none}
+.ariane a:hover{color:var(--bleu)}
+
+/* en-tête d'article */
+.entete{padding:22px 0 0;max-width:22ch}
+.entete{max-width:none}
+.entete h1{font-size:clamp(32px,4.6vw,46px);font-weight:700;line-height:1.08;max-width:22ch}
+.meta{margin-top:18px;font-size:13.5px;color:var(--gris);letter-spacing:.03em;text-transform:uppercase}
+.chapo{font-size:19px;color:var(--gris);margin-top:20px;max-width:64ch;line-height:1.55}
+
+/* corps */
+.corps{padding:10px 0 0;max-width:68ch}
+.corps h2{font-size:26px;font-weight:700;margin:48px 0 14px;line-height:1.2}
+.corps h3{font-size:19px;font-weight:700;margin:32px 0 10px}
+.corps p{margin:0 0 18px}
+.corps ul,.corps ol{margin:0 0 20px 22px}
+.corps li{margin-bottom:9px}
+.corps a{color:var(--bleu);text-decoration:underline;text-underline-offset:3px}
+.corps strong{font-weight:600}
+.corps blockquote{border-left:3px solid var(--bleu);padding:4px 0 4px 20px;margin:26px 0;font-size:18px;color:var(--gris)}
+
+/* encadré à retenir */
+.retenir{background:var(--bleu);color:var(--creme);padding:30px 32px;margin:40px 0}
+.retenir h2{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:700;margin:0 0 12px;text-transform:uppercase;letter-spacing:.06em}
+.retenir ul{list-style:none;margin:0;font-size:16.5px;line-height:1.75}
+.retenir li::before{content:"— ";opacity:.6}
+
+/* note de source */
+.source{border-top:1px solid var(--creme-ombre);margin-top:44px;padding-top:20px;font-size:14px;color:var(--gris);max-width:68ch}
+
+/* auteur */
+.auteur{border-top:1px solid var(--creme-ombre);margin-top:24px;padding-top:24px;font-size:15px;color:var(--gris);max-width:68ch}
+.auteur strong{color:var(--encre)}
+
+/* lire aussi */
+.aussi{padding:44px 0 0;max-width:68ch}
+.aussi h2{font-size:20px;font-weight:700;margin-bottom:14px}
+.aussi a{display:block;padding:14px 0;border-bottom:1px solid var(--creme-ombre);text-decoration:none;font-size:16.5px;font-weight:600}
+.aussi a:hover{color:var(--bleu)}
+
+.appel{background:var(--bleu-nuit);color:var(--creme);margin:64px 0 0;padding:52px 36px;text-align:center}
+.appel h2{font-size:clamp(24px,3.6vw,32px);font-weight:700;margin-bottom:12px}
+.appel p{opacity:.85;max-width:52ch;margin:0 auto 26px}
+.bouton{display:inline-block;background:var(--creme);color:var(--bleu-nuit);text-decoration:none;font-weight:700;font-size:16px;padding:15px 30px}
+.bouton:hover{background:#fff}
+
+footer{padding:34px 0 56px;font-size:13.5px;color:var(--gris);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{opacity:.85}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="enveloppe">
+    <a class="marque" href="../index.html">marsā</a>
+    <div class="nav-right">
+      <nav>
+        <a href="../index.html">Accueil</a>
+        <a href="../offres.html">Offres</a>
+        <a href="../roi.html">Calculateur</a>
+        <a href="index.html" aria-current="page">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <span class="lang"><span class="lang-current">FR</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="enveloppe">
+
+  <div class="ariane"><a href="../index.html">Accueil</a> · <a href="index.html">Blog</a></div>
+
+  <header class="entete">
+    <h1>[TITRE]</h1>
+    <div class="meta">[DATE-FR] · Philippe Kanaan</div>
+    <p class="chapo">[CHAPO — deux à trois phrases. Donner la réponse ici, pas à la fin : un lecteur qui arrive de Google décide en huit secondes s'il reste, et un moteur de réponse cite le premier paragraphe.]</p>
+  </header>
+
+  <article class="corps">
+
+    <h2>[Première question, formulée comme elle se tape]</h2>
+    <p>[Texte.]</p>
+
+    <h2>[Deuxième question]</h2>
+    <p>[Texte. Placer ici au moins un lien interne, par exemple vers <a href="../roi.html">le calculateur</a> ou <a href="../offres.html">les offres</a>.]</p>
+
+    <h2>[Troisième question]</h2>
+    <p>[Texte.]</p>
+
+    <div class="retenir">
+      <h2>Ce qu'il faut retenir</h2>
+      <ul>
+        <li>[Point 1]</li>
+        <li>[Point 2]</li>
+        <li>[Point 3]</li>
+      </ul>
+    </div>
+
+    <p class="source"><strong>Sur les chiffres de cet article.</strong> [Préciser l'origine de chaque chiffre cité. Si les données viennent du jeu de recette fabriqué de marsā, le dire explicitement ici. Supprimer ce bloc si l'article ne contient aucun chiffre.]</p>
+
+    <p class="auteur"><strong>Philippe Kanaan</strong> construit marsā, une plateforme d'intelligence client qui détecte les risques de départ et les opportunités d'expansion dans les outils que les équipes utilisent déjà. Basé à Marseille.</p>
+
+  </article>
+
+  <section class="aussi">
+    <h2>Lire aussi</h2>
+    <a href="index.html">[Titre d'un autre article]</a>
+    <a href="../roi.html">Calculez ce que le churn vous coûte</a>
+  </section>
+
+</div>
+
+<div class="appel">
+  <h2>Parlons-en</h2>
+  <p>Vingt minutes pour savoir si marsā vous servira. Décrivez-nous votre portefeuille et votre stack, nous revenons vers vous avec une réponse franche sur l'éligibilité.</p>
+  <a class="bouton" href="../index.html#contact">Nous contacter</a>
+</div>
+
+<div class="enveloppe">
+  <footer>
+    <span>marsā — Marseille</span>
+    <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="../index.html">Accueil</a> · <a href="index.html">Blog</a> · <a href="../roi.html">Calculateur</a></span>
+  </footer>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "[TITRE]",
+  "description": "[DESCRIPTION]",
+  "datePublished": "[DATE-ISO]",
+  "dateModified": "[DATE-ISO]",
+  "inLanguage": "fr-FR",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.joinmarsa.com/blog/[SLUG].html"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Philippe Kanaan",
+    "url": "https://www.joinmarsa.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "marsā",
+    "url": "https://www.joinmarsa.com/"
+  }
+}
+</script>
+
+</body>
+</html>
