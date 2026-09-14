@@ -1,0 +1,89 @@
+/* Feuille de style commune aux pages du blog marsā.
+   Reprise à l'identique de la charte des pages du site (index, offres, roi).
+   Toute correction faite ici s'applique à tous les articles. */
+
+:root{--bleu:#2b6ce0;--bleu-nuit:#16336b;--creme:#f5f1e7;--creme-ombre:#e4ddcb;--encre:#131f38;--gris:#5f6a80;--gain:#2f7d5c}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--creme);color:var(--encre);line-height:1.62;font-size:16.5px}
+a{color:inherit}
+.enveloppe{max-width:1060px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
+
+.nav{background:var(--bleu);color:var(--creme)}
+.nav .enveloppe{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;padding-bottom:20px;flex-wrap:wrap}
+.marque{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:.22em;text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.nav nav{display:flex;gap:26px;font-size:14.5px}
+.nav nav a{text-decoration:none;opacity:.85}
+.nav nav a:hover,.nav nav a[aria-current]{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.lang{font-size:12.5px;color:rgba(245,241,231,.62)}
+.lang-current{color:var(--creme);font-weight:600}
+
+.ariane{padding:26px 0 0;font-size:13.5px;color:var(--gris)}
+.ariane a{text-decoration:none}
+.ariane a:hover{color:var(--bleu)}
+
+.entete{padding:20px 0 0}
+.entete h1{font-size:clamp(31px,4.4vw,44px);font-weight:700;line-height:1.1;max-width:24ch}
+.meta{margin-top:16px;font-size:13px;color:var(--gris);letter-spacing:.05em;text-transform:uppercase}
+.chapo{font-size:18.5px;color:var(--gris);margin-top:18px;max-width:66ch;line-height:1.55}
+
+.corps{padding:8px 0 0;max-width:70ch}
+.corps h2{font-size:25px;font-weight:700;margin:46px 0 14px;line-height:1.22}
+.corps h3{font-size:18.5px;font-weight:700;margin:30px 0 10px}
+.corps p{margin:0 0 18px}
+.corps ul,.corps ol{margin:0 0 22px 20px}
+.corps li{margin-bottom:11px}
+.corps a{color:var(--bleu);text-decoration:underline;text-underline-offset:3px}
+.corps strong{font-weight:600}
+
+figure{margin:30px 0 28px}
+figure svg{width:100%;height:auto;display:block}
+figcaption{font-size:13.5px;color:var(--gris);margin-top:12px;line-height:1.5}
+
+table{border-collapse:collapse;width:100%;margin:8px 0 24px;font-size:15.5px}
+th,td{text-align:left;padding:11px 14px 11px 0;border-bottom:1px solid var(--creme-ombre);vertical-align:top}
+th{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:13.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--gris)}
+
+.encadre{background:var(--bleu);color:var(--creme);padding:28px 32px;margin:40px 0}
+.encadre h2{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin:0 0 14px;text-transform:uppercase;letter-spacing:.07em}
+.encadre ul{list-style:none;margin:0;font-size:16.5px;line-height:1.65}
+.encadre li{margin-bottom:10px}
+.encadre li::before{content:"\2014 ";opacity:.6}
+
+.faq details{border-bottom:1px solid var(--creme-ombre)}
+.faq summary{cursor:pointer;padding:17px 0;font-weight:600;font-size:16.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--bleu);font-weight:700}
+.faq details[open] summary::after{content:"\2013"}
+.faq p{padding:0 0 18px;color:var(--gris);font-size:15.5px}
+
+.sources{border-top:1px solid var(--creme-ombre);margin-top:44px;padding-top:20px;font-size:14.5px;color:var(--gris);max-width:70ch}
+.auteur{border-top:1px solid var(--creme-ombre);margin-top:22px;padding-top:22px;font-size:15px;color:var(--gris);max-width:70ch}
+.auteur strong{color:var(--encre)}
+
+.aussi{padding:44px 0 0;max-width:70ch}
+.aussi h2{font-size:20px;font-weight:700;margin-bottom:12px}
+.aussi a{display:block;padding:15px 0;border-bottom:1px solid var(--creme-ombre);text-decoration:none}
+.aussi a strong{display:block;font-size:16.5px;font-weight:700;margin-bottom:3px}
+.aussi a span{font-size:14.5px;color:var(--gris)}
+.aussi a:hover strong{color:var(--bleu)}
+
+.appel{background:var(--bleu-nuit);color:var(--creme);margin:64px 0 0;padding:52px 36px}
+.appel .enveloppe{padding:0}
+.appel h2{font-size:clamp(23px,3.4vw,30px);font-weight:700;margin-bottom:14px;max-width:26ch}
+.appel ul{list-style:none;max-width:60ch;margin:0 0 26px;font-size:16px;line-height:1.7;opacity:.9}
+.appel li::before{content:"\2014 ";opacity:.55}
+.bouton{display:inline-block;background:var(--creme);color:var(--bleu-nuit);text-decoration:none;font-weight:700;font-size:16px;padding:15px 30px}
+.bouton:hover{background:#fff}
+
+/* sommaire du blog */
+.liste{padding:40px 0 0;border-top:1px solid var(--creme-ombre);margin-top:40px}
+.article{display:block;text-decoration:none;padding:26px 0;border-bottom:1px solid var(--creme-ombre)}
+.article:hover h2{color:var(--bleu)}
+.article .date{font-size:13px;color:var(--gris);letter-spacing:.04em;text-transform:uppercase}
+.article h2{font-size:23px;font-weight:700;margin:7px 0 9px;line-height:1.2;max-width:38ch}
+.article p{font-size:15.5px;color:var(--gris);max-width:74ch}
+
+footer{padding:34px 0 56px;font-size:13.5px;color:var(--gris);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{opacity:.85}
