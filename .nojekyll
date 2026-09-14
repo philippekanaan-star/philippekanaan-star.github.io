@@ -1,0 +1,4 @@
+Ce fichier vide desactive le traitement Jekyll sur GitHub Pages.
+Les pages HTML sont servies exactement telles qu'elles sont ecrites.
+Sans lui, un article contenant des accolades doubles (syntaxe Liquid)
+casserait la publication.
