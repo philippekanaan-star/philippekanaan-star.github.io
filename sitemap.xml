@@ -49,4 +49,55 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/roi.html"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.joinmarsa.com/roi-en.html"/>
   </url>
+
+  <!-- Blog. Les pages portent encore une balise noindex : Google les explorera,
+       ne les indexera pas, et le fera dès que la balise sera retirée. -->
+  <url>
+    <loc>https://www.joinmarsa.com/blog/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.joinmarsa.com/blog/score-de-sante-client.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.joinmarsa.com/blog/signaux-de-churn-saas-b2b.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.joinmarsa.com/blog/decrochage-silencieux.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.joinmarsa.com/blog/retro-test-score-de-churn.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.joinmarsa.com/blog/nps-ou-score-de-sante-client.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.joinmarsa.com/blog/combien-de-comptes-par-csm.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.joinmarsa.com/blog/suivi-retention-excel.html</loc>
+    <lastmod>2026-09-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>
