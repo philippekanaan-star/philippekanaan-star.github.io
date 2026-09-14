@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, follow"><!-- retirer au lancement du lot -->
+<title>Décrochage silencieux : détecter un client qui se tait | marsā</title>
+<meta name="description" content="Pourquoi le silence d'un client n'est jamais de la satisfaction, comment le mesurer par rapport au rythme propre du compte, et ce qu'aucun seuil fixe ne voit.">
+<link rel="canonical" href="https://www.joinmarsa.com/blog/decrochage-silencieux.html">
+<link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/blog/decrochage-silencieux.html">
+<link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/blog/decrochage-silencieux.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="blog.css">
+</head>
+<body>
+
+<div class="nav">
+  <div class="enveloppe">
+    <a class="marque" href="../index.html">marsā</a>
+    <div class="nav-right">
+      <nav>
+        <a href="../index.html">Accueil</a>
+        <a href="../offres.html">Offres</a>
+        <a href="../roi.html">Calculateur</a>
+        <a href="index.html" aria-current="page">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <span class="lang"><span class="lang-current">FR</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="enveloppe">
+
+  <div class="ariane"><a href="../index.html">Accueil</a> · <a href="index.html">Blog</a> · Décrochage silencieux</div>
+
+  <header class="entete">
+    <h1>Décrochage silencieux : repérer un client qui se tait avant qu'il parte</h1>
+    <div class="meta">7 min de lecture · 14 septembre 2026</div>
+    <p class="chapo">Le départ le plus fréquent ne s'annonce par aucun mécontentement. Il se voit à un compte qui écrit moins, répond plus tard, puis ne répond plus. Comment mesurer ce vide, pourquoi aucun seuil fixe n'y arrive, et quoi faire une fois qu'il est détecté.</p>
+  </header>
+
+  <article class="corps">
+
+    <p>Le décrochage silencieux est le cas le plus difficile à détecter pour une raison mécanique : <strong>tous les outils d'une équipe Customer Success réagissent à des événements, et un silence n'en produit aucun.</strong> Un ticket ouvert déclenche quelque chose. Un mail reçu déclenche quelque chose. Un mail qui n'arrive pas ne déclenche rien.</p>
+
+    <p>La détection suppose donc d'inverser la logique : au lieu d'attendre un signal, il faut surveiller l'écart entre ce qu'un compte fait et ce qu'il faisait habituellement.</p>
+
+    <h2>Qu'est-ce que le décrochage silencieux ?</h2>
+
+    <p>C'est la baisse progressive de l'activité relationnelle d'un compte, sans plainte, sans incident et sans conflit. Le client ne dit rien de négatif ; il dit simplement de moins en moins de choses. Trois formes se rencontrent :</p>
+
+    <ul>
+      <li><strong>La baisse de volume</strong> — le compte écrivait tous les dix jours, il écrit tous les deux mois.</li>
+      <li><strong>La perte de réciprocité</strong> — le volume total tient, mais c'est vous qui écrivez. La part de messages entrants s'effondre.</li>
+      <li><strong>Le rétrécissement du périmètre</strong> — vous parliez à quatre personnes dont un sponsor côté direction, vous ne parlez plus qu'à un utilisateur opérationnel.</li>
+    </ul>
+
+    <p>La troisième est la plus prédictive et la moins suivie. Le départ d'un référent sans successeur identifié est l'un des meilleurs prédicteurs de non-renouvellement : la relation perd la personne qui défendait la dépense en interne.</p>
+
+    <h2>Pourquoi le silence n'est jamais de la satisfaction</h2>
+
+    <p>La tentation est forte de lire un compte calme comme un compte qui va bien. C'est une erreur de raisonnement : <strong>l'absence de réclamation ne mesure que l'absence de réclamation.</strong> Un client satisfait et un client qui a déjà décidé de partir produisent exactement la même donnée — rien.</p>
+
+    <p>Pire, le second est souvent plus calme que le premier. Un client qui se plaint investit encore de l'énergie dans la relation. Un client qui a lancé une consultation ailleurs n'a plus de raison de le faire : il attend l'échéance.</p>
+
+    <p>C'est pourquoi un moteur de scoring doit traiter le silence comme une valeur à part entière, et non comme une donnée manquante à remplacer par une moyenne. Un compte mal connu ne doit jamais apparaître vert — c'est un principe détaillé dans le guide sur <a href="score-de-sante-client.html">le calcul d'un score de santé client</a>.</p>
+
+    <h2>Comment mesurer un silence</h2>
+
+    <p>La mesure ne peut pas être absolue. « Aucun contact depuis 40 jours » ne veut rien dire : c'est alarmant pour un compte qui écrivait chaque semaine, et parfaitement normal pour un compte qui écrit deux fois par an.</p>
+
+    <figure>
+      <svg viewBox="0 0 660 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="tSilence dSilence">
+        <title id="tSilence">Volume d'échanges entrants d'un compte, mois par mois</title>
+        <desc id="dSilence">Le compte échange régulièrement pendant six mois, puis son volume d'échanges entrants chute progressivement jusqu'à zéro sur les trois derniers mois, sans qu'aucun incident ne soit survenu.</desc>
+
+        <line x1="0" y1="104" x2="660" y2="104" stroke="#e4ddcb" stroke-width="1"/>
+        <line x1="0" y1="40" x2="660" y2="40" stroke="#e4ddcb" stroke-width="1" stroke-dasharray="4 4"/>
+        <text x="0" y="32" font-family="Inter, sans-serif" font-size="11.5" fill="#5f6a80">rythme habituel du compte</text>
+
+        <g fill="#2b6ce0">
+          <rect x="6"   y="38" width="38" height="66"/>
+          <rect x="60"  y="30" width="38" height="74"/>
+          <rect x="114" y="44" width="38" height="60"/>
+          <rect x="168" y="34" width="38" height="70"/>
+          <rect x="222" y="42" width="38" height="62"/>
+          <rect x="276" y="36" width="38" height="68"/>
+        </g>
+        <g fill="#5f6a80">
+          <rect x="330" y="62" width="38" height="42"/>
+          <rect x="384" y="76" width="38" height="28"/>
+        </g>
+        <g fill="#16336b">
+          <rect x="438" y="90" width="38" height="14"/>
+          <rect x="492" y="97" width="38" height="7"/>
+          <rect x="546" y="101" width="38" height="3"/>
+          <rect x="600" y="102" width="38" height="2"/>
+        </g>
+
+        <text x="330" y="124" font-family="Space Grotesk, Inter, sans-serif" font-weight="700" font-size="13" fill="#131f38">Début du décrochage</text>
+        <text x="330" y="142" font-family="Inter, sans-serif" font-size="12.5" fill="#5f6a80">Aucun incident, aucune plainte, aucune alerte déclenchée.</text>
+      </svg>
+      <figcaption>Volume d'échanges entrants d'un compte, mois par mois. La rupture n'est visible que par rapport à la ligne pointillée — le rythme habituel de ce compte précisément, pas une norme générale.</figcaption>
+    </figure>
+
+    <p>Trois règles de mesure découlent de ce principe :</p>
+
+    <ul>
+      <li><strong>Construisez une référence par compte</strong> — l'intervalle médian entre deux échanges entrants, calculé sur les six derniers mois. C'est cette valeur, et non un nombre de jours fixe, qui sert de repère.</li>
+      <li><strong>Mesurez l'écart en multiples, pas en jours</strong> — un compte qui dépasse trois fois son intervalle habituel a changé de comportement, qu'il s'agisse de neuf jours ou de six mois.</li>
+      <li><strong>Suivez la réciprocité séparément</strong> — la part de messages entrants sur le total. Elle chute souvent avant le volume global, parce que l'équipe compense en relançant.</li>
+    </ul>
+
+    <h2>Quatre indicateurs à suivre</h2>
+
+    <table>
+      <tr><th>Indicateur</th><th>Ce qu'il mesure</th><th>Seuil d'attention</th></tr>
+      <tr><td><strong>Récence relative</strong></td><td>Délai depuis le dernier échange entrant, rapporté à l'intervalle habituel du compte</td><td>Au-delà de 3× l'intervalle médian</td></tr>
+      <tr><td><strong>Réciprocité</strong></td><td>Part des messages entrants dans le total des échanges</td><td>Chute de plus d'un tiers sur 90 jours</td></tr>
+      <tr><td><strong>Couverture des rôles</strong></td><td>Nombre et niveau des interlocuteurs encore actifs</td><td>Perte du sponsor ou du niveau décisionnaire</td></tr>
+      <tr><td><strong>Profondeur des échanges</strong></td><td>Longueur et substance des réponses reçues</td><td>Passage à des réponses d'une ligne, en différé</td></tr>
+    </table>
+
+    <p>Ces quatre indicateurs sont indépendants et se dégradent rarement en même temps. Leur convergence sur un même trimestre est le motif à surveiller. Ils font partie de la <a href="signaux-de-churn-saas-b2b.html">famille plus large des signaux de churn répartis dans vos outils</a>.</p>
+
+    <h2>Pourquoi les outils classiques ne le voient pas</h2>
+
+    <ul>
+      <li><strong>Le CRM est événementiel.</strong> Il enregistre ce qui se produit. Aucun champ ne se remplit quand rien ne se produit.</li>
+      <li><strong>L'outil de support suit des tickets.</strong> Un compte qui cesse d'en ouvrir disparaît simplement des files d'attente — ce qui ressemble, dans un tableau de bord support, à une bonne nouvelle.</li>
+      <li><strong>Le score construit sur l'usage produit reste vert.</strong> Les utilisateurs opérationnels continuent souvent de se connecter jusqu'au dernier jour du contrat. L'usage ne prédit pas la décision de renouveler, qui se prend ailleurs.</li>
+      <li><strong>Le sentiment mesuré sur un seul canal ne voit rien.</strong> Le décrochage se manifeste précisément dans le canal où le client s'est tu — or c'est celui qui ne remonte plus de données.</li>
+    </ul>
+
+    <h2>Que faire quand un décrochage est détecté</h2>
+
+    <p>La pire réponse est la relance générique, qui confirme au client que la relation est devenue administrative. Trois approches fonctionnent mieux :</p>
+
+    <ul>
+      <li><strong>Reconstruire le périmètre avant de relancer.</strong> Si le sponsor est parti, la priorité est d'identifier qui porte le sujet aujourd'hui, pas d'envoyer un point d'étape à une boîte mail qui ne répond plus.</li>
+      <li><strong>Apporter quelque chose plutôt que demander.</strong> Un constat chiffré sur leur propre usage, un résultat obtenu, une comparaison utile — une raison de répondre qui ne soit pas la politesse.</li>
+      <li><strong>Agir avant la fenêtre de renouvellement.</strong> Un décrochage repéré à trois mois de l'échéance laisse le temps d'agir ; repéré à trois semaines, il ne laisse que le temps de constater.</li>
+    </ul>
+
+    <div class="encadre">
+      <h2>À retenir</h2>
+      <ul>
+        <li>Un silence ne déclenche rien : tous vos outils réagissent à des événements.</li>
+        <li>Le silence n'est jamais une mesure de satisfaction — c'est une absence de mesure.</li>
+        <li>Mesurez l'écart au rythme habituel du compte, en multiples, jamais en jours absolus.</li>
+        <li>La réciprocité chute avant le volume total, parce que l'équipe compense en relançant.</li>
+        <li>La perte du sponsor sans successeur est le signal le plus prédictif de la famille.</li>
+        <li>L'usage produit peut rester au vert jusqu'au dernier jour du contrat.</li>
+      </ul>
+    </div>
+
+    <h2>Questions fréquentes</h2>
+
+    <div class="faq">
+      <details>
+        <summary>À partir de combien de jours de silence faut-il s'inquiéter&nbsp;?</summary>
+        <p>Il n'existe pas de nombre de jours universel. Le repère utile est l'intervalle médian entre deux échanges entrants propre à ce compte, mesuré sur six mois. Un dépassement de trois fois cet intervalle constitue un seuil d'attention raisonnable.</p>
+      </details>
+      <details>
+        <summary>Comment distinguer un décrochage d'une simple période calme&nbsp;?</summary>
+        <p>Par la convergence. Une période calme fait baisser le volume mais laisse la réciprocité et la couverture des rôles intactes. Un décrochage dégrade plusieurs indicateurs à la fois, et ne se corrige pas après une relance.</p>
+      </details>
+      <details>
+        <summary>Un compte très actif dans le produit peut-il décrocher&nbsp;?</summary>
+        <p>Oui, et c'est un des cas les plus dangereux. Les utilisateurs opérationnels continuent de travailler pendant que la décision de renouveler se prend à un autre niveau. Un score bâti sur l'usage affichera du vert jusqu'au bout.</p>
+      </details>
+      <details>
+        <summary>Faut-il relancer dès le premier signe de silence&nbsp;?</summary>
+        <p>Relancer sans contenu confirme au client que la relation est devenue administrative, et une relance sans réponse aggrave le diagnostic. Mieux vaut identifier d'abord qui porte le sujet côté client, puis apporter un élément concret qui donne une raison de répondre.</p>
+      </details>
+    </div>
+
+    <p class="sources"><strong>Sources et méthode.</strong> Les indicateurs et seuils proposés sont issus de la pratique et d'entretiens avec des responsables Customer Success d'éditeurs SaaS B2B. Ils constituent des repères de départ, à calibrer sur votre propre portefeuille : le rythme normal d'échanges varie fortement selon le segment de clientèle et le modèle de service.</p>
+
+    <p class="auteur"><strong>Philippe Kanaan</strong> est le fondateur de marsā. Basé à Marseille.</p>
+
+  </article>
+
+  <section class="aussi">
+    <h2>Guides associés</h2>
+    <a href="signaux-de-churn-saas-b2b.html"><strong>Signaux de churn : où ils se cachent dans vos outils</strong><span>La liste des signaux observables, l'outil où chacun apparaît, et comment les hiérarchiser.</span></a>
+    <a href="score-de-sante-client.html"><strong>Score de santé client : comment le calculer</strong><span>Les quatre dimensions, les pondérations, les seuils, et les trois erreurs à éviter.</span></a>
+    <a href="../roi.html"><strong>Combien vous coûte réellement votre churn</strong><span>Le calcul, ligne par ligne, à partir de votre ARR et de votre taux de perte annuel.</span></a>
+  </section>
+
+</div>
+
+<div class="appel">
+  <div class="enveloppe">
+    <h2>Un compte qui se tait ne déclenche rien. Sauf ici.</h2>
+    <ul>
+      <li>marsā compare chaque compte à son propre rythme d'échanges, tous canaux confondus.</li>
+      <li>Un décrochage remonte comme une alerte, avec la date du dernier échange et ce qu'il disait.</li>
+      <li>Branchement en quelques jours, sans instrumenter votre produit.</li>
+    </ul>
+    <a class="bouton" href="../index.html#contact">Voir ce que ça donne sur votre portefeuille</a>
+  </div>
+</div>
+
+<div class="enveloppe">
+  <footer>
+    <span>marsā — Marseille</span>
+    <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="../index.html">Accueil</a> · <a href="index.html">Blog</a> · <a href="../roi.html">Calculateur</a></span>
+  </footer>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Décrochage silencieux : repérer un client qui se tait avant qu'il parte",
+  "description": "Pourquoi le silence d'un client n'est jamais de la satisfaction, comment le mesurer par rapport au rythme propre du compte, et ce qu'aucun seuil fixe ne voit.",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "inLanguage": "fr-FR",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "https://www.joinmarsa.com/blog/decrochage-silencieux.html" },
+  "author": { "@type": "Person", "name": "Philippe Kanaan", "url": "https://www.joinmarsa.com/" },
+  "publisher": { "@type": "Organization", "name": "marsā", "url": "https://www.joinmarsa.com/" }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "À partir de combien de jours de silence faut-il s'inquiéter ?", "acceptedAnswer": { "@type": "Answer", "text": "Il n'existe pas de nombre de jours universel. Le repère est l'intervalle médian entre deux échanges entrants propre au compte, mesuré sur six mois ; un dépassement de trois fois cet intervalle constitue un seuil d'attention raisonnable." } },
+    { "@type": "Question", "name": "Comment distinguer un décrochage d'une simple période calme ?", "acceptedAnswer": { "@type": "Answer", "text": "Par la convergence. Une période calme fait baisser le volume mais laisse la réciprocité et la couverture des rôles intactes ; un décrochage dégrade plusieurs indicateurs à la fois et ne se corrige pas après une relance." } },
+    { "@type": "Question", "name": "Un compte très actif dans le produit peut-il décrocher ?", "acceptedAnswer": { "@type": "Answer", "text": "Oui. Les utilisateurs opérationnels continuent de travailler pendant que la décision de renouveler se prend à un autre niveau : un score bâti sur l'usage affichera du vert jusqu'au dernier jour du contrat." } },
+    { "@type": "Question", "name": "Faut-il relancer dès le premier signe de silence ?", "acceptedAnswer": { "@type": "Answer", "text": "Une relance sans contenu confirme au client que la relation est devenue administrative. Mieux vaut identifier qui porte le sujet côté client, puis apporter un élément concret qui donne une raison de répondre." } }
+  ]
+}
+</script>
+
+</body>
+</html>
