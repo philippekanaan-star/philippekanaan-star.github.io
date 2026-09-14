@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- NOINDEX TEMPORAIRE : retirer cette balise le jour du lancement du lot complet,
+     et ajouter l'URL dans /sitemap.xml. -->
+<meta name="robots" content="noindex, follow">
+
+<title>Comment calculer un score de santé client — marsā</title>
+<meta name="description" content="Les dimensions à mesurer, comment les pondérer, où placer les seuils — et les trois erreurs qui transforment un score de santé client en bruit.">
+<link rel="canonical" href="https://www.joinmarsa.com/blog/score-de-sante-client.html">
+<link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/blog/score-de-sante-client.html">
+<link rel="alternate" hreflang="x-default" href="https://www.joinmarsa.com/blog/score-de-sante-client.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bleu:#2b6ce0; --bleu-nuit:#16336b; --creme:#f5f1e7; --creme-ombre:#e4ddcb;
+  --encre:#131f38; --gris:#5f6a80; --gain:#2f7d5c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--creme);color:var(--encre);line-height:1.62;font-size:16.5px}
+a{color:inherit}
+.enveloppe{max-width:1060px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:'Space Grotesk','Inter',sans-serif;letter-spacing:-.02em}
+
+.nav{background:var(--bleu);color:var(--creme)}
+.nav .enveloppe{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:20px;padding-bottom:20px;flex-wrap:wrap}
+.marque{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:.22em;text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.nav nav{display:flex;gap:26px;font-size:14.5px}
+.nav nav a{text-decoration:none;opacity:.85}
+.nav nav a:hover,.nav nav a[aria-current]{opacity:1;text-decoration:underline;text-underline-offset:4px}
+.lang{font-size:12.5px;color:rgba(245,241,231,.62)}
+.lang-current{color:var(--creme);font-weight:600}
+
+.ariane{padding:28px 0 0;font-size:13.5px;color:var(--gris)}
+.ariane a{text-decoration:none}
+.ariane a:hover{color:var(--bleu)}
+
+.entete{padding:22px 0 0}
+.entete h1{font-size:clamp(32px,4.6vw,46px);font-weight:700;line-height:1.08;max-width:22ch}
+.meta{margin-top:18px;font-size:13px;color:var(--gris);letter-spacing:.05em;text-transform:uppercase}
+.chapo{font-size:19px;color:var(--gris);margin-top:20px;max-width:64ch;line-height:1.55}
+
+.corps{padding:8px 0 0;max-width:68ch}
+.corps h2{font-size:26px;font-weight:700;margin:48px 0 14px;line-height:1.22}
+.corps h3{font-size:19px;font-weight:700;margin:32px 0 10px}
+.corps p{margin:0 0 18px}
+.corps ul,.corps ol{margin:0 0 20px 22px}
+.corps li{margin-bottom:9px}
+.corps a{color:var(--bleu);text-decoration:underline;text-underline-offset:3px}
+.corps strong{font-weight:600}
+.corps blockquote{border-left:3px solid var(--bleu);padding:4px 0 4px 20px;margin:26px 0;font-size:18px;color:var(--gris)}
+
+table{border-collapse:collapse;width:100%;margin:8px 0 26px;font-size:15.5px}
+th,td{text-align:left;padding:11px 14px 11px 0;border-bottom:1px solid var(--creme-ombre);vertical-align:top}
+th{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--gris)}
+
+.retenir{background:var(--bleu);color:var(--creme);padding:30px 32px;margin:44px 0}
+.retenir h2{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:700;margin:0 0 14px;text-transform:uppercase;letter-spacing:.07em}
+.retenir ul{list-style:none;margin:0;font-size:16.5px;line-height:1.7}
+.retenir li{margin-bottom:10px}
+.retenir li::before{content:"— ";opacity:.6}
+
+.source{border-top:1px solid var(--creme-ombre);margin-top:44px;padding-top:20px;font-size:14.5px;color:var(--gris);max-width:68ch}
+.auteur{border-top:1px solid var(--creme-ombre);margin-top:24px;padding-top:24px;font-size:15px;color:var(--gris);max-width:68ch}
+.auteur strong{color:var(--encre)}
+
+.aussi{padding:44px 0 0;max-width:68ch}
+.aussi h2{font-size:20px;font-weight:700;margin-bottom:12px}
+.aussi a{display:block;padding:14px 0;border-bottom:1px solid var(--creme-ombre);text-decoration:none;font-size:16.5px;font-weight:600}
+.aussi a:hover{color:var(--bleu)}
+
+.appel{background:var(--bleu-nuit);color:var(--creme);margin:64px 0 0;padding:52px 36px;text-align:center}
+.appel h2{font-size:clamp(24px,3.6vw,32px);font-weight:700;margin-bottom:12px}
+.appel p{opacity:.85;max-width:52ch;margin:0 auto 26px}
+.bouton{display:inline-block;background:var(--creme);color:var(--bleu-nuit);text-decoration:none;font-weight:700;font-size:16px;padding:15px 30px}
+.bouton:hover{background:#fff}
+
+footer{padding:34px 0 56px;font-size:13.5px;color:var(--gris);display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+footer a{opacity:.85}
+</style>
+</head>
+<body>
+
+<div class="nav">
+  <div class="enveloppe">
+    <a class="marque" href="../index.html">marsā</a>
+    <div class="nav-right">
+      <nav>
+        <a href="../index.html">Accueil</a>
+        <a href="../offres.html">Offres</a>
+        <a href="../roi.html">Calculateur</a>
+        <a href="index.html" aria-current="page">Blog</a>
+        <a href="../index.html#contact">Contact</a>
+      </nav>
+      <span class="lang"><span class="lang-current">FR</span></span>
+    </div>
+  </div>
+</div>
+
+<div class="enveloppe">
+
+  <div class="ariane"><a href="../index.html">Accueil</a> · <a href="index.html">Blog</a></div>
+
+  <header class="entete">
+    <h1>Comment calculer un score de santé client</h1>
+    <div class="meta">14 septembre 2026 · Philippe Kanaan</div>
+    <p class="chapo">Un score de santé client utile repose sur quatre mesures indépendantes — ce que le client dit, ce que la relation lui coûte, si elle est encore vivante, et ce que dit le contrat — notées par rapport aux comptes comparables plutôt qu'à un seuil universel, et pondérées plus par leur tendance que par leur niveau. Voici le détail du calcul, et les trois erreurs qui font qu'un score sur deux ne sert à rien.</p>
+  </header>
+
+  <article class="corps">
+
+    <h2>Qu'est-ce qu'un score de santé client ?</h2>
+
+    <p>Un score de santé client est une note unique, généralement sur 100, qui résume la probabilité qu'un compte reste et se développe. Il sert à une seule chose : <strong>trier un portefeuille</strong>. Un CSM qui suit 200 comptes ne peut pas tous les regarder chaque semaine. Le score lui dit par lesquels commencer.</p>
+
+    <p>Cette finalité impose déjà deux contraintes que beaucoup de scores oublient. D'abord, le score doit être <strong>comparable entre comptes</strong> : un 62 et un 48 doivent vouloir dire quelque chose l'un par rapport à l'autre. Ensuite, il doit être <strong>explicable</strong> : un CSM qui voit un compte passer au rouge et ne peut pas savoir pourquoi ne fera rien du score, et aura raison.</p>
+
+    <p>Le reste de cet article décrit une façon de construire ce chiffre. Ce n'est pas la seule, mais chaque choix y est justifié — et les justifications comptent plus que les chiffres, parce que ce sont elles que vous devrez adapter à votre métier.</p>
+
+    <h2>Quelles dimensions mesurer, et avec quel poids ?</h2>
+
+    <p>Quatre dimensions suffisent à couvrir ce qu'on peut observer d'un compte sans instrumenter son produit, c'est-à-dire avec un CRM, un outil de support, la téléphonie et la messagerie.</p>
+
+    <table>
+      <tr><th>Dimension</th><th>Poids</th><th>La question posée</th></tr>
+      <tr><td><strong>Voix du client</strong></td><td>35 %</td><td>Qu'est-ce qui a été dit ?</td></tr>
+      <tr><td><strong>Friction</strong></td><td>25 %</td><td>Combien ça lui a coûté d'être client ?</td></tr>
+      <tr><td><strong>Engagement</strong></td><td>20 %</td><td>La relation est-elle vivante ?</td></tr>
+      <tr><td><strong>Santé contractuelle</strong></td><td>20 %</td><td>Le contrat va-t-il dans le bon sens ?</td></tr>
+    </table>
+
+    <p>Le point qui déroute au premier abord : ces dimensions regardent souvent <strong>le même échange</strong>, mais n'y lisent pas la même chose. Prenez un mail du 12 mars.</p>
+
+    <ul>
+      <li><strong>La Voix</strong> lit le contenu : le ton est tendu, un concurrent est nommé.</li>
+      <li><strong>L'Engagement</strong> lit le flux : c'est le client qui a écrit, et c'est son premier message entrant depuis six semaines. Le texte lui-même est ignoré.</li>
+      <li><strong>La Friction</strong> n'y lit rien du tout. Elle ne regarde que les tickets, et y compte les réouvertures, les allers-retours et les délais.</li>
+    </ul>
+
+    <p>C'est cette indépendance des lectures qui rend le score robuste. <strong>Un client peut être poli et partir quand même.</strong> La Voix ne verra rien ; l'Engagement verra le silence.</p>
+
+    <h3>Si vous avez les données d'usage produit</h3>
+
+    <p>Une cinquième dimension, l'Adoption, devient disponible quand l'analytics produit est branché. Les poids se redistribuent alors : la Voix descend à 30 %, l'Adoption prend 20 %. Mais tant que vous n'avez pas de mesure d'usage, résistez à la tentation de monter la Voix au-delà d'un tiers du score. C'est la dimension la moins auditable — celle qui repose sur l'interprétation d'un texte — et lui faire porter la majorité du chiffre rend le score indéfendable dès qu'on le conteste.</p>
+
+    <h2>Faut-il noter le niveau ou la tendance ?</h2>
+
+    <p>Les deux, et la tendance pèse davantage. Chaque dimension mesure où en est le compte aujourd'hui (le niveau) et dans quel sens il bouge (la tendance, en comparant les 90 derniers jours aux 90 précédents). Le mélange retenu est <strong>40 % de niveau, 60 % de tendance</strong>.</p>
+
+    <p>La raison est opérationnelle : un compte moyen qui se dégrade est plus urgent qu'un compte médiocre mais stable depuis deux ans. Le second est probablement un client qui fonctionne comme ça ; le premier est en train de vous échapper. Si vous ne notez que le niveau, vous passerez votre temps sur les comptes structurellement bruyants et vous raterez les décrochages.</p>
+
+    <p>Quand l'une des deux mesures manque — un compte trop récent pour avoir une tendance, par exemple — l'autre porte tout le poids plutôt que de laisser un trou.</p>
+
+    <h2>Comparer à un seuil ou aux autres comptes ?</h2>
+
+    <p>Aux autres comptes. C'est la différence la plus visible entre un score qui marche et un score qu'on finit par ignorer.</p>
+
+    <blockquote>Trois tickets par mois, c'est beaucoup ou c'est peu ?</blockquote>
+
+    <p>La question n'a pas de réponse dans l'absolu. Trois tickets pour une TPE de huit personnes, c'est énorme. Dix tickets pour une ETI de 500 salariés, c'est le fonctionnement normal. Un seuil universel se trompe dans les deux sens : il noie le portefeuille en alertes sur les gros comptes et rend invisibles les petits qui décrochent.</p>
+
+    <p>La solution est de normaliser par cohorte : chaque compte est comparé aux comptes de <strong>même segment et de même ancienneté</strong>. En dessous d'une cinquantaine de comptes dans une cohorte, comparez au portefeuille entier plutôt qu'à un échantillon trop petit — comparer à du vide produit des scores instables qui bougent tout seuls.</p>
+
+    <p>C'est aussi ce qui permet au même moteur de fonctionner chez deux éditeurs différents sans réglage manuel.</p>
+
+    <h2>Que faire quand les données manquent ?</h2>
+
+    <p>Ne rien inventer. C'est la règle la plus importante de l'article, et celle qu'on enfreint le plus facilement sans s'en rendre compte.</p>
+
+    <p>Chaque score doit porter une <strong>couverture</strong> : la part de ce qu'on a réellement pu mesurer. Trois règles en découlent.</p>
+
+    <ul>
+      <li>En dessous de <strong>50 % de couverture</strong>, aucun score n'est affiché. L'écran dit « données insuffisantes ». Un chiffre calculé sur la moitié de l'information vaut moins que pas de chiffre du tout, parce qu'il sera lu comme les autres.</li>
+      <li>Une dimension dont moins de la moitié du poids interne est mesurable <strong>ne compte pas</strong> dans la somme : les points sont redistribués, pas comblés.</li>
+      <li>Un échange que le système n'a pas su interpréter reste <strong>sans sentiment</strong>. Il ne devient jamais « neutre par défaut ».</li>
+    </ul>
+
+    <p>Ce dernier point mérite qu'on s'y arrête. Transformer l'inconnu en neutre revient à injecter une donnée inventée au cœur de la dimension qui pèse 35 % du score, et personne ne le verra jamais. C'est la règle qui empêche <strong>un compte mal connu d'apparaître vert</strong> — le pire résultat possible, parce qu'il produit exactement le silence qu'on cherchait à éliminer.</p>
+
+    <h2>Où placer les seuils d'alerte ?</h2>
+
+    <p>Pas à des valeurs fixes. Les bandes — critique, à risque, à surveiller, sain — doivent suivre la distribution réelle de votre portefeuille, avec une cible du type <strong>7 % en critique et 19 % à risque</strong>.</p>
+
+    <p>Le but n'est pas cosmétique. <strong>Une liste rouge doit rester traitable par une équipe.</strong> Un CSM qui ouvre son écran et voit 60 % du portefeuille en alerte ne priorise rien : il retourne à son intuition, et le score devient un badge décoratif.</p>
+
+    <p>Cette calibration doit rester encadrée par des garde-fous absolus, sinon vous inventerez des comptes critiques dans un portefeuille réellement sain — un pourcentage cible appliqué mécaniquement finit toujours par trouver ses 7 %.</p>
+
+    <h2>Pourquoi une moyenne pondérée ne suffit pas</h2>
+
+    <p>Parce qu'une moyenne efface exactement les cas les plus dangereux. Deux mécanismes doivent sortir de la somme.</p>
+
+    <h3>Les événements critiques</h3>
+
+    <p>Certains signaux doivent déclencher seuls, quel que soit le reste du compte : un concurrent nommé explicitement, une clause de sortie demandée. Noyés dans une moyenne avec trois dimensions au vert, ils disparaissent.</p>
+
+    <p>Mais tous les signaux ne se valent pas, et c'est une leçon apprise à nos dépens. Une version antérieure de notre moteur traitait tous les signaux à égalité, et marquait <strong>140 comptes sur 220 en menace de résiliation</strong>. Une alerte qui se déclenche sur 64 % du portefeuille n'est pas une alerte, c'est du bruit — et elle détruit la confiance dans toutes les autres.</p>
+
+    <p>La correction consiste à séparer les signaux forts, qui déclenchent seuls, des signaux faibles — une mention de budget, une réorganisation, une demande d'export de données — qui sont réels mais ambigus et ne comptent qu'accompagnés d'un second signal ou d'un ton négatif.</p>
+
+    <h3>Les discordances</h3>
+
+    <p>Trois configurations qu'une moyenne rend invisibles, et qui sont parmi les plus prédictives :</p>
+
+    <ul>
+      <li><strong>Le captif mécontent</strong> — usage fort, voix négative. La moyenne le rend vert. Il part net à l'échéance, sans préavis relationnel.</li>
+      <li><strong>Le décrochage silencieux</strong> — effondrement du volume entrant sans qu'aucun mot négatif n'ait été écrit. C'est le cas le plus fréquent et le moins détecté.</li>
+      <li><strong>La patience à risque</strong> — voix positive malgré une friction élevée. Ce n'est pas une alerte de churn, mais c'est un interdit d'upsell tant que l'irritant n'est pas levé.</li>
+    </ul>
+
+    <p>Le silence, en particulier, ne doit jamais être lu comme de la satisfaction. Il se juge par rapport au <strong>rythme habituel du compte lui-même</strong> : « n'a rien dit depuis 40 jours » n'a de sens que comparé à sa propre habitude. Un client qui écrivait tous les dix jours et qui se tait depuis sept semaines vous dit quelque chose. Un client qui écrit deux fois par an, non.</p>
+
+    <h2>L'IA doit-elle calculer le score ?</h2>
+
+    <p>Non. Et c'est un choix d'architecture, pas de prudence.</p>
+
+    <p>Un modèle de langage sait faire une chose que rien d'autre ne sait faire : lire un ticket, un mail ou un compte rendu d'appel et en extraire un ton, des signaux nommés et un résumé. Il doit s'arrêter là. <strong>Tout ce qui suit est de l'arithmétique relisible ligne à ligne.</strong></p>
+
+    <p>Trois conséquences pratiques justifient ce découpage.</p>
+
+    <ul>
+      <li><strong>Vous pouvez expliquer le chiffre.</strong> Seize métriques, quatre dimensions, des poids qui vivent dans un fichier de configuration. Un analyste muni de vos données et de la grille refait le calcul à la main et retombe sur le même résultat.</li>
+      <li><strong>Vous pouvez débrancher l'IA.</strong> Le score continue de sortir, avec une couverture plus faible sur la Voix, et l'écran le dit. Un système où retirer le modèle casse tout est un système dont personne ne peut vérifier le comportement.</li>
+      <li><strong>Le coût reste maîtrisé.</strong> Un score recalculé chaque nuit par un modèle coûte cent fois ce que coûte une somme pondérée.</li>
+    </ul>
+
+    <p>La nuance à dire soi-même avant qu'un client ne la trouve : une des entrées vient bien d'une IA, et cette étape n'est pas reproductible au bit près. Ce qui l'encadre, c'est que chaque texte n'est classifié qu'une fois et que le résultat est stocké, que la version du prompt est enregistrée avec lui — la changer force une relecture au lieu de mélanger deux façons de lire — et que le résumé est conservé pour qu'on sache toujours sur quoi le jugement portait.</p>
+
+    <p>La formulation exacte, celle qui tient devant un auditeur : <strong>le score est déterministe et recalculable ; la lecture des textes est de l'IA, tracée et rejouable, mais pas reproductible à l'identique.</strong></p>
+
+    <h2>Ce qu'il faut archiver à chaque calcul</h2>
+
+    <p>Un score qu'on ne peut pas expliquer trois mois plus tard ne sert à rien lors d'un bilan de renouvellement. À chaque calcul, écrivez avec le chiffre : les quatre dimensions détaillées, les facteurs contributifs <strong>datés et sourcés</strong> (« escalade ouverte depuis 18 jours », avec le lien vers le ticket), les événements critiques déclenchés, la couverture, et la version du modèle.</p>
+
+    <p>Ce dernier point évite un malentendu coûteux : sans numéro de version, un changement de moteur ressemble à une dégradation inexpliquée du portefeuille.</p>
+
+    <div class="retenir">
+      <h2>Ce qu'il faut retenir</h2>
+      <ul>
+        <li>Quatre dimensions indépendantes, pas une seule mesure agrégée : ce qui est dit, ce que ça coûte au client, si la relation vit, ce que dit le contrat.</li>
+        <li>La tendance pèse plus que le niveau — 60 contre 40.</li>
+        <li>Comparez chaque compte à ses pairs de même segment et d'ancienneté voisine, jamais à un seuil universel.</li>
+        <li>Ce qui manque ne s'invente pas : en dessous de 50 % de couverture, pas de score du tout.</li>
+        <li>Calez vos bandes pour qu'une liste rouge reste traitable par l'équipe qui doit la traiter.</li>
+        <li>Sortez les événements critiques et les discordances de la moyenne, sinon elle les efface.</li>
+        <li>L'IA lit les textes. Elle ne calcule pas le score.</li>
+      </ul>
+    </div>
+
+    <p class="source"><strong>Sur les chiffres de cet article.</strong> Les pondérations et les seuils décrits sont ceux du modèle de référence de marsā, établis à partir de la littérature du secteur et d'entretiens avec des responsables Customer Success. L'exemple des 140 comptes sur 220 provient de notre propre jeu de données de recette, qui est fabriqué : il illustre un défaut de conception réel, corrigé depuis, et non une mesure faite sur un portefeuille client.</p>
+
+    <p class="auteur"><strong>Philippe Kanaan</strong> construit marsā, une plateforme d'intelligence client qui détecte les risques de départ et les opportunités d'expansion dans les outils que les équipes utilisent déjà. Basé à Marseille.</p>
+
+  </article>
+
+  <section class="aussi">
+    <h2>Lire aussi</h2>
+    <a href="../roi.html">Calculez ce que le churn vous coûte</a>
+    <a href="../offres.html">Ce que fait marsā, et à quel prix</a>
+  </section>
+
+</div>
+
+<div class="appel">
+  <h2>Parlons-en</h2>
+  <p>Vingt minutes pour savoir si marsā vous servira. Décrivez-nous votre portefeuille et votre stack, nous revenons vers vous avec une réponse franche sur l'éligibilité.</p>
+  <a class="bouton" href="../index.html#contact">Nous contacter</a>
+</div>
+
+<div class="enveloppe">
+  <footer>
+    <span>marsā — Marseille</span>
+    <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="../index.html">Accueil</a> · <a href="index.html">Blog</a> · <a href="../roi.html">Calculateur</a></span>
+  </footer>
+</div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Comment calculer un score de santé client",
+  "description": "Les dimensions à mesurer, comment les pondérer, où placer les seuils — et les trois erreurs qui transforment un score de santé client en bruit.",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "inLanguage": "fr-FR",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://www.joinmarsa.com/blog/score-de-sante-client.html"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Philippe Kanaan",
+    "url": "https://www.joinmarsa.com/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "marsā",
+    "url": "https://www.joinmarsa.com/"
+  }
+}
+</script>
+
+</body>
+</html>
