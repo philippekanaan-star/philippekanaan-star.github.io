@@ -331,7 +331,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 
 <div class="pied-site">
   <span>marsā — Marseille</span>
-  <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="mentions-legales.html">Legal notice</a> · <a href="confidentialite.html">Privacy policy</a> · <a href="dpa.html">DPA</a> · <a href="#" class="js-prefs">Manage preferences</a></span>
+  <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="mentions-legales.html">Legal notice</a> · <a href="confidentialite.html">Privacy</a> · <a href="dpa.html">DPA</a> · <a href="#" id="cookie-prefs">Cookie preferences</a></span>
 </div>
 
 <script>
@@ -487,8 +487,12 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     applyConsent('denied');
     var b=document.getElementById('cookie-banner'); if(b) b.hidden=true;
   });
+  var prefs=document.getElementById('cookie-prefs');
+  if(prefs) prefs.addEventListener('click',function(e){
+    e.preventDefault();
+    var b=document.getElementById('cookie-banner'); if(b) b.hidden=false;
+  });
 })();
 </script>
-<script>document.querySelectorAll(".js-prefs").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();try{localStorage.removeItem("marsa_cookie_consent")}catch(x){}var b=document.getElementById("cookie-banner");if(b){b.hidden=false}})})</script>
 </body>
 </html>
