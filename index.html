@@ -684,16 +684,15 @@
     </div>
     <div class="foot-bottom">
       <span>© 2026 marsā. Tous droits réservés.</span>
-      <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Politique de confidentialité</a><a href="dpa.html">DPA</a><a href="#" class="js-prefs">Gérer mes préférences</a></span>
+      <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a><a href="mentions-legales.html">Mentions légales</a><a href="confidentialite.html">Politique de confidentialité</a><a href="dpa.html">DPA</a><a href="#" id="cookie-prefs">Gérer mes cookies</a></span>
     </div>
   </div>
 </footer>
 
 <script>
 /* ---------- formulaire ----------
-   Ouvre le client mail avec la demande pré-remplie.
-   POUR PASSER EN FORMULAIRE HÉBERGÉ : renseignez FORM_ENDPOINT
-   (ex. https://formspree.io/f/xxxxxxx ou une URL Tally / Make / n8n).
+   La demande est envoyée à Formspree (FORM_ENDPOINT), qui la relaie par courriel.
+   Le client mail n’est utilisé qu’en secours, si cet envoi échoue.
 ------------------------------------ */
 var FORM_ENDPOINT = "https://formspree.io/f/xljellqw";  // ← Formspree actif
 var CONTACT_EMAIL = "philippe@joinmarsa.com";  // ← adresse pro
@@ -774,8 +773,12 @@ document.getElementById('contactForm').addEventListener('submit', function(e){
     applyConsent('denied');
     var b=document.getElementById('cookie-banner'); if(b) b.hidden=true;
   });
+  var prefs=document.getElementById('cookie-prefs');
+  if(prefs) prefs.addEventListener('click',function(e){
+    e.preventDefault();
+    var b=document.getElementById('cookie-banner'); if(b) b.hidden=false;
+  });
 })();
 </script>
-<script>document.querySelectorAll(".js-prefs").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();try{localStorage.removeItem("marsa_cookie_consent")}catch(x){}var b=document.getElementById("cookie-banner");if(b){b.hidden=false}})})</script>
 </body>
 </html>
