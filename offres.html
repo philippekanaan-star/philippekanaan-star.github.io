@@ -202,7 +202,7 @@ footer a{opacity:.85}
 <div class="enveloppe">
   <footer>
     <span>marsā — Marseille</span>
-    <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="index.html">Accueil</a> · <a href="roi.html">Calculateur</a> · <a href="blog/index.html">Blog</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="dpa.html">DPA</a> · <a href="#" class="js-prefs">Gérer mes préférences</a></span>
+    <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="index.html">Accueil</a> · <a href="roi.html">Calculateur</a> · <a href="blog/index.html">Blog</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="dpa.html">DPA</a> · <a href="#" id="cookie-prefs">Gérer mes cookies</a></span>
   </footer>
 </div>
 
@@ -255,8 +255,12 @@ footer a{opacity:.85}
     applyConsent('denied');
     var b=document.getElementById('cookie-banner'); if(b) b.hidden=true;
   });
+  var prefs=document.getElementById('cookie-prefs');
+  if(prefs) prefs.addEventListener('click',function(e){
+    e.preventDefault();
+    var b=document.getElementById('cookie-banner'); if(b) b.hidden=false;
+  });
 })();
 </script>
-<script>document.querySelectorAll(".js-prefs").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();try{localStorage.removeItem("marsa_cookie_consent")}catch(x){}var b=document.getElementById("cookie-banner");if(b){b.hidden=false}})})</script>
 </body>
 </html>

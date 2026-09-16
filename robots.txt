@@ -1,6 +1,4 @@
 User-agent: *
-Disallow: /ancien-site.html
-Disallow: /ancien-site-offres.html
 Disallow: /blog/gabarit-article.html
 
 Sitemap: https://www.joinmarsa.com/sitemap.xml

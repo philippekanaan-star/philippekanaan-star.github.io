@@ -50,8 +50,7 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.joinmarsa.com/roi-en.html"/>
   </url>
 
-  <!-- Blog. Les pages portent encore une balise noindex : Google les explorera,
-       ne les indexera pas, et le fera dès que la balise sera retirée. -->
+  <!-- Blog -->
   <url>
     <loc>https://www.joinmarsa.com/blog/</loc>
     <lastmod>2026-09-14</lastmod>
@@ -99,5 +98,24 @@
     <lastmod>2026-09-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <!-- Pages légales -->
+  <url>
+    <loc>https://www.joinmarsa.com/mentions-legales.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.joinmarsa.com/confidentialite.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://www.joinmarsa.com/dpa.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
   </url>
 </urlset>
