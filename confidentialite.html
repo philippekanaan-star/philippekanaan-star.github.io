@@ -72,8 +72,8 @@ footer small{color:#8e99ae}
 <div class="card note">
   <p><strong>L'essentiel en cinq lignes.</strong></p>
   <ul>
-    <li>Ce site <strong>ne dépose aucun cookie</strong> et n'utilise aucun outil de traçage publicitaire.</li>
-    <li>Le formulaire de contact <strong>n'envoie rien à un serveur</strong>&nbsp;: il ouvre votre logiciel de messagerie avec un message pré-rempli, que vous envoyez vous-même.</li>
+    <li>Ce site dépose <strong>deux cookies de mesure d'audience, et uniquement si vous les acceptez</strong>. Aucun cookie publicitaire, aucun traçage entre sites.</li>
+    <li>Le formulaire de contact transmet votre demande par l'intermédiaire de Formspree, qui la relaie vers notre boîte mail. Rien d'autre n'en est fait.</li>
     <li>Les données que vous nous confiez servent à vous répondre, et à rien d'autre. Elles ne sont ni revendues, ni louées, ni cédées.</li>
     <li>Pour les données présentes dans <strong>l'application marsā</strong>, votre employeur décide et marsā exécute&nbsp;: voir la section 5.</li>
     <li>Aucune donnée de client ni de prospect n'est utilisée pour entraîner un modèle d'intelligence artificielle.</li>
@@ -86,11 +86,18 @@ footer small{color:#8e99ae}
 
 <h2>2. Quand vous consultez ce site</h2>
 
-<h3>Cookies</h3>
-<p><strong>Aucun cookie n'est déposé</strong> sur votre terminal par ce site — ni cookie de mesure d'audience, ni cookie publicitaire, ni cookie de réseau social. Aucune bannière de consentement ne vous est donc présentée, parce qu'il n'y a rien à consentir.</p>
+<h3>Cookies et consentement</h3>
+<p>À votre première visite, un bandeau vous demande si vous acceptez les cookies de mesure d'audience. <strong>Tant que vous n'avez pas accepté, aucun cookie n'est déposé</strong>&nbsp;: le site utilise le mode consentement de Google, qui maintient le stockage désactivé par défaut. Refuser est aussi simple qu'accepter — un clic, sur le même bandeau — et le site fonctionne à l'identique dans les deux cas.</p>
+<p>Votre choix est mémorisé localement dans votre navigateur. Pour le revenir dessus, effacez les données de site de <code>www.joinmarsa.com</code> dans votre navigateur&nbsp;: le bandeau réapparaîtra à la visite suivante. Un lien permanent de gestion des préférences sera ajouté au pied de page.</p>
 
 <h3>Mesure d'audience</h3>
-<p>Le site n'utilise actuellement <strong>aucun outil de mesure d'audience</strong>. Google Analytics, qui y figurait auparavant, a été retiré. Si une mesure d'audience est remise en place, elle sera <em>sans cookie et sans donnée personnelle</em>, et cette page sera modifiée avant sa mise en service.</p>
+<p>Si vous acceptez, le site utilise <strong>Google Analytics 4</strong> pour comprendre comment il est consulté&nbsp;: pages vues, provenance, type d'appareil. Deux cookies sont alors déposés, nommés <code>_ga</code> et <code>_ga_</code> suivi d'un identifiant, dont l'unique rôle est de distinguer les visites les unes des autres. Leur durée de vie n'excède pas treize mois, conformément à la recommandation de la CNIL.</p>
+<ul>
+  <li>Finalité&nbsp;: mesure d'audience et amélioration du site. <strong>Aucun ciblage publicitaire</strong>, aucun croisement avec d'autres sites, aucune revente.</li>
+  <li>Base légale&nbsp;: votre consentement, recueilli par le bandeau et révocable comme indiqué ci-dessus.</li>
+  <li>Destinataire&nbsp;: Google Ireland Limited, avec un transfert possible vers Google LLC aux États-Unis, encadré comme indiqué à la section&nbsp;7.</li>
+  <li>Les adresses IP sont tronquées par Google Analytics&nbsp;4 avant enregistrement&nbsp;: aucune adresse IP complète n'est conservée.</li>
+</ul>
 
 <h3>Journaux techniques de l'hébergeur</h3>
 <p>Comme tout serveur web, l'hébergeur du site (GitHub, Inc.) enregistre techniquement les requêtes reçues, ce qui inclut l'adresse IP du visiteur. Ces journaux sont conservés et gérés par GitHub selon ses propres règles&nbsp;; marsā n'y a pas accès et ne les exploite pas.</p>
@@ -99,7 +106,7 @@ footer small{color:#8e99ae}
 <p>Les polices Space Grotesk et Inter sont chargées depuis le service Google&nbsp;Fonts. Cet appel transmet à Google LLC l'adresse IP du visiteur et les informations techniques de son navigateur. Aucun cookie n'est déposé par ce service. <strong>Un basculement vers un hébergement local de ces polices est prévu</strong>, ce qui supprimera complètement cet appel à un tiers.</p>
 
 <h2>3. Quand vous remplissez le formulaire de contact</h2>
-<p>Le formulaire de la page d'accueil fonctionne différemment de la plupart des formulaires web&nbsp;: <strong>il ne transmet aucune donnée à un serveur</strong>. Lorsque vous cliquez sur « Envoyer ma demande », votre navigateur ouvre votre logiciel de messagerie avec un message pré-rempli, que vous relisez et envoyez vous-même. marsā ne reçoit donc que ce que vous avez choisi d'envoyer, sous la forme d'un courriel ordinaire.</p>
+<p>Lorsque vous cliquez sur « Envoyer ma demande », le contenu du formulaire est transmis au service <strong>Formspree</strong>, qui le relaie sous forme de courriel vers <code>philippe@joinmarsa.com</code>. Formspree agit ici comme un simple intermédiaire d'acheminement&nbsp;: il ne se sert pas de ces données pour son propre compte.</p>
 <div class="tw"><table>
   <tr><th>Élément</th><th>Détail</th></tr>
   <tr><td>Données concernées</td><td>Nom et prénom, adresse électronique professionnelle, société, nombre de comptes actifs, outils utilisés, description libre de votre contexte — ainsi que tout élément que vous ajoutez librement au message.</td></tr>
@@ -108,7 +115,7 @@ footer small{color:#8e99ae}
   <tr><td>Caractère obligatoire</td><td>Les champs marqués comme requis sont nécessaires pour vous répondre utilement&nbsp;; les autres sont facultatifs.</td></tr>
   <tr><td>Durée de conservation</td><td>Trois ans à compter du dernier contact de votre part, conformément à la recommandation de la CNIL en matière de prospection commerciale.</td></tr>
   <tr><td>Qui y accède</td><td>Philippe Kanaan seul. Aucune transmission à un tiers à des fins commerciales.</td></tr>
-  <tr><td>Où c'est stocké</td><td>La messagerie professionnelle <code>@joinmarsa.com</code>, servie par Google&nbsp;Workspace, et l'outil de suivi commercial HubSpot lorsque l'échange se poursuit.</td></tr>
+  <tr><td>Où c'est stocké</td><td>Le journal des envois de Formspree, la messagerie professionnelle <code>@joinmarsa.com</code> servie par Google&nbsp;Workspace, et l'outil de suivi commercial HubSpot lorsque l'échange se poursuit.</td></tr>
 </table></div>
 
 <h2>4. Quand nous échangeons lors d'un rendez-vous</h2>
@@ -141,7 +148,9 @@ footer small{color:#8e99ae}
 <div class="tw"><table>
   <tr><th>Prestataire</th><th>Rôle</th><th>Localisation des données</th></tr>
   <tr><td>GitHub, Inc.</td><td>Hébergement du site vitrine</td><td>États-Unis</td></tr>
+  <tr><td>Google&nbsp;Ireland — Analytics</td><td>Mesure d'audience, <strong>après consentement uniquement</strong></td><td>Union européenne et États-Unis</td></tr>
   <tr><td>Google&nbsp;LLC — Fonts</td><td>Polices de caractères du site</td><td>États-Unis</td></tr>
+  <tr><td>Formspree, Inc.</td><td>Acheminement du formulaire de contact</td><td>États-Unis</td></tr>
   <tr><td>Google&nbsp;Ireland — Workspace</td><td>Messagerie professionnelle</td><td>Union européenne</td></tr>
   <tr><td>HubSpot, Inc.</td><td>Suivi commercial (prospects)</td><td>Union européenne</td></tr>
   <tr><td>Fireflies.ai</td><td>Transcription des rendez-vous</td><td>États-Unis</td></tr>
@@ -165,7 +174,7 @@ footer small{color:#8e99ae}
 <p>Les mesures en place comprennent&nbsp;: chiffrement des échanges en transit, chiffrement au repos des bases de données, cloisonnement strict des espaces clients imposé par la base de données elle-même, authentification sans mot de passe par lien à usage unique, accès nominatifs limités au strict nécessaire, journalisation des accès, et conservation de résumés plutôt que de contenus bruts. Aucun système n'est invulnérable&nbsp;; en cas de violation de données susceptible d'engendrer un risque, les personnes et l'autorité concernées sont informées dans les conditions prévues par les articles 33 et 34 du RGPD.</p>
 
 <h2>10. Modifications</h2>
-<p>Cette politique peut évoluer, notamment lors de l'immatriculation de la société, de la mise en place d'une mesure d'audience ou de l'ajout d'un prestataire. La date de dernière mise à jour figure en haut de page. Les clients sous contrat sont informés à l'avance de tout changement de sous-traitant, dans les conditions prévues par l'<a href="dpa.html">accord de traitement des données</a>.</p>
+<p>Cette politique peut évoluer, notamment lors de l'immatriculation de la société, d'un changement d'outil de mesure d'audience ou de l'ajout d'un prestataire. La date de dernière mise à jour figure en haut de page. Les clients sous contrat sont informés à l'avance de tout changement de sous-traitant, dans les conditions prévues par l'<a href="dpa.html">accord de traitement des données</a>.</p>
 </div></main>
 <footer><div class="wrap">
 <div class="fl"><a href="mentions-legales.html">Mentions légales</a> <span>Politique de confidentialité</span> <a href="dpa.html">DPA</a> <a href="/">Accueil</a></div>
