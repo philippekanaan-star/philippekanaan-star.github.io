@@ -331,7 +331,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 
 <div class="pied-site">
   <span>marsā — Marseille</span>
-  <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="blog/index.html">Blog</a></span>
+  <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="blog/index.html">Blog</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="dpa.html">DPA</a> · <a href="#" class="js-prefs">Gérer mes préférences</a></span>
 </div>
 
 <script>
@@ -489,5 +489,6 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
   });
 })();
 </script>
+<script>document.querySelectorAll(".js-prefs").forEach(function(a){a.addEventListener("click",function(e){e.preventDefault();try{localStorage.removeItem("marsa_cookie_consent")}catch(x){}var b=document.getElementById("cookie-banner");if(b){b.hidden=false}})})</script>
 </body>
 </html>
