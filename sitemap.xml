@@ -99,6 +99,24 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- À propos -->
+  <url>
+    <loc>https://www.joinmarsa.com/a-propos.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.joinmarsa.com/about.html"/>
+  </url>
+  <url>
+    <loc>https://www.joinmarsa.com/about.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.joinmarsa.com/a-propos.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.joinmarsa.com/about.html"/>
+  </url>
+
   <!-- Pages légales -->
   <url>
     <loc>https://www.joinmarsa.com/mentions-legales.html</loc>

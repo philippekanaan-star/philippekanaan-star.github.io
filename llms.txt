@@ -1,0 +1,40 @@
+# marsā
+
+> Produit d'intelligence client pour les éditeurs de logiciels SaaS B2B. marsā réunit CRM, support, téléphonie et facturation, en tire un score de santé client déterministe et explicable, et indique à chaque Customer Success Manager la prochaine action à mener. Édité par Philippe Kanaan, basé à Marseille, France.
+
+Points à retenir :
+
+- Le score de santé suit une règle déterministe, auditable ligne à ligne. L'intelligence artificielle résume et rédige, elle n'attribue pas la note.
+- Aucune action n'atteint un client sans validation humaine.
+- Tarif public : 490 € par licence et par mois. Une licence, c'est un utilisateur et 500 comptes suivis.
+- Données de l'application stockées en Union européenne (Francfort). Aucune donnée client n'est utilisée pour entraîner un modèle.
+- Le site existe en français et en anglais. Le blog est publié en français uniquement.
+
+## Pages principales
+
+- [À propos](https://www.joinmarsa.com/a-propos.html) : ce qu'est marsā, à qui il s'adresse, ce qu'il ne fait pas, qui l'édite
+- [About (English)](https://www.joinmarsa.com/about.html) : the same page in English
+- [Accueil](https://www.joinmarsa.com/) : la promesse, le fonctionnement et le formulaire de contact
+- [Offres](https://www.joinmarsa.com/offres.html) : le tarif public et ce qu'il comprend
+- [Calculateur de ROI](https://www.joinmarsa.com/roi.html) : estimation de ce que le churn coûte aujourd'hui
+
+## Blog — guides sur le churn et la rétention en SaaS B2B
+
+- [Score de santé client : comment le calculer](https://www.joinmarsa.com/blog/score-de-sante-client.html) : les quatre dimensions, les pondérations, les seuils, les angles morts
+- [Signaux de churn en SaaS B2B](https://www.joinmarsa.com/blog/signaux-de-churn-saas-b2b.html) : où chaque signal apparaît dans les outils, et comment distinguer le signal du bruit
+- [Décrochage silencieux](https://www.joinmarsa.com/blog/decrochage-silencieux.html) : mesurer le silence d'un compte par rapport à son rythme propre
+- [Le rétro-test d'un score de churn](https://www.joinmarsa.com/blog/retro-test-score-de-churn.html) : vérifier qu'un score fonctionne, et les trois façons de tricher sans le savoir
+- [NPS ou score de santé client](https://www.joinmarsa.com/blog/nps-ou-score-de-sante-client.html) : ce que mesure chacun, et pourquoi le NPS ne prédit pas le churn en B2B
+- [Combien de comptes par CSM](https://www.joinmarsa.com/blog/combien-de-comptes-par-csm.html) : les repères de marché et la méthode pour calculer son propre ratio
+- [Suivre la rétention sous Excel](https://www.joinmarsa.com/blog/suivi-retention-excel.html) : le modèle de fichier, et les cinq points où le tableur cesse de dire la vérité
+
+## Informations légales
+
+- [Mentions légales](https://www.joinmarsa.com/mentions-legales.html)
+- [Politique de confidentialité](https://www.joinmarsa.com/confidentialite.html)
+- [Accord de traitement des données](https://www.joinmarsa.com/dpa.html)
+
+## Contact
+
+- philippe@joinmarsa.com
+- [LinkedIn](https://www.linkedin.com/company/joinmarsa)
