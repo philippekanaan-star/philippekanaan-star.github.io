@@ -277,6 +277,10 @@
   }
 
   /* ---------- CARTE HERO ENRICHIE ---------- */
+  .hero-lines{ list-style:none; margin:16px 0 0; padding:0; }
+  .hero-lines li{ position:relative; padding-left:22px; font-size:16px; line-height:1.5; color:rgba(255,255,255,.88); max-width:48ch; margin-bottom:13px; }
+  .hero-lines li:last-child{ margin-bottom:0; }
+  .hero-lines li::before{ content:""; position:absolute; left:0; top:9px; width:7px; height:7px; border-radius:50%; background:var(--brand-accent); opacity:.85; }
   .hero-payoff{ margin-top:14px; font-size:16.5px; font-weight:600; line-height:1.5; color:#fff; max-width:52ch; }
   .fc-spark{ background:#f5f1e7; border:1px solid var(--line); border-radius:10px; padding:10px 12px 6px; margin:12px 0; }
   .fc-spark em{ display:block; font-style:normal; font-size:11px; color:#8a8578; margin-bottom:4px; }
@@ -390,10 +394,13 @@
 <div class="hero-wrap">
   <div class="wrap hero">
     <div>
-      <div class="hero-eyebrow-title">L'intelligence client qui transforme vos comptes à risque en renouvellements.</div>
-      <div class="hero-eyebrow-sub">Et vos signaux d'expansion en revenu supplémentaire.</div>
       <h1 class="head">Vos clients ne partent pas sans prévenir. <span class="hi">Vous ne les entendez juste pas.</span></h1>
-      <p class="hero-sub">À partir des données de vos outils (CRM, support, téléphonie, messagerie), marsā calcule un score de santé par compte, repère les décrochages comme les opportunités d’upsell, et donne à chaque CSM la prochaine action à mener : la raison, l’échange daté qui l’explique, et le message à envoyer.</p>
+      <p class="hero-sub">marsā lit ce qui se dit dans vos outils (CRM, support, téléphonie, messagerie) et en tire trois choses :</p>
+      <ul class="hero-lines">
+        <li>Un score de santé par compte, et ce qui l’explique.</li>
+        <li>Le décrochage comme l’opportunité d’upsell, repérés tôt.</li>
+        <li>La prochaine action à mener, avec l’échange daté qui la justifie et le message à envoyer.</li>
+      </ul>
       <p class="hero-payoff">Moins de churn, plus de renouvellements, et l’expansion que vous laissiez passer. Sur le revenu récurrent que vous avez déjà.</p>
       <div class="hero-cta">
         <a class="btn solid on-brand" href="#contact">Demander une démo →</a>

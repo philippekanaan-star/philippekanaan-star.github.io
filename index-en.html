@@ -277,6 +277,10 @@
   }
 
   /* ---------- CARTE HERO ENRICHIE ---------- */
+  .hero-lines{ list-style:none; margin:16px 0 0; padding:0; }
+  .hero-lines li{ position:relative; padding-left:22px; font-size:16px; line-height:1.5; color:rgba(255,255,255,.88); max-width:48ch; margin-bottom:13px; }
+  .hero-lines li:last-child{ margin-bottom:0; }
+  .hero-lines li::before{ content:""; position:absolute; left:0; top:9px; width:7px; height:7px; border-radius:50%; background:var(--brand-accent); opacity:.85; }
   .hero-payoff{ margin-top:14px; font-size:16.5px; font-weight:600; line-height:1.5; color:#fff; max-width:52ch; }
   .fc-spark{ background:#f5f1e7; border:1px solid var(--line); border-radius:10px; padding:10px 12px 6px; margin:12px 0; }
   .fc-spark em{ display:block; font-style:normal; font-size:11px; color:#8a8578; margin-bottom:4px; }
@@ -389,10 +393,13 @@
 <div class="hero-wrap">
   <div class="wrap hero">
     <div>
-      <div class="hero-eyebrow-title">Customer intelligence that turns accounts at risk into renewals.</div>
-      <div class="hero-eyebrow-sub">And expansion signals into revenue you'd have missed.</div>
       <h1 class="head">Your customers don't leave without warning. <span class="hi">You're just not hearing them.</span></h1>
-      <p class="hero-sub">Working from the data in your tools (CRM, support, telephony, email), marsā scores the health of every account, surfaces disengagement and upsell opportunities alike, and gives each CSM the next action to take: the reason, the dated exchange behind it, and the message to send.</p>
+      <p class="hero-sub">marsā reads what is said across your tools (CRM, support, telephony, email) and turns it into three things:</p>
+      <ul class="hero-lines">
+        <li>A health score for every account, and what explains it.</li>
+        <li>Disengagement and upsell opportunity alike, spotted early.</li>
+        <li>The next action to take, with the dated exchange behind it and the message to send.</li>
+      </ul>
       <p class="hero-payoff">Less churn, more renewals, and the expansion you were letting slip. On the recurring revenue you already have.</p>
       <div class="hero-cta">
         <a class="btn solid on-brand" href="#contact">Request a demo →</a>
