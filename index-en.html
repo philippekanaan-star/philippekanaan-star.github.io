@@ -275,6 +275,93 @@
     .foot-top{ flex-direction:column; }
     .foot-cols{ gap:40px; }
   }
+
+  /* ---------- CARTE HERO ENRICHIE ---------- */
+  .hero-payoff{ margin-top:14px; font-size:16.5px; font-weight:600; line-height:1.5; color:#fff; max-width:52ch; }
+  .fc-spark{ background:#f5f1e7; border:1px solid var(--line); border-radius:10px; padding:10px 12px 6px; margin:12px 0; }
+  .fc-spark em{ display:block; font-style:normal; font-size:11px; color:#8a8578; margin-bottom:4px; }
+  .fc-spark svg{ display:block; width:100%; height:42px; }
+  .fc-bloc{ background:#f5f1e7; border:1px solid var(--line); border-radius:10px; padding:11px 13px; }
+  .fc-bloc h4{ margin:0 0 8px; font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8a8578; font-weight:700; }
+  .preuve{ display:flex; align-items:flex-start; gap:9px; margin:7px 0; font-size:12.5px; line-height:1.35; }
+  .preuve .ty{ flex:none; width:52px; text-align:center; font-weight:600; font-size:10.5px; background:#e7e1d2; border-radius:999px; padding:3px 0; color:#57533f; }
+  .preuve .tx{ flex:1; color:#57503f; }
+  .preuve .dt{ flex:none; font-size:11.5px; color:#8a8578; }
+  .fc-plan{ margin-top:12px; background:#f2f1fb; border:1px solid #dcdaf2; border-left:3px solid var(--orange); border-radius:10px; padding:13px; }
+  .fc-plan-h{ display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:9px; }
+  .fc-plan-h b{ font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#8a8578; }
+  .fc-mini{ display:flex; gap:5px; }
+  .fc-mini span{ font-size:10px; font-weight:600; padding:3px 8px; border-radius:7px; border:1px solid #d9d0b5; color:var(--ink); background:#fff; white-space:nowrap; }
+  .fc-mini span.is-ok{ background:#2f7556; border-color:#2f7556; color:#fff; }
+  .fc-etape{ display:flex; gap:10px; background:#fff; border:1px solid #e4dfd2; border-radius:8px; padding:8px 10px; margin:6px 0; }
+  .fc-etape .q{ flex:none; width:62px; display:flex; flex-direction:column; align-items:center; gap:2px; }
+  .fc-etape .q i{ font-style:normal; font-size:10px; font-weight:700; background:var(--brand); color:#fff; border-radius:999px; padding:2px 8px; white-space:nowrap; }
+  .fc-etape .q u{ text-decoration:none; font-size:10px; color:#8a8578; }
+  .fc-etape .c b{ display:block; font-size:12.5px; line-height:1.3; }
+  .fc-etape .c p{ margin:2px 0 0; font-size:11.5px; line-height:1.35; color:#6b6554; }
+  .fc-plus{ display:block; margin-top:7px; font-size:11.5px; font-weight:600; color:var(--brand); }
+  .fc-badge.is-ok{ background:#e3f1ea; color:var(--green); }
+
+  /* ---------- SECTION FICHE COMPTE EXPLIQUEE ---------- */
+  .fx-h{ font-family:'Space Grotesk',sans-serif; font-size:34px; line-height:1.12; letter-spacing:-.01em; margin:0 0 8px; }
+  .fx-p{ margin:0 0 24px; font-size:15.5px; color:var(--sub); max-width:72ch; line-height:1.62; }
+  .fx-tabs{ display:flex; gap:10px; margin-bottom:18px; flex-wrap:wrap; }
+  .fx-tabs label{ font-size:13.5px; font-weight:600; padding:9px 16px; border-radius:999px; border:1px solid var(--line); background:#fff; color:var(--sub); cursor:pointer; }
+  input.fx-radio{ position:absolute; opacity:0; pointer-events:none; }
+  #fx1:checked~.fx-in .fx-tabs label[for=fx1], #fx2:checked~.fx-in .fx-tabs label[for=fx2]{ background:var(--brand); border-color:var(--brand); color:#fff; }
+  .fx-vue{ display:none; }
+  #fx1:checked~.fx-in .fx-v1, #fx2:checked~.fx-in .fx-v2{ display:block; }
+  .fx-app{ background:#fdfbf5; border:1px solid var(--line); border-radius:18px; overflow:hidden; box-shadow:0 24px 60px rgba(20,21,15,.14); }
+  .fx-bar{ display:flex; align-items:center; gap:10px; background:#efeadd; padding:11px 18px; border-bottom:1px solid var(--line); }
+  .fx-bar i{ width:10px; height:10px; border-radius:50%; display:block; }
+  .fx-bar .t{ margin-left:18px; font-size:13px; color:#6f6a5c; }
+  .fx-bar .t.is-on{ color:var(--brand); font-weight:600; }
+  .fx-body{ display:grid; grid-template-columns:420px 1fr; gap:22px; padding:22px; }
+  .fx-coll{ display:flex; flex-direction:column; gap:12px; }
+  .fx-ident{ display:flex; justify-content:space-between; align-items:flex-start; gap:12px; }
+  .fx-nm{ font-family:'Space Grotesk',sans-serif; font-size:23px; font-weight:700; display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+  .fx-ar{ font-size:13px; color:#8a8578; margin-top:3px; }
+  .fx-big{ display:flex; align-items:baseline; gap:8px; }
+  .fx-big b{ font-family:'Space Grotesk',sans-serif; font-size:46px; line-height:1; color:var(--red); }
+  .fx-big span{ font-size:15px; font-weight:700; color:var(--red); }
+  .fx-big.is-ok b{ color:var(--green); }
+  .fx-big.is-ok span{ color:#8a8578; }
+  .fx-card{ background:#f5f1e7; border:1px solid var(--line); border-radius:12px; padding:13px 16px; }
+  .fx-card.is-reco{ border-left:7px solid var(--green); }
+  .fx-card em{ font-style:normal; display:block; font-size:12.5px; color:#8a8578; margin-bottom:6px; }
+  .fx-card h4{ margin:0 0 9px; font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:#8a8578; }
+  .fx-card h5{ margin:0 0 5px; font-family:'Space Grotesk',sans-serif; font-size:18px; }
+  .fx-card p{ margin:0; font-size:13.5px; line-height:1.45; color:#5f5949; }
+  .fx-card svg{ display:block; width:100%; height:60px; }
+  .fx-chk{ display:flex; align-items:center; gap:10px; font-size:13.5px; margin:6px 0; color:#5f5949; }
+  .fx-chk b{ color:var(--green); font-size:15px; }
+  .fx-pl{ display:flex; flex-direction:column; gap:11px; }
+  .fx-pl-h{ display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; }
+  .fx-pl-h b{ font-size:11px; letter-spacing:.15em; text-transform:uppercase; color:#8a8578; }
+  .fx-act{ display:flex; gap:8px; }
+  .fx-act span{ font-size:12px; font-weight:600; padding:6px 14px; border-radius:9px; border:1px solid #cfc7b2; background:#fff; white-space:nowrap; }
+  .fx-act span.is-ok{ background:#2f7556; border-color:#2f7556; color:#fff; }
+  .fx-step{ display:flex; gap:16px; background:#fff; border:1px solid #e4dfd2; border-radius:11px; padding:12px 15px; }
+  .fx-step.is-focus{ border:2px solid var(--brand); }
+  .fx-step .q{ flex:none; width:92px; display:flex; flex-direction:column; align-items:center; gap:4px; }
+  .fx-step .q i{ font-style:normal; font-size:12px; font-weight:700; background:var(--brand); color:#fff; border-radius:999px; padding:3px 12px; white-space:nowrap; }
+  .fx-step .q u{ text-decoration:none; font-size:12px; color:#8a8578; }
+  .fx-step .c b{ display:block; font-size:15px; line-height:1.3; }
+  .fx-step .c p{ margin:3px 0 0; font-size:13px; line-height:1.4; color:#5f5949; }
+  .fx-step .c p.ask{ font-style:italic; }
+  .fx-step .c p.more{ color:var(--brand); font-weight:600; font-style:normal; }
+  .fx-mot{ margin:4px 0 0; font-size:13.5px; line-height:1.45; color:#5f5949; font-style:italic; }
+  .fx-leg{ margin-top:16px; font-size:12.5px; color:#8a8578; }
+  @media (max-width:1000px){ .fx-body{ grid-template-columns:1fr; } }
+  @media (max-width:620px){
+    .fx-h{ font-size:25px; }
+    .fx-step{ flex-direction:column; gap:8px; }
+    .fx-step .q{ flex-direction:row; width:auto; justify-content:flex-start; }
+    .fx-ident{ flex-direction:column; align-items:flex-start; gap:6px; }
+    .fx-nm{ font-size:20px; }
+    .fx-bar{ flex-wrap:wrap; gap:8px; }
+    .fx-bar .t{ margin-left:0; font-size:12px; }
+  }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"marsā","url":"https://www.joinmarsa.com/","logo":"https://www.joinmarsa.com/icon-512.png","sameAs":["https://www.linkedin.com/company/joinmarsa"]}</script>
 </head>
@@ -303,7 +390,8 @@
       <div class="hero-eyebrow-title">Customer intelligence that turns accounts at risk into renewals.</div>
       <div class="hero-eyebrow-sub">And expansion signals into revenue you'd have missed.</div>
       <h1 class="head">Your customers don't leave without warning. <span class="hi">You're just not hearing them.</span></h1>
-      <p class="hero-sub">Working from the data in your tools — CRM, support, telephony, email — marsā scores the health of every account, surfaces disengagement and upsell opportunities alike, and gives each CSM the next action to take: the reason, the dated exchange behind it, and the message to send.</p>
+      <p class="hero-sub">Working from the data in your tools (CRM, support, telephony, email), marsā scores the health of every account, surfaces disengagement and upsell opportunities alike, and gives each CSM the next action to take: the reason, the dated exchange behind it, and the message to send.</p>
+      <p class="hero-payoff">Less churn, more renewals, and the expansion you were letting slip. On the recurring revenue you already have.</p>
       <div class="hero-cta">
         <a class="btn solid on-brand" href="#contact">Request a demo →</a>
         <a class="arrow-link on-dark" href="#fonctionnement">See how it works →</a>
@@ -325,23 +413,32 @@
       <div class="fc-score"><b>60</b><span>/ 100 · health · ▼ 19 over 30 days</span></div>
       <div class="fc-bars">
         <div>Customer voice<div class="track"><div class="fill" style="width:48%;background:var(--red);"></div></div>48</div>
-        <div>Friction<div class="track"><div class="fill" style="width:55%;background:var(--red);"></div></div>55</div>
+        <div>Friction<div class="track"><div class="fill" style="width:55%;background:var(--amber);"></div></div>55</div>
         <div>Relationship<div class="track"><div class="fill" style="width:72%;background:var(--amber);"></div></div>72</div>
         <div>Contract<div class="track"><div class="fill" style="width:75%;background:var(--green);"></div></div>75</div>
       </div>
-      <div class="fc-note">
-        <b>Next action — escalate to the CS lead within 2 days</b>
-        <p>A competitor named by the customer on the 21 October call. Three tickets open since 12 October, with no resolution date. Negative tone in recent exchanges. Escalate and clear the tickets before calling the economic buyer, within eight days.</p>
-        <div class="fc-chips">
-          <span>21 Oct. call</span><span>3 open tickets</span><span>Negative tone</span><span>AI-generated</span>
-        </div>
+      <div class="fc-spark">
+        <em>Score, week by week</em>
+        <svg viewBox="0 0 520 42" preserveAspectRatio="none" aria-label="Score curve for Brindille SAS, in steady decline">
+          <line x1="0" y1="8" x2="520" y2="8" stroke="#e4ddc8" stroke-width="1"/><line x1="0" y1="22" x2="520" y2="22" stroke="#e4ddc8" stroke-width="1"/><line x1="0" y1="36" x2="520" y2="36" stroke="#e4ddc8" stroke-width="1"/>
+          <polyline points="6,7 70,10 134,8 198,15 262,19 326,25 390,23 454,31 508,37" fill="none" stroke="#2b6ce0" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+          <circle cx="508" cy="37" r="4" fill="#c0533f"/>
+        </svg>
+      </div>
+      <div class="fc-bloc">
+        <h4>What triggered the alert</h4>
+        <div class="preuve"><span class="ty">Call</span><span class="tx">A competitor is named by the customer</span><span class="dt">21 Oct.</span></div>
+        <div class="preuve"><span class="ty">Ticket</span><span class="tx">3 tickets open, with no resolution date</span><span class="dt">12 Oct.</span></div>
+        <div class="preuve"><span class="ty">Email</span><span class="tx">Negative tone in recent exchanges</span><span class="dt">8 Oct.</span></div>
+      </div>
+      <div class="fc-plan">
+        <div class="fc-plan-h"><b>Action plan</b><div class="fc-mini"><span class="is-ok">Approve</span><span>Edit</span><span>Reject</span></div></div>
+        <div class="fc-etape"><div class="q"><i>Within 2 d</i><u>Internal</u></div><div class="c"><b>Escalate to the CS lead</b><p>With the 21 Oct. call in hand, where a competitor is named.</p></div></div>
+        <div class="fc-etape"><div class="q"><i>Within 5 d</i><u>Internal</u></div><div class="c"><b>Clear the 3 open tickets</b><p>Commit to a resolution date, ticket by ticket.</p></div></div>
+        <span class="fc-plus">+ 2 steps: call the decision maker within 8 days, write-up within 10 days</span>
       </div>
       <div class="fc-footer">
         <span class="status">Awaiting CSM validation</span>
-        <div class="actions">
-          <button class="btn-modif">Edit</button>
-          <button class="btn-valid">Approve</button>
-        </div>
       </div>
     </div>
   </div>
@@ -445,6 +542,118 @@
         <span class="pill">NPS surveys</span>
       </div>
       <p class="sources-foot">Your tool isn't on the list? No worries — we build custom connectors in a matter of hours.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FICHE COMPTE EXPLIQUEE ============ -->
+<section class="block" id="fiche-compte">
+  <div class="wrap">
+    <input class="fx-radio" type="radio" name="marsa-ex" id="fx1" checked>
+    <input class="fx-radio" type="radio" name="marsa-ex" id="fx2">
+    <div class="fx-in">
+      <h2 class="fx-h">The account view: why, and what to do.</h2>
+      <p class="fx-p">marsā does not just say an account is at risk, or that another one can grow. It says why, with the dated exchanges behind it, and what to do about it, step by step. The CSM approves, edits or rejects, and the decision is logged.</p>
+
+      <div class="fx-tabs">
+        <label for="fx1">An account to save</label>
+        <label for="fx2">An expansion opportunity</label>
+      </div>
+
+      <div class="fx-vue fx-v1">
+        <div class="fx-app">
+          <div class="fx-bar"><i style="background:#c0533f"></i><i style="background:#d9a441"></i><i style="background:#3f8f6b"></i>
+            <span class="t">Dashboard</span><span class="t is-on">Accounts</span><span class="t">Actions</span><span class="t">Log</span></div>
+          <div class="fx-body">
+            <div class="fx-coll">
+              <div class="fx-ident">
+                <div><div class="fx-nm">Brindille SAS <span class="fc-badge">At risk</span></div><div class="fx-ar">ARR €19,584</div></div>
+                <div class="fx-big"><b>60</b><span>▼ 19</span></div>
+              </div>
+              <div class="fx-card">
+                <h4>Score breakdown</h4>
+                <div class="fc-bars">
+              <div>Customer voice<div class="track"><div class="fill" style="width:48%;background:var(--red);"></div></div>48</div>
+              <div>Friction<div class="track"><div class="fill" style="width:55%;background:var(--amber);"></div></div>55</div>
+              <div>Relationship<div class="track"><div class="fill" style="width:72%;background:var(--amber);"></div></div>72</div>
+              <div>Contract<div class="track"><div class="fill" style="width:75%;background:var(--green);"></div></div>75</div>
+                </div>
+              </div>
+              <div class="fx-card">
+                <em>Score, week by week</em>
+                <svg viewBox="0 0 584 60" preserveAspectRatio="none" aria-label="Score curve, in steady decline">
+                <line x1="0" y1="11" x2="584" y2="11" stroke="#e4ddc8" stroke-width="1.5"/><line x1="0" y1="31" x2="584" y2="31" stroke="#e4ddc8" stroke-width="1.5"/><line x1="0" y1="51" x2="584" y2="51" stroke="#e4ddc8" stroke-width="1.5"/>
+                <polyline points="8,10 80,14 150,12 220,21 290,26 360,34 430,31 500,43 570,51" fill="none" stroke="#2b6ce0" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/>
+                <circle cx="570" cy="51" r="5.5" fill="#c0533f"/>
+              </svg>
+              </div>
+              <div class="fx-card">
+                <h4>What triggered the alert</h4>
+                <div class="preuve"><span class="ty">Call</span><span class="tx">A competitor is named by the customer</span><span class="dt">21 Oct.</span></div>
+                <div class="preuve"><span class="ty">Ticket</span><span class="tx">3 tickets open, with no resolution date</span><span class="dt">12 Oct.</span></div>
+                <div class="preuve"><span class="ty">Email</span><span class="tx">Negative tone in recent exchanges</span><span class="dt">8 Oct.</span></div>
+              </div>
+            </div>
+            <div class="fx-pl">
+              <div class="fx-pl-h"><b>Action plan</b><div class="fx-act"><span class="is-ok">Approve</span><span>Edit</span><span>Reject</span></div></div>
+            <div class="fx-step"><div class="q"><i>Within 2 d</i><u>Internal</u></div><div class="c"><b>Escalate to the CS lead</b><p>With the 21 Oct. call in hand, where a competitor is named.</p></div></div>
+            <div class="fx-step"><div class="q"><i>Within 5 d</i><u>Internal</u></div><div class="c"><b>Clear the 3 open tickets</b><p>Commit to a resolution date, ticket by ticket.</p></div></div>
+            <div class="fx-step is-focus"><div class="q"><i>Within 8 d</i><u>Call</u></div><div class="c"><b>Call Camille Martin, economic buyer</b>
+              <p class="ask">“What has changed since we last spoke?”</p>
+              <p class="ask">“What do we need to get right for you to stay?”</p>
+              <p class="more">+ 4 points to cover · expected objections · message ready to send</p></div></div>
+            <div class="fx-step"><div class="q"><i>Within 10 d</i><u>Internal</u></div><div class="c"><b>Write up the call</b><p>Set the checkpoint. The decision is logged.</p></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fx-vue fx-v2">
+        <div class="fx-app">
+          <div class="fx-bar"><i style="background:#c0533f"></i><i style="background:#d9a441"></i><i style="background:#3f8f6b"></i>
+            <span class="t">Dashboard</span><span class="t is-on">Accounts</span><span class="t">Actions</span><span class="t">Log</span></div>
+          <div class="fx-body">
+            <div class="fx-coll">
+              <div class="fx-ident">
+                <div><div class="fx-nm">Wavelen Systems <span class="fc-badge is-ok">Healthy</span></div><div class="fx-ar">ARR €29,664</div></div>
+                <div class="fx-big is-ok"><b>91</b><span>stable</span></div>
+              </div>
+              <div class="fx-card">
+                <h4>Score breakdown</h4>
+                <div class="fc-bars">
+              <div>Customer voice<div class="track"><div class="fill" style="width:92%;background:var(--green);"></div></div>92</div>
+              <div>Friction<div class="track"><div class="fill" style="width:95%;background:var(--green);"></div></div>95</div>
+              <div>Relationship<div class="track"><div class="fill" style="width:88%;background:var(--green);"></div></div>88</div>
+              <div>Contract<div class="track"><div class="fill" style="width:87%;background:var(--green);"></div></div>87</div>
+                </div>
+              </div>
+              <div class="fx-card is-reco">
+                <h4>Recommendation</h4>
+                <h5>Expansion opportunity</h5>
+                <p>3 positive-toned exchanges out of 12 analysed over 90 days. The customer has voiced a need.</p>
+              </div>
+              <div class="fx-card">
+                <h4>Checks before recommending</h4>
+              <div class="fx-chk"><b>✓</b>No negative exchange over 90 days</div>
+              <div class="fx-chk"><b>✓</b>No open friction</div>
+              <div class="fx-chk"><b>✓</b>Contract stable, no decline</div>
+              </div>
+            </div>
+            <div class="fx-pl">
+              <div class="fx-pl-h"><b>Action plan</b><div class="fx-act"><span class="is-ok">Approve</span><span>Edit</span><span>Reject</span></div></div>
+            <div class="fx-step is-focus"><div class="q"><i>Within 21 d</i><u>Call</u></div><div class="c"><b>Call Léa Bernard, economic buyer</b>
+              <p class="ask">“Where is the team on the subject you raised?”</p>
+              <p class="ask">“What would help you go further?”</p>
+              <p class="more">+ positive exchanges to quote · expected objections · message ready to send</p></div></div>
+            <div class="fx-step"><div class="q"><i>Later</i><u>Internal</u></div><div class="c"><b>Prepare the renewal case</b><p>Built from the need voiced on the call.</p></div></div>
+            <div class="fx-step"><div class="q"><i>Later</i><u>Internal</u></div><div class="c"><b>Write up the call</b><p>The decision is logged.</p></div></div>
+              <p class="fx-mot">A polite customer who absorbs problems is not a customer to sell more to.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <p class="fx-leg">Illustration using fictional data.</p>
     </div>
   </div>
 </section>
