@@ -244,7 +244,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 
     <div class="champ">
       <div class="ligne"><label for="comptes">Comptes clients suivis</label><span class="valeur" id="v-comptes"></span></div>
-      <input type="range" id="comptes" min="50" max="5000" step="10" value="600">
+      <input type="range" id="comptes" min="50" max="20000" step="10" value="600">
     </div>
 
     <div class="bascule" role="group" aria-label="Mode de saisie du revenu">
@@ -254,19 +254,19 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 
     <div class="champ" id="bloc-arr">
       <div class="ligne"><label for="arr">ARR annuel</label><span class="valeur" id="v-arr"></span></div>
-      <input type="range" id="arr" min="500000" max="30000000" step="100000" value="3000000">
+      <input type="range" id="arr" min="500000" max="100000000" step="100000" value="5000000">
       <p class="aide" id="aide-arr"></p>
     </div>
 
     <div class="champ" id="bloc-arpu" hidden>
       <div class="ligne"><label for="arpu">Revenu mensuel moyen par compte</label><span class="valeur" id="v-arpu"></span></div>
-      <input type="range" id="arpu" min="50" max="3000" step="10" value="417">
+      <input type="range" id="arpu" min="50" max="3000" step="10" value="690">
       <p class="aide" id="aide-arpu"></p>
     </div>
 
     <div class="champ">
       <div class="ligne"><label for="churn">Taux de churn annuel</label><span class="valeur" id="v-churn"></span></div>
-      <input type="range" id="churn" min="2" max="40" step="0.5" value="18">
+      <input type="range" id="churn" min="2" max="40" step="0.5" value="15">
       <p class="aide">Part de votre revenu récurrent perdue chaque année.</p>
     </div>
 
@@ -280,7 +280,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 
     <div class="champ">
       <div class="ligne"><label for="licences">Utilisateurs marsā</label><span class="valeur" id="v-licences"></span></div>
-      <input type="range" id="licences" min="1" max="15" step="1" value="2">
+      <input type="range" id="licences" min="1" max="40" step="1" value="2">
       <p class="aide" id="aide-licences"></p>
     </div>
   </section>
@@ -365,7 +365,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     $('bloc-arpu').hidden=versArr;
     if(versArr){
       var a=(+$('arpu').value)*12*(+$('comptes').value);
-      $('arr').value=Math.min(30000000,Math.max(500000,Math.round(a/100000)*100000));
+      $('arr').value=Math.min(100000000,Math.max(500000,Math.round(a/100000)*100000));
     }else{
       var p=(+$('arr').value)/12/(+$('comptes').value);
       $('arpu').value=Math.min(3000,Math.max(50,Math.round(p/10)*10));
