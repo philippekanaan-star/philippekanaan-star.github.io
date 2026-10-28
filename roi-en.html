@@ -275,7 +275,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     <div class="champ">
       <div class="ligne"><label for="evite">What marsā helps you avoid</label><span class="valeur" id="v-evite"></span></div>
       <input type="range" id="evite" min="5" max="35" step="1" value="20">
-      <p class="aide">Share of your total churn turned into avoided churn. Some churn stays unavoidable (a customer going out of business, for instance)&nbsp;— this percentage already accounts for that.</p>
+      <p class="aide">Share of your total churn turned into avoided churn. Some churn stays unavoidable (a customer going out of business, for instance). This percentage already accounts for that.</p>
     </div>
 
     <div class="champ">
@@ -318,7 +318,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 <div class="note">
   <p><strong>How to read this calculation.</strong> marsā flags accounts that are slipping away before the notice window closes, explains why, and prepares the action. The revenue recovered therefore depends on two things: the quality of the detection, and how your team responds.</p>
   <p>This slider is a working hypothesis, not a commitment. Adjust it to match your reality.</p>
-  <p>The cost, on the other hand, is exact: €490 per license per month. One license is one user and 500 tracked accounts&nbsp;— take as many as you need to cover both. No commitment period.</p>
+  <p>The cost, on the other hand, is exact: €490 per license per month. One license is one user and 500 tracked accounts. Take as many as you need to cover both. No commitment period.</p>
 </div>
 
 <div class="cta-bas">
@@ -330,7 +330,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 </div>
 
 <div class="pied-site">
-  <span>marsā — Marseille</span>
+  <span>marsā · Marseille</span>
   <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="mentions-legales.html">Legal notice</a> · <a href="confidentialite.html">Privacy</a> · <a href="dpa.html">DPA</a> · <a href="about.html">About</a> · <a href="#" id="cookie-prefs">Cookie preferences</a></span>
 </div>
 
@@ -401,7 +401,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     $('v-evite').textContent=$('evite').value+'%';
     $('v-licences').textContent=licences+(licences>1?' users':' user');
     var minLic=licencesMin(comptes);
-    $('aide-licences').textContent='€490 per license per month. One license is one user and 500 tracked accounts. With '+comptes.toLocaleString('en-US')+' tracked accounts, you need at least '+minLic+(minLic>1?' licenses':' license')+' — you can add more, never fewer.';
+    $('aide-licences').textContent='€490 per license per month. One license is one user and 500 tracked accounts. With '+comptes.toLocaleString('en-US')+' tracked accounts, you need at least '+minLic+(minLic>1?' licenses':' license')+', you can add more, never fewer.';
 
     // result
     $('r-gain').textContent=euroCourt(gain);

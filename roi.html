@@ -330,7 +330,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
 </div>
 
 <div class="pied-site">
-  <span>marsā — Marseille</span>
+  <span>marsā · Marseille</span>
   <span><a href="mailto:philippe@joinmarsa.com">philippe@joinmarsa.com</a> · <a href="blog/index.html">Blog</a> · <a href="mentions-legales.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="dpa.html">DPA</a> · <a href="a-propos.html">À propos</a> · <a href="#" id="cookie-prefs">Gérer mes cookies</a></span>
 </div>
 
@@ -401,7 +401,7 @@ input[type=range]:focus-visible::-moz-range-thumb{outline:3px solid var(--bleu-n
     $('v-evite').textContent=$('evite').value+' %';
     $('v-licences').textContent=licences+(licences>1?' utilisateurs':' utilisateur');
     var minLic=licencesMin(comptes);
-    $('aide-licences').textContent='490 € par licence et par mois. Une licence, c’est un utilisateur et 500 comptes suivis. Avec '+comptes.toLocaleString('fr-FR')+' comptes suivis, il vous faut au moins '+minLic+(minLic>1?' licences':' licence')+' — vous pouvez en prendre plus, jamais moins.';
+    $('aide-licences').textContent='490 € par licence et par mois. Une licence, c’est un utilisateur et 500 comptes suivis. Avec '+comptes.toLocaleString('fr-FR')+' comptes suivis, il vous faut au moins '+minLic+(minLic>1?' licences':' licence')+', vous pouvez en prendre plus, jamais moins.';
 
     // résultat
     $('r-gain').textContent=euroCourt(gain);
