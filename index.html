@@ -367,6 +367,12 @@
     .fx-bar{ flex-wrap:wrap; gap:8px; }
     .fx-bar .t{ margin-left:0; font-size:12px; }
   }
+  .rdv{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:28px; }
+  .rdv-note{ font-size:13.5px; line-height:1.55; color:var(--sub); max-width:44ch; margin:0; }
+  .rdv-ou{ display:flex; align-items:center; gap:18px; max-width:760px; margin:32px 0 26px; font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#8a8578; }
+  .rdv-ou::before, .rdv-ou::after{ content:""; flex:1; height:1px; background:var(--line); }
+  .rdv-intro{ font-size:15.5px; line-height:1.62; color:var(--sub); max-width:60ch; margin:0; }
+  .rdv-intro + .formgrid{ margin-top:20px; }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"marsā","url":"https://www.joinmarsa.com/","logo":"https://www.joinmarsa.com/icon-512.png","sameAs":["https://www.linkedin.com/company/joinmarsa"]}</script>
 </head>
@@ -764,8 +770,17 @@
 <section class="block" id="contact">
   <div class="wrap">
     <div class="kicker on-light">Parlons-en</div>
-    <h2 class="head">Vingt minutes pour savoir si marsā vous servira.</h2>
-    <p class="lede">Décrivez-nous votre portefeuille et votre stack. Nous revenons vers vous avec une réponse franche sur l'éligibilité.</p>
+    <h2 class="head">Trente minutes pour savoir si marsā vous servira.</h2>
+    <p class="lede">Réservez un créneau directement, ou décrivez-nous votre contexte et nous revenons vers vous avec une réponse franche sur l’éligibilité.</p>
+
+    <div class="rdv">
+      <a class="btn solid" href="https://calendar.app.google/TgqoXUe15VYrQ6nZA" target="_blank" rel="noopener">Réserver 30 minutes →</a>
+      <p class="rdv-note">Trente minutes en visioconférence avec Philippe Kanaan. Choisissez votre heure, vous recevez l’invitation et le lien Google Meet aussitôt.</p>
+    </div>
+
+    <div class="rdv-ou">ou</div>
+
+    <p class="rdv-intro">Vous préférez qu’on revienne vers vous ? Décrivez votre portefeuille et votre stack.</p>
     <form class="formgrid" id="contactForm">
       <div>
         <label>Nom et prénom</label>

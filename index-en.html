@@ -367,6 +367,12 @@
     .fx-bar{ flex-wrap:wrap; gap:8px; }
     .fx-bar .t{ margin-left:0; font-size:12px; }
   }
+  .rdv{ display:flex; align-items:center; gap:20px; flex-wrap:wrap; margin-top:28px; }
+  .rdv-note{ font-size:13.5px; line-height:1.55; color:var(--sub); max-width:44ch; margin:0; }
+  .rdv-ou{ display:flex; align-items:center; gap:18px; max-width:760px; margin:32px 0 26px; font-size:11.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:#8a8578; }
+  .rdv-ou::before, .rdv-ou::after{ content:""; flex:1; height:1px; background:var(--line); }
+  .rdv-intro{ font-size:15.5px; line-height:1.62; color:var(--sub); max-width:60ch; margin:0; }
+  .rdv-intro + .formgrid{ margin-top:20px; }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"marsā","url":"https://www.joinmarsa.com/","logo":"https://www.joinmarsa.com/icon-512.png","sameAs":["https://www.linkedin.com/company/joinmarsa"]}</script>
 </head>
@@ -763,8 +769,17 @@
 <section class="block" id="contact">
   <div class="wrap">
     <div class="kicker on-light">Let's talk</div>
-    <h2 class="head">Twenty minutes to find out if marsā is right for you.</h2>
-    <p class="lede">Tell us about your portfolio and your stack. We'll get back to you with a straight answer on eligibility.</p>
+    <h2 class="head">Thirty minutes to find out if marsā is right for you.</h2>
+    <p class="lede">Book a slot directly, or tell us about your situation and we’ll get back to you with a straight answer on eligibility.</p>
+
+    <div class="rdv">
+      <a class="btn solid" href="https://calendar.app.google/TgqoXUe15VYrQ6nZA" target="_blank" rel="noopener">Book 30 minutes →</a>
+      <p class="rdv-note">A 30-minute video call with Philippe Kanaan. Pick a time and you’ll get the invitation and the Google Meet link straight away.</p>
+    </div>
+
+    <div class="rdv-ou">or</div>
+
+    <p class="rdv-intro">Prefer that we come back to you? Tell us about your portfolio and your stack.</p>
     <form class="formgrid" id="contactForm">
       <div>
         <label>Full name</label>
